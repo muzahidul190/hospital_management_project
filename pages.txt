@@ -1,0 +1,42 @@
+Pages:
+
+	1. Home page/Landing Page
+	2. Sign Up/Registration
+		i. Doctor,
+			name, education, dept., routine, contact, password
+		ii. Patient
+			name, dob, address, phone, password
+	3. Login
+		i. Doctor, ii. Patient
+	4. Patient Dashboard
+		i. Appointment to doc, ii. Seat book, iii. Update account, iv. 
+	4.1. Appointment to doc,
+		i. dept.
+			medicine, gyno, neural, skeletal, pathology,
+		ii. doc list.
+		iii. doc routine
+		iv. confirm button
+	4.2. Seat booking
+		i. dept.
+		ii. available seat.
+		iii. renting cost
+		iv. confirm button
+	4.3. Update Patient 
+		address, phone, password
+	5. Doctor Dashboard
+		i. Patient list
+		ii. Update account
+			education, dept., Schedule routine, contact, password
+	6. Management Dashboard
+		i. New Doc. list, ii. Dept. list, ii. Patient list, iii. Doc list, iv. add dept.
+	7. Dept Page,
+		i. droptdown
+		ii. Doc. List
+		iii. Patient List.
+	8. Patient Page.
+		name, dob, address, phone
+	9. Doctor Page.
+		name, education, dept., routine, contact
+
+
+
