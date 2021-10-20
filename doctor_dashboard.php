@@ -16,7 +16,7 @@
                 </div>
                 <nav id="main_nav">
                     <ul class="nav_buttons">
-                        <li><a href="index.html">Home
+                        <li><a href="index.php">Home
                         </a></li>
                         <li><a href="#">
                             <!-- View it only for management -->
@@ -26,11 +26,11 @@
                             <!-- View it only for non logged users -->
                             Login / Sign Up 
                         </a></li>
-                        <li><a href="patient_dashbord.html">
+                        <li><a href="patient_dashbord.php">
                             <!-- View it only for patient -->
                             My Dashboard
                         </a></li>
-                        <li><a href="doctor_dashboard.html">
+                        <li><a href="doctor_dashboard.php">
                             <!-- View it only for patient -->
                             My Dashboard
                         </a></li>
@@ -56,10 +56,10 @@
                 <div id="patient_list" class="patient_list_view">
                     <h2>Your patients</h2>
                     <ul>
-                        <li><a class="single_patient_link" href="patient.html">Patient 1</a></li>
-                        <li><a class="single_patient_link" href="patient.html">Patient 1</a></li>
-                        <li><a class="single_patient_link" href="patient.html">Patient 1</a></li>
-                        <li><a class="single_patient_link" href="patient.html">Patient 1</a></li>
+                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
+                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
+                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
+                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
                     </ul>
                 </div>
             </div>

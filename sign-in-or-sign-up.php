@@ -26,11 +26,11 @@
                             <!-- View it only for non logged users -->
                             Login / Sign Up 
                         </a></li>
-                        <li><a href="patient_dashbord.html">
+                        <li><a href="patient_dashbord.php">
                             <!-- View it only for patient -->
                             My Dashboard
                         </a></li>
-                        <li><a href="doctor_dashboard.html">
+                        <li><a href="doctor_dashboard.php">
                             <!-- View it only for patient -->
                             My Dashboard
                         </a></li>
