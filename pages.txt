@@ -1,13 +1,14 @@
 Pages:
-
-	1. Home page/Landing Page
-	2. Sign Up/Registration
-		i. Doctor,
-			name, education, dept., routine, contact, password
-		ii. Patient
-			name, dob, address, phone, password
-	3. Login
-		i. Doctor, ii. Patient
+	Done:
+		1. Home page/Landing Page
+		2. Sign Up/Registration
+			i. Doctor,
+				name, education, dept., routine, contact, password
+			ii. Patient
+				name, dob, address, phone, password
+		3. Login
+			i. Doctor, ii. Patient
+			
 	4. Patient Dashboard
 		i. Appointment to doc, ii. Seat book, iii. Update account, iv. 
 	4.1. Appointment to doc,
