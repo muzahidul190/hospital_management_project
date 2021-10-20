@@ -18,11 +18,11 @@
                     <ul class="nav_buttons">
                         <li><a href="index.php">Home
                         </a></li>
-                        <li><a href="#">
+                        <li><a href="management_dashboard.php">
                             <!-- View it only for management -->
                             Management
                         </a></li>
-                        <li><a href="#">
+                        <li><a href="sign-in-or-sign-up.php">
                             <!-- View it only for non logged users -->
                             Login / Sign Up 
                         </a></li>

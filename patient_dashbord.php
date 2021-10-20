@@ -18,11 +18,11 @@
                     <ul class="nav_buttons">
                         <li><a href="index.php">Home
                         </a></li>
-                        <li><a href="#">
+                        <li><a href="management_dashboard.php">
                             <!-- View it only for management -->
                             Management
                         </a></li>
-                        <li><a href="#">
+                        <li><a href="sign-in-or-sign-up.php">
                             <!-- View it only for non logged users -->
                             Login / Sign Up 
                         </a></li>
@@ -98,6 +98,13 @@
                 <label for="department">
                     <h3>Please select your department:</h3>
                 </label>
+                <select name="department" id="department">
+                    <option value="medicine">Medicine</option>
+                    <option value="gyno">Gynocololy</option>
+                    <option value="neural">Neural</option>
+                    <option value="sergical">Sergical</option>
+                    <option value="pathology">Pathology</option>
+                </select>
                <h2>Seat is available</h2>
                <h2>This seat will cost you: 1000tk</h2>
                 <input type="submit" value="Book seat" class="btn btn-submit">
