@@ -49,26 +49,26 @@
             <section class="management_view">
                 <nav class="secondary_nav">
                 <ul>
-                    <li><a href="#">
+                    <li><a href="#doctor_approval">
                         Approve New Doctors(5)</a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#departments">
                             Total Department(5)
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#all_patitents">
                             Total Patients(10)
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#approved_doctors">
                             Total Approved Doctors(7)
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#add_another_dept">
                             Add another department
                         </a>
                     </li>
@@ -115,6 +115,27 @@
                         <li><a href="#">Doctor 1</a></li>
                         <li><a href="#">Doctor 1</a></li>
                     </ul>
+                </div>
+
+                
+                <div id="add_another_dept" class="single-item-design hide-single-item">
+                    <h2>Add Another Department</h2>
+                    <form action="">
+                        <label for="d-name">Enter new department name:</label> <br>
+                        <input type="text" name="d-name" id="d-name"><br>
+                        
+                        <label for="d-seats">Total Seat in this department:</label><br>
+                        <input type="number" name="d-seats" id="d-seats"><br>
+                        <label for="d-per-sit-cost">
+                            Cost of per sit in this department:
+                        </label><br>
+                        <input type="number" name="d-per-sit-cost" id="d-per-sit-cost"><br>
+
+                        <label for="d-details">Enter brief details of the department:</label><br><br>
+                        <textarea name="d-details" id="d-details" cols="30" rows="3"></textarea>
+                        <br>
+                        <input type="submit" value="Add Department" class="btn btn-warn">
+                    </form>
                 </div>
             </div>
             </section>

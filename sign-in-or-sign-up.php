@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="conten_wrapper">
+    <div class="content_wrapper">
         <div class="wrapper">
             <header>
                 <div class="logo">
@@ -41,6 +41,7 @@
         </div>
     </div>
     </div>
+    <div class="content_wrapper">
     <div class="wrapper">
         <button id="goback" class="hide-form-sign">Go Back</button>
             <div id="signinORsignup">
@@ -51,7 +52,7 @@
                 </ul>
             </div>
     
-            <div class="signInForm">
+            <div class="signInForm hide-single-item">
                 <form method="POST" id="signin" 
                 class="sign"> 
                 <fieldset>
@@ -71,7 +72,7 @@
                     </label>
                     <input type="radio" name="profession" id="profession" value='doctor'> Doctor
                     <input type="radio" name="profession" id="profession" value='patient' checked> Patient
-            <form method="POST" id="signup-patient" class="sign"> 
+            <form method="POST" id="signup-patient" class="sign  hide-single-item"> 
                 <fieldset>
                     <legend>Register Patient</legend>
                     <label for="email"><h3>Email:</h3></label>
@@ -96,7 +97,7 @@
                     <input type="submit" name="signup" value="Register">
                 </fieldset>
                 </form>
-                <form method="POST" id="signup-doc" class="sign"> 
+                <form method="POST" id="signup-doc " class="sign hide-single-item"> 
                     <fieldset>
                         <legend>Register Doctor</legend>
                         <label for="email"><h3>Email:</h3></label>
@@ -151,5 +152,17 @@
                     </form>
             </div>
         </div>
+    </div>
+
+    <footer>
+    <div class="content_wapper">
+        <div class="wrapper">
+            <div class="copyright">
+                &copy; DBMS Hospital 2021. All rights reserved by group 4.
+            </div> 
+        </div>
+    </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

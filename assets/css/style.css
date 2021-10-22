@@ -141,8 +141,6 @@ div.single-item-design ul{
     list-style: none;
 }
 
-div.single-item-design ul li{
-}
 div.single-item-design ul li a{
     text-decoration: none;
     color: #282C34;
@@ -165,4 +163,23 @@ div.single-item-design ul li a:hover{
 }
 .show-single-item{
     display: block !important;
+}
+
+
+#signinORsignup{
+
+}
+
+#signinORsignup ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+#signinORsignup ul>li>button{
+    font-size: 2em;
+    width: 255px;
+    padding: 10px 20px;
+}
+#signinORsignup ul>li{
+    font-size: 2em;
 }
