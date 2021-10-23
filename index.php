@@ -24,7 +24,7 @@
                 </div>
                 <nav id="main_nav">
                     <ul class="nav_buttons">
-                        <li><a href="#">Home
+                        <li><a href="#" class="active-main-nav">Home
                         </a></li>
                         <li><a href="management_dashboard.php">
                             <!-- View it only for management -->

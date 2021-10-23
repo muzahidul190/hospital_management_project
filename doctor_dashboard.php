@@ -32,7 +32,7 @@
                             <!-- View it only for patient -->
                             My Dashboard
                         </a></li>
-                        <li><a href="doctor_dashboard.php">
+                        <li><a href="doctor_dashboard.php" class="active-main-nav">
                             <!-- View it only for patient -->
                             My Dashboard
                         </a></li>

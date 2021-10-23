@@ -28,7 +28,7 @@
                             <!-- View it only for non logged users -->
                             Login / Sign Up 
                         </a></li>
-                        <li><a href="patient_dashbord.php">
+                        <li><a href="patient_dashbord.php" class="active-main-nav">
                             <!-- View it only for patient -->
                             My Dashboard
                         </a></li>

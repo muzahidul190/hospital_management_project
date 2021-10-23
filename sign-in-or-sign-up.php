@@ -24,7 +24,7 @@
                             <!-- View it only for management -->
                             Management
                         </a></li>
-                        <li><a href="sign-in-or-sign-up.php">
+                        <li><a href="sign-in-or-sign-up.php" class="active-main-nav">
                             <!-- View it only for non logged users -->
                             Login / Sign Up 
                         </a></li>

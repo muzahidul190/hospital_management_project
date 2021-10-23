@@ -22,7 +22,7 @@
                         <li><a href="index.php">Home
                         </a></li>
 
-                        <li><a href="management_dashboard.php">
+                        <li><a href="management_dashboard.php" class="active-main-nav">
                             <!-- View it only for management -->
                             Management
                         </a></li>
@@ -80,10 +80,10 @@
                 <div id="doctor_approval" class="single-item-design">
                     <h2>Doctor Needs Approval</h2>
                     <ul class="doctor_approval_list">
-                        <li><a href="#">Doctor 1</a></li>
-                        <li><a href="#">Doctor 1</a></li>
-                        <li><a href="#">Doctor 1</a></li>
-                        <li><a href="#">Doctor 1</a></li>
+                        <li><a href="doctor.php">Doctor 1</a></li>
+                        <li><a href="doctor.php">Doctor 1</a></li>
+                        <li><a href="doctor.php">Doctor 1</a></li>
+                        <li><a href="doctor.php">Doctor 1</a></li>
                     </ul>
                 </div>
 
@@ -100,17 +100,17 @@
                 <div id="all_patitents" class="single-item-design hide-single-item">
                     <h2>All patients</h2>
                     <ul class="all_patitents_list">
-                        <li><a href="#">patients 1</a></li>
-                        <li><a href="#">patients 1</a></li>
-                        <li><a href="#">patients 1</a></li>
-                        <li><a href="#">patients 1</a></li>
+                        <li><a href="patient.php">patients 1</a></li>
+                        <li><a href="patient">patients 1</a></li>
+                        <li><a href="patient">patients 1</a></li>
+                        <li><a href="patient">patients 1</a></li>
                     </ul>
                 </div>
 
                 <div id="approved_doctors" class="single-item-design hide-single-item">
                     <h2>Approved Doctors</h2>
                     <ul class="approved_doctors_list">
-                        <li><a href="#">Doctor 1</a></li>
+                        <li><a href="doctor">Doctor 1</a></li>
                         <li><a href="#">Doctor 1</a></li>
                         <li><a href="#">Doctor 1</a></li>
                         <li><a href="#">Doctor 1</a></li>

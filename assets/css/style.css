@@ -56,6 +56,11 @@ nav#main_nav ul.nav_buttons li a:hover{
     border-radius: 4px;
 }
 
+.active-main-nav{
+    background-color: rgb(42, 32, 77)!important;
+    border-radius: 4px!important;
+}
+
 .welcome_home{
     display: flex;
     flex-direction: column;
