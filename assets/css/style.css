@@ -4,6 +4,7 @@
     margin: 0; padding: 0;
     box-sizing: border-box;
     font-family: 'Lobster Two', cursive;
+    transition: all 0.5s ease;
 }
 
 body{
@@ -182,4 +183,99 @@ div.single-item-design ul li a:hover{
 }
 #signinORsignup ul>li{
     font-size: 2em;
+}
+form legend{
+    font-size: 2em;
+}
+label h3, form span{
+    width: max-content;
+    display: block;
+    margin: 0 auto;
+    font-size: 2rem;
+}
+input[type="email"], input[type="text"], input[type="password"], input[type="number"], input[type="tel"]{
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: 20px;
+    padding: 20px;
+    padding-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+input[type="email"]:hover, input[type="text"]:hover, input[type="password"]:hover, input[type="number"]:hover, input[type="tel"]:hover{
+    width: 350px;
+}
+input[type="email"]:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="tel"]:focus{
+    width: 450px;
+}
+
+#signUpCheck{
+    border: 3px solid white;
+    font-size: 2em;
+    margin-top: 10px;
+}
+#signUpCheck h2, #signUpCheck span{
+    display: block;
+    margin: 0 auto;
+    width: max-content;
+}
+
+input[type='radio']{
+    height: 20px;
+    width: 20px;
+}
+
+select{
+    width: 350px;
+    padding: 10px 5px;
+    font-size: 1.3em;
+    display: block;
+    margin: 9px auto;
+}
+.doc-degree{
+    width: 350px!important;
+}
+.doc-degree:focus{
+    width: 400px!important;
+}
+#available_doc_days{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+.btn{
+    border: 2px solid rgb(59, 57, 57);
+    border-radius: 5px;
+}
+.btn-submit{
+    width: 200px;
+    color: #000;
+    background-color: rgb(219, 219, 134);
+    padding: 15px 35px;
+    font-size: larger   ;
+    display: block;
+    margin: 10px auto;
+}
+
+.btn-goback {
+    width: 82px;
+    padding: 7px 5px;
+    border-radius: 82px 20px 20px 82px;
+    font-size: .9em;
+}
+.btn-add-another-field{
+    display: block;
+    margin: 0 auto;
+    background: green;
+    padding: 10px 20px;
+}
+#d-pass{
+    display: block;
+    margin-top: 35px;
+}
+#available_doc_days span{
+    font-size: 1.3em;
 }
