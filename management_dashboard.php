@@ -1,3 +1,28 @@
+<?php
+
+    include 'db_con.php';
+    $sql = "SELECT * FROM doctors WHERE d_approved = 0";
+    if($result=mysqli_query($conn,$sql)){
+        $unapproved_doc_count = mysqli_num_rows($result);
+    }
+    $sql = "SELECT * FROM departments";
+    if($result=mysqli_query($conn,$sql)){
+        $total_dept = mysqli_num_rows($result);
+    }
+    $sql = "SELECT * FROM patients";
+    if($result=mysqli_query($conn,$sql)){
+        $total_patients = mysqli_num_rows($result);
+    }
+    $sql = "SELECT * FROM doctors WHERE d_approved = 1";
+    if($result=mysqli_query($conn,$sql)){
+        $doc_count = mysqli_num_rows($result);
+    }
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,21 +75,21 @@
                 <nav class="secondary_nav">
                 <ul>
                     <li><a href="#doctor_approval">
-                        Approve New Doctors(5)</a>
+                        Approve New Doctors(<?php echo $unapproved_doc_count; ?>)</a>
                     </li>
                     <li>
                         <a href="#departments">
-                            Total Department(5)
+                            Total Department(<?php echo $total_dept; ?>)
                         </a>
                     </li>
                     <li>
                         <a href="#all_patitents">
-                            Total Patients(10)
+                            Total Patients(<?php echo $total_patients; ?>)
                         </a>
                     </li>
                     <li>
                         <a href="#approved_doctors">
-                            Total Approved Doctors(7)
+                            Total Approved Doctors(<?php echo $doc_count; ?>)
                         </a>
                     </li>
                     <li>
