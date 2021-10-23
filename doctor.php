@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Details | DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -35,10 +36,11 @@
     <main>
         <div class="conten_wrapper">
             <div class="wrapper">
-               <h2>Details for <span class="patient">
-                   Muza
-               </span></h2>
-               <table id="patient-details">
+            <div class="patient_details">
+                <h2 style="text-align:center; padding:10px;display:block; font-size:2em;">Details for <span class="patient">
+                    Muza
+                </span></h2>
+                <table id="patient-details" border="2px">
                     <tbody>
                         <tr>
                             <th>Name</th>
@@ -57,9 +59,9 @@
                             <td>Saturday, Sunday, Monday</td>
                         </tr>
                         <tr>
-                            <th>Eucation</th>
+                            <th>Education</th>
                             <td>
-                                <ul>
+                                <ul style="list-style-type:numeric;">
                                     <li>ad as asd asd a</li>
                                     <li>ad as asd asd a</li>
                                     <li>ad as asd asd a</li>
@@ -68,17 +70,15 @@
                             </td>
                         </tr>
                     </tbody>
-               </table>
+                </table>
             </div>
         </div>
     </main>
 
     <!-- Only View Able by Management -->
     <nav>
-        <h2 class="admin_option">
-            Manage this doctor.
-        </h2>
-        <ul id="manage_doctorv">
+        
+        <ul id="manage_patient">
             <li><a href="#delete">
                 Delete This Doctor
             </a></li>
@@ -87,5 +87,6 @@
             </a></li>
         </ul>
     </nav>
-</body>
-</html>
+    <?php
+        include 'footer.php';
+    ?>

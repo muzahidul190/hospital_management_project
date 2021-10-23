@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In or Sign Up | DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="content_wrapper">
@@ -62,8 +63,9 @@
                     <label for="pass"><h3>Enter your password</h3></label>
                     <input type="password" name="pass" id="pass" placeholder="Password">
                     <span> 
-                        <input type="checkbox" name="rememberme" checked="">
-                        Remember Me
+                        <input type="checkbox" name="rememberme" checked="" id="remem">
+                        <label for="remem">Remember Me</label>
+                        
                     </span>
                     <input type="submit" value="Sign In" name="signin" class='btn btn-submit'>
                 </fieldset>    
@@ -134,7 +136,12 @@
                             <h3>Please enter your educational qualifications:</h3>
                         </label>
                         <div id="d-degrees">
-                            <input type="text" name="deg1" id="degree" class="doc-degree"> <button id="add-another-degree" class="btn btn-add-another-field">Add Another</button>
+                            <input type="text" name="deg1" class="doc-degree">
+                            <input type="text" name="deg2" class="doc-degree hide-single-item">
+                            <input type="text" name="deg3" class="doc-degree hide-single-item">
+                            <input type="text" name="deg4" class="doc-degree hide-single-item">
+                            <input type="text" name="deg5" class="doc-degree hide-single-item">
+                            <button id="add-another-degree" class="btn btn-add-another-field">Add Another</button>
                         </div>
                         
                         <br>
@@ -143,26 +150,33 @@
                                 <h2>Select your available days:</h2>
                             </label>
                             <span>
-                                Saturday <input type="checkbox" name="day_available[]" value="0"> 
+                                <label for="sat">Saturday</label>
+                                <input type="checkbox" name="day_available[]" value="0" id="sat"> 
                             </span>
                             <span>
-                                Sunday <input type="checkbox" name="day_available[]"  value="1">  
+                                <label for="sun">Sunday</label>
+                                <input type="checkbox" name="day_available[]"  value="1" id="sun">  
                             </span>
                             <span>
-                                Monday <input type="checkbox" name="day_available[]" value="2">
+                                <label for="mon">Monday</label>
+                                <input type="checkbox" name="day_available[]" value="2" id="mon">
                             </span>
                             <span>
-                                Tuesday <input type="checkbox" name="day_available[]" value="3">  
+                            <label for="tue">Tuesday</label>
+                                <input type="checkbox" name="day_available[]" value="3" id="tue">  
                             </span>
                             <span>
-                                Wednessday <input type="checkbox" name="day_available[]" value="4"> 
+                            <label for="wed">Wednessday</label>
+                                <input type="checkbox" name="day_available[]" value="4" id="wed"> 
                             </span>
                             
                             <span>
-                                Thursday <input type="checkbox" name="day_available[]" value="5"> 
+                            <label for="thur">Thursday</label>
+                                <input type="checkbox" name="day_available[]" value="5" id="thur"> 
                             </span>
                             <span>
-                                Friday <input type="checkbox" name="day_available[]" value="6">
+                            <label for="fri">Friday</label>
+                                <input type="checkbox" name="day_available[]" value="6" id="fri">
                             </span> 
                         </div>
                         
@@ -180,15 +194,6 @@
         </div>
     </div>
 
-    <footer>
-    <div class="content_wapper">
-        <div class="wrapper">
-            <div class="copyright">
-                &copy; DBMS Hospital 2021. All rights reserved by group 4.
-            </div> 
-        </div>
-    </div>
-    </footer>
-    <script src="assets/js/script.js"></script>
-</body>
-</html>
+    <?php
+        include 'footer.php';
+    ?>

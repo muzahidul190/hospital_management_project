@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -56,19 +57,9 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, sed aperiam magnam dignissimos vitae quod optio officiis vero. Atque eveniet amet nobis minima blanditiis, aspernatur ipsa velit, nemo asperiores, est quidem ullam necessitatibus. Vero voluptatem quis necessitatibus dicta voluptatibus ducimus. Nam possimus perspiciatis facere illo, veniam voluptas vitae architecto reiciendis.
                     </p>
                 </div>
-           </main>   
+            </main>   
         </div>
     </div>
-    <footer>
-    <div class="content_wapper">
-        <div class="wrapper">
-            <div class="copyright">
-                &copy; DBMS Hospital 2021. All rights reserved by group 4.
-            </div> 
-        </div>
-    </div>
-    </footer>
-
-    <script src="assets/js/script.js"></script>
-</body>
-</html>
+    <?php
+        include 'footer.php';
+    ?>

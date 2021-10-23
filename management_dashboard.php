@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Management Dashboard | DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -143,15 +144,6 @@
         </div>
         </div>
     </div>
-    <footer>
-    <div class="content_wapper">
-        <div class="wrapper">
-            <div class="copyright">
-                &copy; DBMS Hospital 2021. All rights reserved by group 4.
-            </div> 
-        </div>
-    </div>
-    </footer>
-    <script src="assets/js/script.js"></script>
-</body>
-</html>
+    <?php
+        include 'footer.php';
+    ?>

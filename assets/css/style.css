@@ -111,7 +111,7 @@ nav.secondary_nav ul li a:hover{
     color: black;
 }
 
-section.management_view{
+section.management_view, section.patient_view{
     display: flex;
     align-items: center;
 }
@@ -293,4 +293,100 @@ select{
 }
 #available_doc_days span{
     font-size: 1.3em;
+}
+.item-according-to-link>.single-item-design,.seleced_doc_availability h2 ,ul.doc-available-day li span{
+    color: #fff;
+}
+.btn-appointment{
+    width: max-content;
+}
+#patient_view nav{
+    width: 100%!important;
+}
+#patient_view nav ul{
+    display: flex;
+    flex-direction: row;
+}
+#patient_view nav ul li{
+    width: 34%;
+    border-right: 5px solid black;
+}
+#patient_view nav ul li:last-child{
+    border-right: none;
+}
+#patient_view nav ul li a{
+    text-align: center;
+}
+.appointment{
+    width: max-content;
+    display: block;
+    margin: 0 auto;
+}
+.patient_view .item-according-to-link{
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    border:20px solid black;
+    border-top:none;
+    border-bottom: none;
+}
+div.doc_dashboard nav.secondary_nav{
+    width: 100%;
+}
+div.doc_dashboard nav.secondary_nav ul{
+    width: max-content;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.patient_list_view{
+    display: block;
+    width: max-content;
+    margin: 0 auto;
+}
+.patient_list_view h2{
+    color: #000;
+    font-size: 1.3em;
+}
+.patient_list_view ul{
+    list-style: none;
+}
+.patient_list_view ul li a{
+    display: block;
+    text-decoration: none;
+    color: #000;
+    padding: 5px;
+    font-size: 1.1em;
+    width: 200px;
+    margin: 0 auto;
+}
+.patient_list_view ul li a:hover{
+    color: #d8d5c9;
+    background-color: gray;
+}
+
+.patient_details{
+    width: 400px;
+    margin: 0 auto;
+}
+
+table>tbody>tr>th, table>tbody>tr>td{
+    padding: 10px 50px;
+    font-size: 1.5em;
+}
+#manage_patient{
+    list-style: none;
+}
+#manage_patient li a{
+    text-decoration: none;
+    margin: 0 auto;
+    width: 250px;
+    display: block;
+    padding: 10px 25px;
+    border: 3px solid black;
+    color: black;
+    background: tomato;
+    font-size: 1.3em;
+    text-align:center;
 }

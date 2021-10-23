@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Dashboard|DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="content_wrapper">
@@ -37,101 +38,117 @@
                         </a></li>
                     </ul>
                 </nav>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="#">Make an Appointment</a>
-                        </li>
-                        <li><a href="%#">
-                            Book a seat
-                        </a></li>
-                        <li><a href="#">
-                            Update your account details.
-                        </a></li>
-                    </ul>
-                </nav>
             </header>
         </div>
     </div>
     <main>
-        <div class="appointment">
-            <form action="">
-                <legend><h2>Make an Appointment</h2></legend>
-                <label for="department">
-                    <h3>Please select your department:</h3>
-                </label>
-                <select name="department" id="department">
-                    <option value="medicine">Medicine</option>
-                    <option value="gyno">Gynocololy</option>
-                    <option value="neural">Neural</option>
-                    <option value="sergical">Sergical</option>
-                    <option value="pathology">Pathology</option>
-                </select>
-                <br>
-
-                <select name="select_doc" id="select_doc">
-                    <option value="doc-1">
-                        Dr. Mutasim
-                    </option>
-                    <option value="doc-2">
-                        Dr. Zulkar Nayeem
-                    </option>
-                </select>
-
-                <div class="seleced_doc_availability">
-                    <h2>Dr. X is available for the followind days:</h2>
-                    <ul>
-                        <li><span>Sunday</span></li>
-                        <li><span>Monday</span></li>
-                        <li><span>Thursday</span></li>
-                    </ul>
-                </div>
-
-                <input type="submit" value="Appointment this doctor" class="btn btn-submit">
-
-            </form>
-            
-
+    <div class="content_wrapper">
+        <div class="wrapper">
+        <div id="patient_view">
+            <nav class="secondary_nav">
+                <ul>
+                    <li>
+                        <a href="#appointment">Make an Appointment</a>
+                    </li>
+                    <li><a href="#book_seat">
+                        Book a seat
+                    </a></li>
+                    <li><a href="#update_account">
+                        Update your account details.
+                    </a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="seat_booking">
-            <form action="">
-                <legend><h2>Book a seat</h2></legend>
-                <label for="department">
-                    <h3>Please select your department:</h3>
-                </label>
-                <select name="department" id="department">
-                    <option value="medicine">Medicine</option>
-                    <option value="gyno">Gynocololy</option>
-                    <option value="neural">Neural</option>
-                    <option value="sergical">Sergical</option>
-                    <option value="pathology">Pathology</option>
-                </select>
-               <h2>Seat is available</h2>
-               <h2>This seat will cost you: 1000tk</h2>
-                <input type="submit" value="Book seat" class="btn btn-submit">
+    </div>
+    </div>
+    <div class="content_wrapper">
+        <div class="wrapper">
+            <section class="patient_view">
+            <div class="item-according-to-link">
+            <div id="appointment" class="single-item-design form-item">
+                <form action="">
+                    <legend><h2>Make an Appointment</h2></legend>
+                    <label for="department">
+                        <h3>Please select your department:</h3>
+                    </label>
+                    <select name="department" id="p-department">
+                        <option value="medicine">Medicine</option>
+                        <option value="gyno">Gynocololy</option>
+                        <option value="neural">Neural</option>
+                        <option value="sergical">Sergical</option>
+                        <option value="pathology">Pathology</option>
+                    </select>
+                    <br>
 
-            </form>
+                    <select name="select_doc" id="select_doc">
+                        <option value="doc-1">
+                            Dr. Mutasim
+                        </option>
+                        <option value="doc-2">
+                            Dr. Zulkar Nayeem
+                        </option>
+                    </select>
+
+                    <div class="seleced_doc_availability">
+                        <h2>Dr. X is available for the followind days:</h2>
+                        <ul class="doc-available-day">
+                            <li><span>Sunday</span></li>
+                            <li><span>Monday</span></li>
+                            <li><span>Thursday</span></li>
+                        </ul>
+                    </div>
+
+                    <input type="submit" value="Appointment this doctor" class="btn btn-submit btn-appointment">
+
+                </form>
+                
+
+            </div>
+            <div id="book_seat" class="single-item-design hide-single-item form-item">
+                <form action="">
+                    <legend><h2>Book a seat</h2></legend>
+                    <label for="department">
+                        <h3>Please select your department:</h3>
+                    </label>
+                    <select name="department" id="department">
+                        <option value="medicine">Medicine</option>
+                        <option value="gyno">Gynocololy</option>
+                        <option value="neural">Neural</option>
+                        <option value="sergical">Sergical</option>
+                        <option value="pathology">Pathology</option>
+                    </select>
+                    <h2>Seat is available</h2>
+                    <h2>This seat will cost you: 1000tk</h2>
+                    <input type="submit" value="Book seat" class="btn btn-submit">
+
+                </form>
+                
+
+            </div>
+            <div id="update_account" class="single-item-design hide-single-item form-item">
+                <form action="">
+                    <legend><h2>Update your details</h2></legend>
+                    <label for="p-address">
+                        <h2>Your Address</h2>
+                    </label>
+                    <input type="text" name="p-address" id="p-address">
+
+                    <label for="p-phpne"><h3>Phone No:</h3></label>
+                    <input type="tel" name="p-phone" id="p-phone" pattern="[0-9]{11}">
+
+                    <label for="p-pass"><h3>Password</h3></label>
+                    <input type="password" name="p-pass" id="p-pass">
             
-
+                    <label for="p-cpass"><h3>Confirm Password</h3></label>
+                    <input type="password" name="p-cpass" id="p-cpass">
+                    <input type="submit" class="btn btn-submit">
+                </form>
+            </div>
+            </div>
+        </section>
         </div>
-        <form action="">
-            <legend><h2>Update your details</h2></legend>
-            <label for="p-address">
-                <h2>Your Address</h2>
-            </label>
-            <input type="text" name="p-address" id="p-address">
-
-            <label for="p-phpne"><h3>Phone No:</h3></label>
-            <input type="tel" name="p-phone" id="p-phone" pattern="{0-9}[11]">
-
-            
-
-            <label for="p-pass"><h3>Password</h3></label>
-            <input type="password" name="p-pass" id="p-pass">
-    
-            <label for="p-cpass"><h3>Confirm Password</h3></label>
-            <input type="password" name="p-cpass" id="p-cpass">
-        </form>
+    </div>
     </main>
-</body>
-</html>
+    <?php
+        include 'footer.php';
+    ?>

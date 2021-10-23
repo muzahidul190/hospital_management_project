@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Details | DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="content_wrapper"></div>
@@ -44,10 +45,10 @@
     <main>
         <div class="conten_wrapper">
             <div class="wrapper">
-               <h2>Details for <span class="patient">
-                   Muza
-               </span></h2>
-               <table id="patient-details">
+            <div class="patient_details">
+                <h2 style="text-align:center; padding:10px;display:block; font-size:2em;">Details for <span class="patient">Muza</span>
+                </h2>
+                <table id="patient-details" border="2px">
                     <tbody>
                         <tr>
                             <th>Name</th>
@@ -66,21 +67,22 @@
                             <td>0171711717</td>
                         </tr>
                     </tbody>
-               </table>
+                </table>
+                <nav>
+                    <ul id="manage_patient">
+                        <li><a href="#delete">
+                            Delete This Patient
+                        </a></li>
+                        <li><a href="#edit">
+                            Edit this patient
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
             </div>
         </div>
     </main>
 
-    <!-- Only View Able by Management -->
-    <nav>
-        <ul id="manage_patient">
-            <li><a href="#delete">
-                Delete This Patient
-            </a></li>
-            <li><a href="#edit">
-                Edit this patient
-            </a></li>
-        </ul>
-    </nav>
-</body>
-</html>
+    <?php
+        include 'footer.php';
+    ?>

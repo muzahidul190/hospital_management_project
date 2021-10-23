@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Dashboard| DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="content_wrapper">
@@ -38,37 +39,43 @@
                     </ul>
                 </nav>
         </div>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#">See your patient list</a>
-                </li>
-                <li><a href="#">
-                    Update your account details.
-                </a></li>
-            </ul>
-        </nav>
     </div>
 
     <main>
-        <div class="conten_wrapper">
+        <div class="content_wrapper">
             <div class="wrapper">
-
-                <div id="patient_list" class="patient_list_view">
-                    <h2>Your patients</h2>
-                    <ul>
-                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
-                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
-                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
-                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
-                    </ul>
+                <div class="doc_dashboard">
+                    <nav class="secondary_nav">
+                        <ul>
+                            <li>
+                                <a href="#patient_list">See your patient list</a>
+                            </li>
+                            <li><a href="#update_details">
+                                Update your account details.
+                            </a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
 
         <div class="conten_wrapper">
             <div class="wrapper">
-                <form action="">
+
+                <div id="patient_list" class="patient_list_view form-item item_according_to_link">
+                    <div id="doctor_approval">
+                    <h2>Your patients</h2>
+                    <ul class="doctor_approval_list">
+                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
+                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
+                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
+                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
+                    </ul>
+                    </div>
+                    
+                </div>
+
+                <form action="" id="update_details" class="hide-single-item form-item">
                     <legend><h2>Update your details</h2></legend>
                     <label for="d-address">
                         <h2>Your Address</h2>
@@ -103,13 +110,13 @@
                         <h2>Change your available days:</h2>
                     </label>
                     <br>
-                    <input type="checkbox" name="day_available[]" id="routine" value="0"> Saturday <br>
-                    <input type="checkbox" name="day_available[]" id="routine" value="1"> Sunday <br>
-                    <input type="checkbox" name="day_available[]" id="routine" value="2"> Monday <br>
-                    <input type="checkbox" name="day_available[]" id="routine" value="3"> Tuesday <br>
-                    <input type="checkbox" name="day_available[]" id="routine" value="4"> Wednessday <br>
-                    <input type="checkbox" name="day_available[]" id="routine" value="5"> Thursday <br>
-                    <input type="checkbox" name="day_available[]" id="routine" value="6"> Friday
+                    <input type="checkbox" name="day_available[]" value="0"> Saturday <br>
+                    <input type="checkbox" name="day_available[]" value="1"> Sunday <br>
+                    <input type="checkbox" name="day_available[]" value="2"> Monday <br>
+                    <input type="checkbox" name="day_available[]" value="3"> Tuesday <br>
+                    <input type="checkbox" name="day_available[]" value="4"> Wednessday <br>
+                    <input type="checkbox" name="day_available[]" value="5"> Thursday <br>
+                    <input type="checkbox" name="day_available[]" value="6"> Friday
 
 
                     <label for="d-pass"><h3>Password</h3></label>
@@ -117,10 +124,11 @@
             
                     <label for="d-cpass"><h3>Confirm Password</h3></label>
                     <input type="password" name="d-cpass" id="d-cpass">
+                    <input type="submit" class="btn btn-submit">
                 </form>
             </div>
         </div>
     </main>
-
-</body>
-</html>
+    <?php
+        include 'footer.php';
+    ?>
