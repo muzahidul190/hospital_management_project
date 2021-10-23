@@ -148,8 +148,7 @@
             </section>
             <hr>
         </div>
-    </div>
- 
+        </div>
     </div>
     <footer>
     <div class="content_wapper">
