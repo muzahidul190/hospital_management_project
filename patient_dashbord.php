@@ -48,6 +48,9 @@
             <nav class="secondary_nav">
                 <ul>
                     <li>
+                        <a href="patient">My Profile</a>
+                    </li>
+                    <li>
                         <a href="#appointment">Make an Appointment</a>
                     </li>
                     <li><a href="#book_seat">
@@ -65,7 +68,7 @@
         <div class="wrapper">
             <section class="patient_view">
             <div class="item-according-to-link">
-            <div id="appointment" class="single-item-design form-item" style="padding: 0 50px;">
+            <div id="appointment" class="single-item-design form-item" style="">
                 <form action="">
                     <legend><h2>Make an Appointment</h2></legend>
                     <label for="department">

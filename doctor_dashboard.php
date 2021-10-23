@@ -44,9 +44,12 @@
     <main>
         <div class="content_wrapper">
             <div class="wrapper">
-                <div class="doc_dashboard">
+                <div id="patient_view" class="doc_dashboard">
                     <nav class="secondary_nav">
                         <ul>
+                            <li>
+                                <a href="doctor">My Profile</a>
+                            </li>
                             <li>
                                 <a href="#patient_list">See your patient list</a>
                             </li>
@@ -75,7 +78,7 @@
                     
                 </div>
 
-                <form action="" id="update_details" class="hide-single-item form-item">
+                <form action="" id="update_details" class="hide-single-item form-item doc-update-profile">
                     <legend><h2>Update your details</h2></legend>
                     <label for="d-address">
                         <h2>Your Address</h2>
