@@ -1,11 +1,3 @@
-
-<?php 
-
-    include 'db_con.php';
-    
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
