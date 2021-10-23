@@ -65,7 +65,7 @@
         <div class="wrapper">
             <section class="patient_view">
             <div class="item-according-to-link">
-            <div id="appointment" class="single-item-design form-item">
+            <div id="appointment" class="single-item-design form-item" style="padding: 0 50px;">
                 <form action="">
                     <legend><h2>Make an Appointment</h2></legend>
                     <label for="department">
@@ -104,7 +104,7 @@
                 
 
             </div>
-            <div id="book_seat" class="single-item-design hide-single-item form-item">
+            <div id="book_seat" class="single-item-design hide-single-item form-item" style="padding: 0 50px;">
                 <form action="">
                     <legend><h2>Book a seat</h2></legend>
                     <label for="department">
@@ -129,7 +129,7 @@
                 <form action="">
                     <legend><h2>Update your details</h2></legend>
                     <label for="p-address">
-                        <h2>Your Address</h2>
+                        <h3>Your Address</h3>
                     </label>
                     <input type="text" name="p-address" id="p-address">
 

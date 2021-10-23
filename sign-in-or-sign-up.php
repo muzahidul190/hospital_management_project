@@ -77,10 +77,12 @@
                     <h2>Choose account type:</h2>
                 </label>
                 <span>
-                    <input type="radio" name="profession" id="profession-doctor" value='doctor'> Doctor
+                    <input type="radio" name="profession" id="profession-doctor" value='doctor'>
+                    <label for="profession-doctor">Doctor</label>
                 </span>
                 <span>
-                    <input type="radio" name="profession" id="profession-patient" value='patient'> Patient
+                    <input type="radio" name="profession" id="profession-patient" value='patient'> 
+                    <label for="profession-patient">Patient</label>
                 </span>
                 
             </div>
@@ -120,7 +122,7 @@
                         <input type="text" name="d-name" id="d-name" placeholder="Mr. X" required="">
         
                         <label for="d-phpne"><h3>Phone No:</h3></label>
-                        <input type="tel" name="d-phone" id="d-phone" pattern="{0-9}[11]">
+                        <input type="tel" name="d-phone" id="d-phone" pattern="[0-9]{11}">
                         
                         <label for="d-department">
                             <h3>Select your department:</h3>
