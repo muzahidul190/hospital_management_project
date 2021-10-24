@@ -113,13 +113,13 @@
                         <h2>Change your available days:</h2>
                     </label>
                     <br>
-                    <input type="checkbox" name="day_available[]" value="0"> Saturday <br>
-                    <input type="checkbox" name="day_available[]" value="1"> Sunday <br>
-                    <input type="checkbox" name="day_available[]" value="2"> Monday <br>
-                    <input type="checkbox" name="day_available[]" value="3"> Tuesday <br>
-                    <input type="checkbox" name="day_available[]" value="4"> Wednessday <br>
-                    <input type="checkbox" name="day_available[]" value="5"> Thursday <br>
-                    <input type="checkbox" name="day_available[]" value="6"> Friday
+                    <input type="checkbox" id="sat" name="day_available[]" value="0"> <label for="sat">Saturday</label> <br>
+                    <input type="checkbox" id="sun" name="day_available[]" value="1"> <label for="sun">Sunday</label> <br>
+                    <input type="checkbox" id="mon" name="day_available[]" value="2"> <label for="mon">Monday</label> <br>
+                    <input type="checkbox" id="tue" name="day_available[]" value="3"> <label for="tue">Tuesday</label> <br>
+                    <input type="checkbox" id="wed" name="day_available[]" value="4"> <label for="wed">Wednesday</label> <br>
+                    <input type="checkbox" id="thu" name="day_available[]" value="5"> <label for="thu">Thursday</label> <br>
+                    <input type="checkbox" id="fri" name="day_available[]" value="6"> <label for="fri">Friday</label>
 
 
                     <label for="d-pass"><h3>Password</h3></label>

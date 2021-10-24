@@ -2,18 +2,22 @@
 
     include 'db_con.php';
     $sql = "SELECT * FROM doctors WHERE d_approved = 0";
+    $unap_doc_sql = mysqli_query($conn,$sql);
     if($result=mysqli_query($conn,$sql)){
         $unapproved_doc_count = mysqli_num_rows($result);
     }
     $sql = "SELECT * FROM departments";
+    $dep_sql = mysqli_query($conn,$sql);
     if($result=mysqli_query($conn,$sql)){
         $total_dept = mysqli_num_rows($result);
     }
     $sql = "SELECT * FROM patients";
+    $pat_sql = mysqli_query($conn,$sql);
     if($result=mysqli_query($conn,$sql)){
         $total_patients = mysqli_num_rows($result);
     }
     $sql = "SELECT * FROM doctors WHERE d_approved = 1";
+    $doc_sql = mysqli_query($conn,$sql);
     if($result=mysqli_query($conn,$sql)){
         $doc_count = mysqli_num_rows($result);
     }
@@ -105,20 +109,26 @@
                 <div id="doctor_approval" class="single-item-design">
                     <h2>Doctor Needs Approval</h2>
                     <ul class="doctor_approval_list">
-                        <li><a href="doctor.php">Doctor 1</a></li>
-                        <li><a href="doctor.php">Doctor 1</a></li>
-                        <li><a href="doctor.php">Doctor 1</a></li>
-                        <li><a href="doctor.php">Doctor 1</a></li>
+                        <?php
+                            while($row = mysqli_fetch_assoc($unap_doc_sql)){
+                                echo '<li><a href="doctor.php?doc_id=';
+                                echo $row["d_id"];
+                                echo '">'.$row["d_name"].'</a></li>';
+                            }
+                        ?>
                     </ul>
                 </div>
 
                 <div id="departments" class="single-item-design hide-single-item">
                     <h2>All Departments</h2>
                     <ul class="all_departments">
-                        <li><a href="#">Dept 1</a></li>
-                        <li><a href="#">Dept 1</a></li>
-                        <li><a href="#">Dept 1</a></li>
-                        <li><a href="#">Dept 1</a></li>
+                        <?php
+                            while($row = mysqli_fetch_assoc($dep_sql)){
+                                echo '<li><a href="department.php?dep_id=';
+                                echo $row["dep_id"];
+                                echo '">'.$row["dep_name"].'</a></li>';
+                            }
+                        ?>
                     </ul>
                 </div>
 
