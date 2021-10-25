@@ -1,11 +1,27 @@
 
 <?php
 
-// if(isset($_GET["dep_id"])){
-//     echo $_GET["dep_id"];
-// }else{
-//     echo "HAHA";
-// }
+    include 'db_con.php';
+    if(isset($_GET["dep_id"])){
+        $id = $_GET["dep_id"];
+    }else{
+        $id = 1;
+    }
+    $sql = "SELECT * FROM departments WHERE dep_id = $id";
+
+    $result = mysqli_query($conn,$sql);
+    $info = mysqli_fetch_assoc($result);
+
+    if($result){
+        $count = mysqli_num_rows($result);
+    }else{
+        $count = 0;
+    }
+    if($count > 0){
+        $name = "Details for: ".$info["dep_name"];
+    }else{
+        $name = "Department Not Found";
+    }
 
 ?>
 <!DOCTYPE html>
@@ -55,32 +71,36 @@
         <div class="conten_wrapper">
             <div class="wrapper">
             <div class="patient_details">
-                <h2 style="text-align:center; padding:10px;display:block; font-size:2em;">Details for <span class="patient">
-                    Dept. Name
+                <h2 style="text-align:center; padding:10px;display:block; font-size:2em;"><span class="patient">
+                    <?php echo $name;?>
                 </span></h2>
+                <?php  if($count>0){ ?>
                 <table id="patient-details" border="2px">
                     <tbody>
                         <tr>
                             <th>Department</th>
-                            <td>Dr. X</td>
+                            <td><?php echo $info["dep_name"]; ?></td>
                         </tr>
                         <tr>
                             <th>Details</th>
-                            <td>This department deals with medicine part.</td>
+                            <td><?php echo $info["dep_details"]; ?></td>
                         </tr>
                         <tr>
                             <th>Seat</th>
-                            <td>30</td>
+                            <td><?php echo $info["dep_seat"]; ?></td>
                         </tr>
                         <tr>
                             <th>Seat Cost</th>
-                            <td>3000</td>
+                            <td><?php echo $info["seat_cost"]; ?></td>
                         </tr>
                     </tbody>
                 </table>
+                <?php } ?>
             </div>
         </div>
     </main>
+
+    <?php if($count>0){ ?>
 
     <!-- Only View Able by Management -->
     <nav>
@@ -95,5 +115,6 @@
         </ul>
     </nav>
     <?php
+    }
         include 'footer.php';
     ?>

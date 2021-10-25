@@ -6,7 +6,7 @@
     if($result=mysqli_query($conn,$sql)){
         $unapproved_doc_count = mysqli_num_rows($result);
     }
-    $sql = "SELECT * FROM departments";
+    $sql = "SELECT * FROM departments ORDER BY dep_name ASC";
     $dep_sql = mysqli_query($conn,$sql);
     if($result=mysqli_query($conn,$sql)){
         $total_dept = mysqli_num_rows($result);
@@ -135,20 +135,26 @@
                 <div id="all_patitents" class="single-item-design hide-single-item">
                     <h2>All patients</h2>
                     <ul class="all_patitents_list">
-                        <li><a href="patient.php">patients 1</a></li>
-                        <li><a href="patient">patients 1</a></li>
-                        <li><a href="patient">patients 1</a></li>
-                        <li><a href="patient">patients 1</a></li>
+                        <?php
+                            while($row = mysqli_fetch_assoc($pat_sql)){
+                                echo '<li><a href="patient.php?p_id=';
+                                echo $row["p_id"];
+                                echo '">'.$row["p_name"].'</a></li>';
+                            }
+                        ?>
                     </ul>
                 </div>
 
                 <div id="approved_doctors" class="single-item-design hide-single-item">
                     <h2>Approved Doctors</h2>
                     <ul class="approved_doctors_list">
-                        <li><a href="doctor">Doctor 1</a></li>
-                        <li><a href="#">Doctor 1</a></li>
-                        <li><a href="#">Doctor 1</a></li>
-                        <li><a href="#">Doctor 1</a></li>
+                        <?php
+                            while($row = mysqli_fetch_assoc($doc_sql)){
+                                echo '<li><a href="doctor.php?doc_id=';
+                                echo $row["d_id"];
+                                echo '">'.$row["d_name"].'</a></li>';
+                            }
+                        ?>
                     </ul>
                 </div>
 
