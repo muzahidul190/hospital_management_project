@@ -197,7 +197,7 @@ label h3, form span{
     font-size: 2rem;
 }
 
-input[type="email"], input[type="text"], input[type="password"], input[type="number"], input[type="tel"]{
+input[type="email"], input[type="text"], input[type="password"], input[type="number"], input[type="tel"], input[type="date"], .gender-radio{
     display: block;
     margin: 0 auto;
     width: 300px;
@@ -207,6 +207,10 @@ input[type="email"], input[type="text"], input[type="password"], input[type="num
     margin-top: 10px;
     margin-bottom: 20px;
     font-size: 1.2em;
+}
+.gender-radio{
+    min-height: 125px;
+    text-align: justify;
 }
 input[type="email"]:hover, input[type="text"]:hover, input[type="password"]:hover, input[type="number"]:hover, input[type="tel"]:hover{
     width: 350px;

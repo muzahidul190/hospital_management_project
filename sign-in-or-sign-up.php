@@ -98,6 +98,15 @@
     
                     <label for="p-phpne"><h3>Phone No:</h3></label>
                     <input type="tel" name="p-phone" id="p-phone" pattern="{0-9}[11]">
+                    <div class="gender-radio">
+                        <label for="p-gender"><h3>Gender:</h3></label>
+                        <input type="radio" name="gender" value="m" id="p-gender-m"><label for="p-gender-m"> Male</label><br>
+                        <input type="radio" name="gender" value="f" id="p-gender-f"><label for="p-gender-f"> Female</label><br>
+                        <input type="radio" name="gender" value="n" id="p-gender-n"><label for="p-gender-n"> 3rd Gender</label>
+                    </div>
+                    
+                    <label for="p-dob"><h3>Date of Birth:</h3></label>
+                    <input type="date" name="p-phone" id="p-dob">
 
                     <label for="name"><h3>Enter your address:</h3></label>
                     <input type="text" name="p-addrs" id="p-addrs" placeholder="I live in Outer World" required="">

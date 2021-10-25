@@ -86,6 +86,18 @@ if($count > 0){
                             <td><?php echo $info["p_dob"]; ?></td>
                         </tr>
                         <tr>
+                            <th>Gender</th>
+                            <td><?php 
+                            if($info["p_gender"] == 'm')
+                                echo "male";
+                            else if($info["p_gender"] == 'f')
+                                echo "female";
+                            else if($info["p_gender"] == 'n')
+                                echo "3rd Gender";
+                            
+                            ?></td>
+                        </tr>
+                        <tr>
                             <th>Address</th>
                             <td><?php echo $info["p_address"]; ?></td>
                         </tr>
