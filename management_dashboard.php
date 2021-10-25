@@ -1,6 +1,6 @@
 <?php
 
-    include 'db_con.php';
+    include 'action.php';
     $sql = "SELECT * FROM doctors WHERE d_approved = 0";
     $unap_doc_sql = mysqli_query($conn,$sql);
     if($result=mysqli_query($conn,$sql)){
@@ -161,7 +161,7 @@
                 
                 <div id="add_another_dept" class="single-item-design hide-single-item">
                     <h2>Add Another Department</h2>
-                    <form action="">
+                    <form onsubmit="return false" method="POST">
                         <label for="d-name">Enter new department name:</label> <br>
                         <input type="text" name="d-name" id="d-name"><br>
                         
@@ -175,7 +175,7 @@
                         <label for="d-details">Enter brief details of the department:</label><br><br>
                         <textarea name="d-details" id="d-details" cols="30" rows="3"></textarea>
                         <br>
-                        <input type="submit" value="Add Department" class="btn btn-warn">
+                        <input type="submit" value="Add Department" class="btn btn-submit">
                     </form>
                 </div>
             </div>
