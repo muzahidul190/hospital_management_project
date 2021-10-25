@@ -6,7 +6,7 @@ if(isset($_GET["doc_id"])){
 }else{
     $id = 1;    //This line will be edited later
 }
-$sql = "SELECT * FROM doctors WHERE d_id = $id";
+$sql = "SELECT * FROM doctors WHERE d_id = $id LIMIT 1";
 
 $result = mysqli_query($conn,$sql);
 $info = mysqli_fetch_assoc($result);

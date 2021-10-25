@@ -7,7 +7,7 @@
     }else{
         $id = 1;
     }
-    $sql = "SELECT * FROM departments WHERE dep_id = $id";
+    $sql = "SELECT * FROM departments WHERE dep_id = $id LIMIT 1";
 
     $result = mysqli_query($conn,$sql);
     $info = mysqli_fetch_assoc($result);
