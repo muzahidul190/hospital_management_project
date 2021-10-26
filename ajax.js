@@ -158,6 +158,7 @@ $(document).ready(function(){
                     window.location.href = "sign-in-or-sign-up.php";
                 }
                 alert(data);
+
             }
         })
     })
@@ -179,17 +180,26 @@ $(document).ready(function(){
         })
     })
 
-    $("#mark_done").click(function(){
-        console.log($("#mark_done"));
-        let app_id = $("#mark_done").parent().parent().children().first().children('a').data('appid');
+    let mark_done_btn = document.querySelectorAll('.mark_done');
+    mark_done_btn.forEach(element => {
+        element.addEventListener('click', ()=>{
+            let parent_tr = element.parentElement.parentElement;
+            let parent_td = parent_tr.parentElement;
+            let app_id = parent_tr.children[0].children[0].getAttribute('data-appid');
+            $.ajax({
+                url : "action.php",
+                method : "POST",
+                data: {mark_done_clicked: 1,appointment_id: app_id },
+                success : function(data){
+                    alert(data);
+                    parent_tr.remove();
+                    
+                    if(parent_td.childElementCount == 1){
+                        parent_td.innerHTML = parent_td.innerHTML + ("<tr> <td  colspan='3'>No upcoming appointments for you. </td></tr>");
+                    }
 
-        $.ajax({
-            url : "action.php",
-            method : "POST",
-            data: {mark_done_clicked: 1,appointment_id: app_id },
-            success : function(data){
-                alert(data);
-            }
+                }
+            })
         })
     })
 

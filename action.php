@@ -303,9 +303,8 @@
     // Mark a patient appointment as done
     if(isset($_POST['mark_done_clicked']) && isset($_POST['appointment_id'])){
 
-        
-        $data =  $obj->update_table_values("appointments", "app_status", 1, "app_id", $_POST['appointment_id']);
-        echo $data;
+        $obj->update_table_values("appointments", "app_status", 1, "app_id", $_POST['appointment_id']);
+        echo "Marked this appointment as done.";
         exit();
     }
 

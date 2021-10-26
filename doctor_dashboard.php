@@ -111,7 +111,7 @@
                     </td>
 
                     <td class="color_black">
-                    <a id="mark_done" href="#m" class="btn btn-success">
+                    <a href="#m" class="btn btn-success mark_done">
                         Mark Done
                     </a>
                 </td>
