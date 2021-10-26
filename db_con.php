@@ -1,10 +1,10 @@
 <?php
 
 
-    define("DB_HOST","localhost");
-    define("DB_USER","root");
-    define("DB_PASS","");
-    define("DB_NAME","dbms_hospital");
+    define("DB_HOST","50.3.237.168");
+    define("DB_USER","muzahidu_dbms");
+    define("DB_PASS","dbms@1234!");
+    define("DB_NAME","muzahidu_dbms_hospital");
 
     class Database{
         public $conn;
