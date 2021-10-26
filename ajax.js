@@ -1,19 +1,24 @@
 $(document).ready(function(){
     function verify_email_p(email){
-        $.ajax({
-            url : "action.php",
-            method : "POST",
-            data : {check_email_p:1,email_p:email},
-            success : function(data){
-                $(".p-mail-error").html(data);
-                if(data == "Good"){
-                    $(".p-mail-error").css("color","green");
-                }else{
-                    $(".p-mail-error").css("color","red");
+        if(email == ""){
+            $(".p-mail-error").html("Please enter email.");
+            $(".p-mail-error").css("color","yellow");
+        }else{
+            $.ajax({
+                url : "action.php",
+                method : "POST",
+                data : {check_email_p:1,email_p:email},
+                success : function(data){
+                    $(".p-mail-error").html(data);
+                    if(data == "Good"){
+                        $(".p-mail-error").css("color","green");
+                    }else{
+                        $(".p-mail-error").css("color","red");
+                    }
                 }
-                $(".p-mail-error").css("visibility","visible");
-            }
-        });
+            });
+        }
+        $(".p-mail-error").css("visibility","visible");
     }
     $("#p-email").keyup(function(){
         var email = $("#p-email").val();
