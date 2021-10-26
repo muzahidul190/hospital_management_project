@@ -69,7 +69,28 @@ if($count > 0){
     </div>
         
     <main>
-        <div class="conten_wrapper">
+    <div class="content_wrapper">
+        <div class="wrapper">
+            <div id="patient_view">
+                <nav class="secondary_nav">
+                    <ul>
+                        <li>
+                            <a href="patient.php">My Profile</a>
+                        </li>
+                        <li>
+                            <a href="#appointment">Make an Appointment</a>
+                        </li>
+                        <li><a href="#book_seat">
+                            Book a seat
+                        </a></li>
+                        <li><a href="#update_account">
+                            Update your account details.
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="content_wrapper">
             <div class="wrapper">
             <div class="patient_details">
                 <h2 style="text-align:center; padding:10px;display:block; font-size:2em;"><span class="patient"><?php echo $name;?></span>

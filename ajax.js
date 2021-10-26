@@ -182,6 +182,7 @@ $(document).ready(function(){
     $("#mark_done").click(function(){
         console.log($("#mark_done"));
         let app_id = $("#mark_done").parent().parent().children().first().children('a').data('appid');
+
         $.ajax({
             url : "action.php",
             method : "POST",

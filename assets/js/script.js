@@ -79,7 +79,21 @@ window.onload = function() {
 
     }
 
-    let patient_view = document.querySelector('.patient_view');
+    let patient_view = document.querySelector('#patient_view');
+    if(window.location.href.search('patient_dashbord.php#update_account') != -1){
+        let update_account = document.getElementById('update_account');
+        hide_all_forms_except(update_account)
+    }
+
+    else if(window.location.href.search('patient_dashbord.php#book_seat') != -1){
+        let update_account = document.getElementById('book_seat');
+        hide_all_forms_except(update_account)
+    }
+    else if(window.location.href.search('patient_dashbord.php#appointment') != -1){
+        let update_account = document.getElementById('appointment');
+        hide_all_forms_except(update_account)
+    }
+
     if(patient_view != null){
         let patient_view_nav = document.querySelectorAll('.secondary_nav>ul>li>a');
         patient_view_nav.forEach(element=>{
@@ -88,14 +102,23 @@ window.onload = function() {
             element_text = element_text.slice(1,element_text.length);
             element.addEventListener('click', ()=>{
                 if(element_text == 'appointment'){
+                    if(window.location.href.search('patient.php#appointment'!= -1)){
+                        window.location.href = 'patient_dashbord.php#appointment';
+                    }
                     let appointment = document.getElementById('appointment');
                     hide_all_forms_except(appointment)
                 }
                 else if(element_text == 'book_seat'){
+                    if(window.location.href.search('patient.php#book_seat'!= -1)){
+                        window.location.href = 'patient_dashbord.php#book_seat';
+                    }
                     let book_seat = document.getElementById('book_seat');
                     hide_all_forms_except(book_seat)
                 }
                 else if(element_text == 'update_account'){
+                    if(window.location.href.search('patient.php#update_account'!= -1)){
+                        window.location.href = 'patient_dashbord.php#update_account';
+                    }
                     let update_account = document.getElementById('update_account');
                     hide_all_forms_except(update_account)
                 }
@@ -121,7 +144,7 @@ window.onload = function() {
                     hide_all_forms_except(patient_list);
                 }
                 else if(element_text == 'update_details'){
-                    if(url.search('doctor_dashboard.php#update_details') == -1){
+                    if(url.search('doctor_dashboard.php#update_details')== -1){
                         window.location.href = 'doctor_dashboard.php#update_details';
                     }
                     
