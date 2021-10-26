@@ -1,3 +1,14 @@
+
+<?php
+
+include 'db_con.php';
+
+$sql = "SELECT * FROM departments";
+
+$dep_list = mysqli_query($conn,$sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,18 +79,18 @@
         <div class="wrapper">
             <section class="patient_view">
             <div class="item-according-to-link">
-            <div id="appointment" class="single-item-design form-item" style="">
+            <div id="appointment" class="single-item-design form-item" >
                 <form action="">
                     <legend><h2>Make an Appointment</h2></legend>
                     <label for="department">
                         <h3>Please select your department:</h3>
                     </label>
                     <select name="department" id="p-department">
-                        <option value="medicine">Medicine</option>
-                        <option value="gyno">Gynocololy</option>
-                        <option value="neural">Neural</option>
-                        <option value="sergical">Sergical</option>
-                        <option value="pathology">Pathology</option>
+                        <?php
+                            while($row = mysqli_fetch_assoc($dep_list)){
+                                echo '<option value="'.$row["dep_name"].'">'.$row["dep_name"].'</option>';
+                            }
+                        ?>
                     </select>
                     <br>
 

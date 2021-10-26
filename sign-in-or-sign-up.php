@@ -114,13 +114,13 @@
                     <p class="error p-phone-error">Showing</p>
                     <div class="gender-radio">
                         <label for="p-gender"><h3>Gender:</h3></label>
-                        <input type="radio" name="gender" value="m" id="p-gender-m"><label for="p-gender-m"> Male</label><br>
+                        <input type="radio" name="gender" value="m" id="p-gender-m" required><label for="p-gender-m"> Male</label><br>
                         <input type="radio" name="gender" value="f" id="p-gender-f"><label for="p-gender-f"> Female</label><br>
                         <input type="radio" name="gender" value="n" id="p-gender-n"><label for="p-gender-n"> 3rd Gender</label>
                     </div>
                     
                     <label for="p-dob"><h3>Date of Birth:</h3></label>
-                    <input type="date" name="p-phone" id="p-dob" required>
+                    <input type="date" name="p-dob" id="p-dob" required>
 
                     <label for="name"><h3>Enter your address:</h3></label>
                     <input type="text" name="p-addrs" id="p-addrs" placeholder="I live in Outer World">
@@ -209,8 +209,8 @@
                     </div>
                     
 
-                    <label for="d-pass" id="d-pass"><h3>Password</h3></label>
-                    <input type="password" name="d-pass" >
+                    <label for="d-pass"><h3>Password</h3></label>
+                    <input type="password" id="d-pass" name="d-pass" >
     
                     <label for="d-cpass"><h3>Confirm Password</h3></label>
                     <input type="password" name="d-cpass" id="d-cpass">
