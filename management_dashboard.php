@@ -1,6 +1,6 @@
 <?php
 
-    include 'action.php';
+    include 'db_con.php';
     $sql = "SELECT * FROM doctors WHERE d_approved = 0";
     $unap_doc_sql = mysqli_query($conn,$sql);
     if($result=mysqli_query($conn,$sql)){
@@ -36,6 +36,8 @@
     <title>Management Dashboard | DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="ajax.js"></script>
 </head>
 
 <body>
@@ -161,19 +163,19 @@
                 
                 <div id="add_another_dept" class="single-item-design hide-single-item">
                     <h2>Add Another Department</h2>
-                    <form onsubmit="return false" method="POST">
-                        <label for="d-name">Enter new department name:</label> <br>
-                        <input type="text" name="d-name" id="d-name"><br>
+                    <form onsubmit="return false" method="POST" id="add_new_dep">
+                        <label for="dep-name">Enter new department name:</label> <br>
+                        <input type="text" name="dep-name" id="dep-name"><br>
                         
-                        <label for="d-seats">Total Seat in this department:</label><br>
-                        <input type="number" name="d-seats" id="d-seats"><br>
-                        <label for="d-per-sit-cost">
+                        <label for="dep-seats">Total Seat in this department:</label><br>
+                        <input type="number" name="dep-seats" id="dep-seats"><br>
+                        <label for="dep-per-sit-cost">
                             Cost of per sit in this department:
                         </label><br>
-                        <input type="number" name="d-per-sit-cost" id="d-per-sit-cost"><br>
+                        <input type="number" name="dep-per-sit-cost" id="dep-per-sit-cost"><br>
 
-                        <label for="d-details">Enter brief details of the department:</label><br><br>
-                        <textarea name="d-details" id="d-details" cols="30" rows="3"></textarea>
+                        <label for="dep-details">Enter brief details of the department:</label><br><br>
+                        <textarea name="dep-details" id="dep-details" cols="50" rows="6"></textarea>
                         <br>
                         <input type="submit" value="Add Department" class="btn btn-submit">
                     </form>

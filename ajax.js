@@ -134,7 +134,42 @@ $(document).ready(function(){
             method : "POST",
             data : $("#signup-patient").serialize(),
             success : function(data){
+                if(data.search("Signup Successful") != -1){
+                    window.location.href = "sign-in-or-sign-up.php";
+                }
                 alert(data);
+            }
+        })
+    })
+
+
+    $("#signup-doc").on("submit",function(){
+        $.ajax({
+            url : "action.php",
+            method : "POST",
+            data : $("#signup-doc").serialize(),
+            success : function(data){
+                if(data.search("Signup Successful") != -1){
+                    window.location.href = "sign-in-or-sign-up.php";
+                }
+                alert(data);
+            }
+        })
+    })
+
+
+    $("#add_new_dep").on("submit",function(){
+        $.ajax({
+            url : "action.php",
+            method : "POST",
+            data : $("#add_new_dep").serialize(),
+            success : function(data){
+                if(data.isAdded){
+                    alert(data.name+" is added successfully. Id: "+data.id);
+                    window.location.href = "department.php?dep_id="+data.id;
+                }else{
+                    alert(data);
+                }
             }
         })
     })

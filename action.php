@@ -5,6 +5,7 @@
     class Process extends Database{
 
         public function verify_email($table,$email,$term){
+            $email = strtolower($email);
             $regexp = "/^[a-z0-9_-]+(\.[a-z0-9_-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/";
             if(!preg_match($regexp,$email)){
                 return "Invalid email";
@@ -20,7 +21,7 @@
 
         }
         public function verify_phone($table,$phone,$term){
-            $regexp = "/^(?:\+88|01|1)?(?:\d{11}|\d{13}|\d{10})$/";
+            $regexp = "/^(?:\+88|01)?(?:\d{11}|\d{13})$/";
             if(!preg_match($regexp,$phone)){
                 return "Invalid phone";
             }
@@ -33,6 +34,17 @@
                 return "Good";
             }
 
+        }
+
+        public function verify_if_exist($table,$content,$term){
+            $sql = "SELECT * FROM ".$table." WHERE ".$term." = '$content' LIMIT 1";
+            $query = mysqli_query($this->conn,$sql);
+            $count = mysqli_num_rows($query);
+            if($count == 1){
+                return "Already Exists!";
+            }else{
+                return "Good";
+            }
         }
 
         public function insert_record($table,$input){
@@ -49,6 +61,7 @@
         }
 
     }
+    
 
     $obj = new Process;
 
@@ -139,9 +152,125 @@
         }else{
             $insrt = array("p_email"=>$email,"p_name"=>$name,"p_dob"=>$dob,"p_gender"=>$gender,"p_address"=>$addrs,"p_phone"=>$phone,"p_password"=>$pass);
             $id = $obj->insert_record("patients",$insrt);
-            echo $id;
+            if($id){
+                echo $name.", Signup Successful. Your id is: ".$id;
+                exit();
+            }else{
+                echo "Registration unsuccessful!";
+                exit();
+            }
+        }
+
+    }
+
+
+    //Registering Doctors...
+    if(isset($_POST["d-email"])){
+        $email = $_POST["d-email"];
+        $name = $_POST["d-name"];
+        $phone = $_POST["d-phone"];
+        $depart = $_POST["d-department"];
+        $edu_arr = $_POST["deg"];
+        if(isset($_POST["day_available"])){
+            $routine_arr = $_POST["day_available"];
+        }else{
+            $routine_arr = array();
+        }
+        $pass = $_POST["d-pass"];
+        $cpass = $_POST["d-cpass"];
+
+        $data = $obj->verify_email("doctors",$email,"d_email");
+        if($data == "Already Exists!"){
+            echo "Email Already Exists!";
+            exit();
+        }else if($data == "Invalid email"){
+            echo "Email Format Invalid!";
             exit();
         }
+
+        if(strlen($pass)<6){
+            echo "Short Pass!";
+            exit();
+        }else if($pass !== $cpass){
+            echo "Password Mismatched!";
+            exit();
+        }
+
+        $education = "";
+        $count = COUNT($edu_arr);
+        for($i=0;$i<$count;$i++){
+            $item = $edu_arr[$i];
+            if(!empty($item)){
+                $education .= $item."`";
+            }
+        }
+        $education = substr($education, 0, -1);
+
+        $routine = "";
+        $count = COUNT($routine_arr);
+        for($i=0;$i<$count;$i++){
+            $item = $routine_arr[$i];
+            if(!empty($item)){
+                $routine .= $item.",";
+            }
+        }
+        $routine = substr($routine, 0, -1);
+
+        if(empty($email) || empty($name) || empty($phone) || empty($pass) || empty($cpass)){
+            echo "Fields Are Emplty!";
+            exit();
+        }else{
+            $insrt = array("d_email"=>$email,"d_name"=>$name,"d_contact"=>$phone,"d_education"=>$education,"d_routine"=>$routine,"d_password"=>$pass,"d_department_id"=>$depart);
+            $id = $obj->insert_record("doctors",$insrt);
+            if($id){
+                echo $name.", Signup Successful. Your id is: ".$id;
+                exit();
+            }else{
+                echo "Registration unsuccessful!";
+                exit();
+            }
+        }
+
+    }
+
+
+    //Add new department...
+    if(isset($_POST["dep-name"])){
+        $name = $_POST["dep-name"];
+        $seat = $_POST["dep-seats"];
+        if(empty($seat)){
+            $seat = 0;
+        }
+        $seat_cost = $_POST["dep-per-sit-cost"];
+        if(empty($seat_cost)){
+            $seat_cost = 0;
+        }
+        $details = $_POST["dep-details"];
+        if(empty($details)){
+            $details = "No details.";
+        }
+
+        if(empty($name)){
+            echo "Enter Department Name.";
+            exit();
+        }else{
+            $data = $obj->verify_if_exist("departments",$name,"dep_name");
+            if($data == "Good"){
+                $insrt = array("dep_name"=>$name,"dep_details"=>$details,"dep_seat"=>$seat,"seat_cost"=>$seat_cost);
+                $id = $obj->insert_record("departments",$insrt);
+                if($id){
+                    header("Content-Type: application/json");
+                    echo json_encode(array('id' => $id,'isAdded'=>1,'name'=>$name));
+                    exit();
+                }else{
+                    echo "Creation Unsuccessful";
+                    exit();
+                }
+            }
+            echo $data;
+            exit();
+        }
+
 
     }
 

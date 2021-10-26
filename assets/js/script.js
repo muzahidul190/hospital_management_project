@@ -70,16 +70,11 @@ window.onload = function() {
         let add_degree = document.getElementById('add-another-degree')
 
         add_degree.addEventListener('click', ()=>{
-            let degrees = document.querySelectorAll('.doc-degree');
-            for(i=0; i<degrees.length;i++){
-                element = degrees[i];
-                classes = element.getAttribute('class');
-                if(classes.search('hide-single-item') != -1){
-                    element.classList.remove('hide-single-item');
-                    element.classList.add('show-single-item');
-                    break;
-                }
-            }
+            let add_new_degree = document.createElement('input')
+            add_new_degree.setAttribute('class', "doc-degree");
+            add_new_degree.setAttribute('name',"deg[]");
+            add_new_degree.setAttribute('type', 'text');
+            doc_degrees.append(add_new_degree);
         })
 
     }

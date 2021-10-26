@@ -10,6 +10,7 @@
 body{
     background-color: #282C34;
     color: #d8d5c9;
+    overflow-x: hidden!important;
 }
 
 .content_wrapper{
@@ -187,6 +188,7 @@ div.single-item-design ul li a:hover{
     font-size: 2em;
     width: 255px;
     padding: 10px 20px;
+    transition: none;
 }
 #signinORsignup ul>li{
     font-size: 2em;
@@ -302,6 +304,7 @@ select{
 }
 .btn-add-another-field{
     display: block;
+    width: max-content;
     margin: 0 auto;
     background: green;
     padding: 10px 20px;

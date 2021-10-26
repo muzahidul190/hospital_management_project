@@ -156,7 +156,7 @@
                         <option value="" selected>Choose a department</option>
                         <?php
                             while($row = mysqli_fetch_assoc($dep_list)){
-                                echo '<option value="'.$row["dep_name"].'">'.$row["dep_name"].'</option>';
+                                echo '<option value="'.$row["dep_id"].'">'.$row["dep_name"].'</option>';
                             }
                         ?>
                     </select>
@@ -165,12 +165,8 @@
                     </label>
                     <div id="d-degrees">
                         <input type="text" name="deg[]" class="doc-degree">
-                        <input type="text" name="deg[]" class="doc-degree hide-single-item">
-                        <input type="text" name="deg[]" class="doc-degree hide-single-item">
-                        <input type="text" name="deg[]" class="doc-degree hide-single-item">
-                        <input type="text" name="deg[]" class="doc-degree hide-single-item">
-                        <button id="add-another-degree" class="btn btn-add-another-field">Add Another</button>
                     </div>
+                        <a id="add-another-degree" class="btn btn-add-another-field">Add Another</a>
                     
                     <br>
                     <div id="available_doc_days">
