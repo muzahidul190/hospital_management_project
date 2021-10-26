@@ -327,6 +327,7 @@ select{
 }
 #patient_view nav ul{
     display: flex;
+    width: 980px;
     flex-direction: row;
 }
 #patient_view nav ul li{
