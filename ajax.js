@@ -179,7 +179,17 @@ $(document).ready(function(){
         })
     })
 
-
+    $("#mark_done").click(function(){
+        console.log($("#mark_done"));
+        $.ajax({
+            url : "action.php",
+            method : "POST",
+            data: {mark_done_clicked: 1},
+            success : function(data){
+                alert(data);
+            }
+        })
+    })
 
 
 })

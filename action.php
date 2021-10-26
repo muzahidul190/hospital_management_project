@@ -60,6 +60,28 @@
             }
         }
 
+        public function return_sql_result($table,$term, $content, $order_by_term="", $order_by_type=""){
+            $sql = "SELECT * FROM $table WHERE $term =".$content;
+
+            if($order_by_type!= "" && $order_by_term!=""){
+                $sql.= " ORDER BY ".$order_by_term." ".$order_by_type;
+            }
+            
+            return mysqli_query($this->conn, $sql);
+        }
+        
+        public function get_day($day_number){
+            switch($day_number){
+                case 0: return "Saturday";
+                case 1: return "Sunday";
+                case 2: return "Monday";
+                case 3: return "Tuesday";
+                case 4: return "Wednesday";
+                case 5: return "Thursday";
+                case 6: return "Friday";
+            }
+        }
+
     }
     
 
@@ -270,4 +292,10 @@
             echo $data;
             exit();
         }
+    }
+
+    // Mark a patient appointment as done
+    if(isset($_POST['mark_done_clicked'])){
+        echo "Mark Clicked";
+        exit();
     }

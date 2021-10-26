@@ -125,6 +125,7 @@ section.management_view, section.patient_view{
 div.item_according_to_link{
     width: 75%;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 div.item_according_to_link div{
@@ -286,6 +287,15 @@ select{
     border: 2px solid rgb(59, 57, 57);
     border-radius: 5px;
 }
+.btn-success{
+    width: max-content;
+    color: rgb(29, 92, 14);
+    background-color: rgb(219, 219, 134);
+    padding: 5px 10px;
+    display: block;
+    margin: 10px auto;
+    text-decoration: none;
+}
 .btn-submit{
     width: 200px;
     color: #000;
@@ -385,6 +395,14 @@ div.doc_dashboard nav.secondary_nav ul{
     width: 200px;
     margin: 0 auto;
 }
+.color_black{
+    text-decoration: none;
+    color: #000;
+    padding: 5px;
+    font-size: 1.1em;
+    width: 200px;
+    margin: 0 auto;
+}
 .patient_list_view ul li a:hover{
     color: #d8d5c9;
     background-color: gray;
@@ -413,4 +431,19 @@ table>tbody>tr>th, table>tbody>tr>td{
     background: tomato;
     font-size: 1.3em;
     text-align:center;
+}
+#patient_list_doc>tbody>tr{
+    color: darkblue;
+}
+#patient_list_doc>tbody>tr:nth-child(odd){
+    background: rgba(53, 53, 52, 0.2);
+}
+.patient_name{
+    text-decoration: none;
+    font-family: candara;
+    font-weight: bolder;
+    color: rgb(77, 73, 102);
+}
+.patient_name:hover{
+    color: #000;
 }

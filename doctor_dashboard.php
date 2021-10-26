@@ -1,3 +1,9 @@
+<?php
+    include 'action.php';
+    $d_id = 3;
+    
+    $patient_list = $obj->return_sql_result("appointments", 'd_id_app', $d_id, "app_id", "DESC");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +13,8 @@
     <title>Doctor Dashboard| DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="ajax.js"></script>
 </head>
 <body>
     <div class="content_wrapper">
@@ -68,12 +76,50 @@
                 <div id="patient_list" class="patient_list_view form-item item_according_to_link">
                     <div id="doctor_approval">
                     <h2>Your patients</h2>
-                    <ul class="doctor_approval_list">
-                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
-                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
-                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
-                        <li><a class="single_patient_link" href="patient.php">Patient 1</a></li>
-                    </ul>
+
+                    <table width="100%" style="transition:none;" id="patient_list_doc">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    Names
+                                </th>
+                                <th>
+                                    Appointment Date
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+                            <?php
+                                
+                                while($row=mysqli_fetch_assoc($patient_list)){
+                                    echo '<tr><td class="color_black">';
+
+                                    $patient_name = $obj->return_sql_result("patients", 'p_id', $row['p_id_app']);
+                                    ?>
+                                    <a class="patient_name" href="patient.php?p_id=<?php echo $row['p_id_app']?>">   
+                                        <?php
+                                            $patient_name = mysqli_fetch_assoc($patient_name)['p_name'];
+                                            echo $patient_name;
+                                        ?>
+                                    </a>
+
+                                    <?php
+
+                                    echo '</td><td class="color_black">';
+                                    echo $obj->get_day($row['app_routine']);
+                                    echo '</td><td class="color_black">';
+                                ?>
+                                    <a id="mark_done" href="#m" class="btn btn-success">
+                                        Mark Done
+                                    </a>
+                                <?php  
+                                    echo '</td></tr>';
+                                
+                                }
+                            ?>
+                        </tbody>
+                    </table>
                     </div>
                     
                 </div>
