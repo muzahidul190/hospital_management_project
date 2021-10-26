@@ -59,7 +59,7 @@ $dep_list = mysqli_query($conn,$sql);
             <nav class="secondary_nav">
                 <ul>
                     <li>
-                        <a href="patient">My Profile</a>
+                        <a href="patient.php">My Profile</a>
                     </li>
                     <li>
                         <a href="#appointment">Make an Appointment</a>

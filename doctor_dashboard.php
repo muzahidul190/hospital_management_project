@@ -48,7 +48,7 @@
                     <nav class="secondary_nav">
                         <ul>
                             <li>
-                                <a href="doctor">My Profile</a>
+                                <a href="doctor.php">My Profile</a>
                             </li>
                             <li>
                                 <a href="#patient_list">See your patient list</a>

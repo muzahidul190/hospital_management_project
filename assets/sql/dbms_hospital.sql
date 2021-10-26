@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 23, 2021 at 08:23 PM
+-- Generation Time: Oct 26, 2021 at 02:29 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -79,8 +79,9 @@ CREATE TABLE IF NOT EXISTS `departments` (
   `dep_seat` int(5) NOT NULL,
   `seat_cost` int(11) DEFAULT NULL,
   `dep_seat_booked` int(5) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`dep_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`dep_id`),
+  UNIQUE KEY `dep_name` (`dep_name`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `departments`
@@ -88,7 +89,8 @@ CREATE TABLE IF NOT EXISTS `departments` (
 
 INSERT INTO `departments` (`dep_id`, `dep_name`, `dep_details`, `dep_seat`, `seat_cost`, `dep_seat_booked`) VALUES
 (1, 'Medicine', 'This department deals with medicine part.', 30, 3000, 0),
-(2, 'Neurology', 'This dept. deals problems regarding Neural diseases.', 15, 5000, 0);
+(2, 'Neurology', 'This dept. deals problems regarding Neural diseases.', 15, 5000, 0),
+(24, 'Gyno', 'Safe home to Moms.', 75, 2000, 0);
 
 -- --------------------------------------------------------
 
@@ -102,20 +104,23 @@ CREATE TABLE IF NOT EXISTS `doctors` (
   `d_email` varchar(25) NOT NULL,
   `d_name` varchar(30) NOT NULL,
   `d_contact` int(15) NOT NULL,
-  `d_education` varchar(55) DEFAULT NULL,
+  `d_education` varchar(200) DEFAULT NULL,
+  `d_routine` varchar(50) DEFAULT NULL,
   `d_password` varchar(35) NOT NULL,
   `d_approved` tinyint(1) NOT NULL DEFAULT '0',
   `d_department_id` int(5) DEFAULT NULL,
   PRIMARY KEY (`d_id`),
   UNIQUE KEY `username` (`d_email`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctors`
 --
 
-INSERT INTO `doctors` (`d_id`, `d_email`, `d_name`, `d_contact`, `d_education`, `d_password`, `d_approved`, `d_department_id`) VALUES
-(1, 'doctor@gmail.com', 'Dr. Abbas Uddin', 1789123456, 'MBBS', '12345678', 0, 2);
+INSERT INTO `doctors` (`d_id`, `d_email`, `d_name`, `d_contact`, `d_education`, `d_routine`, `d_password`, `d_approved`, `d_department_id`) VALUES
+(1, 'doctor@gmail.com', 'Dr. Abbas Uddin', 1789123456, 'MBBS', NULL, '12345678', 0, 2),
+(2, 'doc2@gmail.com', 'Dr.Tamim Mahmud', 1234567890, 'CSE, NUBTK', NULL, 'kfjugheirutyhg', 1, 1),
+(3, 'Pridldfj@mail.com', 'Dr. Prithvi Biswas', 1923467593, 'Nubtk, Khulna`MBBS, Khulna 250 bed', '1,6', 'qwerty', 0, 24);
 
 -- --------------------------------------------------------
 
@@ -129,39 +134,24 @@ CREATE TABLE IF NOT EXISTS `patients` (
   `p_email` varchar(30) NOT NULL,
   `p_name` varchar(25) NOT NULL,
   `p_dob` date NOT NULL,
+  `p_gender` enum('m','f','n') DEFAULT NULL,
   `p_address` varchar(55) DEFAULT NULL,
   `p_phone` int(15) NOT NULL,
   `p_password` varchar(35) NOT NULL,
   PRIMARY KEY (`p_id`),
   UNIQUE KEY `p_username` (`p_email`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `patients`
 --
 
-INSERT INTO `patients` (`p_id`, `p_email`, `p_name`, `p_dob`, `p_address`, `p_phone`, `p_password`) VALUES
-(1, 'abul', 'abul_bashar', '2021-10-13', NULL, 1956789043, 'ghseikfuyhtgidfhgksdf');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `routine`
---
-
-DROP TABLE IF EXISTS `routine`;
-CREATE TABLE IF NOT EXISTS `routine` (
-  `r_id` int(10) NOT NULL AUTO_INCREMENT,
-  `d_id_r` int(10) NOT NULL,
-  `sat` tinyint(1) NOT NULL DEFAULT '0',
-  `sun` tinyint(1) NOT NULL DEFAULT '0',
-  `mon` tinyint(1) NOT NULL DEFAULT '0',
-  `tues` tinyint(1) NOT NULL DEFAULT '0',
-  `wed` tinyint(1) NOT NULL DEFAULT '0',
-  `thir` tinyint(1) NOT NULL DEFAULT '0',
-  `fri` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`r_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+INSERT INTO `patients` (`p_id`, `p_email`, `p_name`, `p_dob`, `p_gender`, `p_address`, `p_phone`, `p_password`) VALUES
+(1, 'abul@mail.com', 'abul_bashar', '2021-10-13', 'm', NULL, 1956789043, 'ghseikfuyhtgidfhgksdf'),
+(2, 'someone@mail.com', 'Some One', '2003-07-23', 'f', 'PoncoGor, Bangladesh', 1925483729, 'qwerty'),
+(3, 'someone@mail.coms', 'Muzahidul Islam', '2021-10-01', 'm', 'Koyra', 1966928488, '123456'),
+(4, 'textmail.dd@gmail.com', 'Test Person', '1983-08-08', 'n', 'Noakhali', 1234567866, 'janinapass'),
+(5, 'patient3@mail.com', 'Mr. Patient', '1973-11-21', 'f', 'Satkhira', 1723984612, 'patient123');
 
 -- --------------------------------------------------------
 
