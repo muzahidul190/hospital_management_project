@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 26, 2021 at 02:29 PM
--- Server version: 5.7.26
--- PHP Version: 7.2.18
+-- Generation Time: Oct 26, 2021 at 05:35 PM
+-- Server version: 5.7.31
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -59,11 +58,19 @@ CREATE TABLE IF NOT EXISTS `appointments` (
   `d_id_app` int(11) NOT NULL,
   `p_id_app` int(11) NOT NULL,
   `dep_id_app` int(10) DEFAULT NULL,
-  `app_routine` datetime DEFAULT NULL,
+  `app_routine` int(7) DEFAULT NULL,
   `app_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `app_status` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`app_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `appointments`
+--
+
+INSERT INTO `appointments` (`app_id`, `d_id_app`, `p_id_app`, `dep_id_app`, `app_routine`, `app_created`, `app_status`) VALUES
+(1, 3, 2, 1, 6, '2021-10-27 21:47:32', 0),
+(2, 3, 1, 3, 1, '2021-10-27 22:13:49', 0);
 
 -- --------------------------------------------------------
 
@@ -152,6 +159,26 @@ INSERT INTO `patients` (`p_id`, `p_email`, `p_name`, `p_dob`, `p_gender`, `p_add
 (3, 'someone@mail.coms', 'Muzahidul Islam', '2021-10-01', 'm', 'Koyra', 1966928488, '123456'),
 (4, 'textmail.dd@gmail.com', 'Test Person', '1983-08-08', 'n', 'Noakhali', 1234567866, 'janinapass'),
 (5, 'patient3@mail.com', 'Mr. Patient', '1973-11-21', 'f', 'Satkhira', 1723984612, 'patient123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `routine`
+--
+
+DROP TABLE IF EXISTS `routine`;
+CREATE TABLE IF NOT EXISTS `routine` (
+  `r_id` int(10) NOT NULL AUTO_INCREMENT,
+  `d_id_r` int(10) NOT NULL,
+  `sat` tinyint(1) NOT NULL DEFAULT '0',
+  `sun` tinyint(1) NOT NULL DEFAULT '0',
+  `mon` tinyint(1) NOT NULL DEFAULT '0',
+  `tues` tinyint(1) NOT NULL DEFAULT '0',
+  `wed` tinyint(1) NOT NULL DEFAULT '0',
+  `thir` tinyint(1) NOT NULL DEFAULT '0',
+  `fri` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`r_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
