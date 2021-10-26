@@ -1,11 +1,12 @@
 
 <?php
 
-include 'db_con.php';
+include 'action.php';
 
 $sql = "SELECT * FROM departments";
 
 $dep_list = mysqli_query($conn,$sql);
+$dep_list2 = mysqli_query($conn,$sql);
 
 ?>
 
@@ -18,6 +19,8 @@ $dep_list = mysqli_query($conn,$sql);
     <title>Patient Dashboard|DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="ajax.js"></script>
 </head>
 <body>
     <div class="content_wrapper">
@@ -82,12 +85,12 @@ $dep_list = mysqli_query($conn,$sql);
             <div id="appointment" class="single-item-design form-item" >
                 <form action="">
                     <legend><h2>Make an Appointment</h2></legend>
-                    <label for="department">
+                    <label for="p_department_app">
                         <h3>Please select your department:</h3>
                     </label>
-                    <select name="department" id="p-department">
+                    <select name="department" id="p_department_app">
                         <?php
-                            while($row = mysqli_fetch_assoc($dep_list)){
+                            while($row = mysqli_fetch_assoc($dep_list2)){
                                 echo '<option value="'.$row["dep_name"].'">'.$row["dep_name"].'</option>';
                             }
                         ?>
@@ -121,15 +124,15 @@ $dep_list = mysqli_query($conn,$sql);
             <div id="book_seat" class="single-item-design hide-single-item form-item" style="padding: 0 50px;">
                 <form action="">
                     <legend><h2>Book a seat</h2></legend>
-                    <label for="department">
+                    <label for="p_department_seat">
                         <h3>Please select your department:</h3>
                     </label>
-                    <select name="department" id="department">
-                        <option value="medicine">Medicine</option>
-                        <option value="gyno">Gynocololy</option>
-                        <option value="neural">Neural</option>
-                        <option value="sergical">Sergical</option>
-                        <option value="pathology">Pathology</option>
+                    <select name="department" id="p_department_seat">
+                        <?php
+                            while($row = mysqli_fetch_assoc($dep_list)){
+                                echo '<option value="'.$row["dep_name"].'">'.$row["dep_name"].'</option>';
+                            }
+                        ?>
                     </select>
                     <h2>Seat is available</h2>
                     <h2>This seat will cost you: 1000tk</h2>
