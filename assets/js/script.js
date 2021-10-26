@@ -104,6 +104,11 @@ window.onload = function() {
     }
 
     let doc_dashboard = document.querySelector('.doc_dashboard');
+    let url = window.location.href;
+    if(url.search('doctor_dashboard.php#update_details')!= -1){
+        let update_details = document.getElementById('update_details');
+        hide_all_forms_except(update_details)
+    }
     if(doc_dashboard != null){
         doc_dashboard_nav = document.querySelectorAll('.secondary_nav>ul>li>a');
         
@@ -116,6 +121,10 @@ window.onload = function() {
                     hide_all_forms_except(patient_list);
                 }
                 else if(element_text == 'update_details'){
+                    if(url.search('doctor_dashboard.php#update_details') == -1){
+                        window.location.href = 'doctor_dashboard.php#update_details';
+                    }
+                    
                     let update_details = document.getElementById('update_details');
                     hide_all_forms_except(update_details)
                 }

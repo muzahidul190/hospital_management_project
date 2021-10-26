@@ -82,6 +82,12 @@
             }
         }
 
+        public function update_table_values($table,$this_field, $with_this_value, $that_field, $this_value){
+            $sql = "UPDATE ".$table." SET `".$this_field."`= ".$with_this_value." WHERE `".$that_field."` =".$this_value;
+            return mysqli_query($this->conn, $sql);
+        }
+        
+
     }
     
 
@@ -295,7 +301,11 @@
     }
 
     // Mark a patient appointment as done
-    if(isset($_POST['mark_done_clicked'])){
-        echo "Mark Clicked";
+    if(isset($_POST['mark_done_clicked']) && isset($_POST['appointment_id'])){
+
+        
+        $data =  $obj->update_table_values("appointments", "app_status", 1, "app_id", $_POST['appointment_id']);
+        echo $data;
         exit();
     }
+

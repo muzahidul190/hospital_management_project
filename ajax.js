@@ -181,11 +181,11 @@ $(document).ready(function(){
 
     $("#mark_done").click(function(){
         console.log($("#mark_done"));
-        $("#ma")
+        let app_id = $("#mark_done").parent().parent().children().first().children('a').data('appid');
         $.ajax({
             url : "action.php",
             method : "POST",
-            data: {mark_done_clicked: 1},
+            data: {mark_done_clicked: 1,appointment_id: app_id },
             success : function(data){
                 alert(data);
             }

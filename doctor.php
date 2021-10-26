@@ -68,7 +68,27 @@ if($count > 0){
         </div>
     </div>
     <main>
-        <div class="conten_wrapper">
+        <!-- Only viewable by doctors and admin -->
+        <div class="content_wrapper">
+            <div class="wrapper">
+                <div id="patient_view" class="doc_dashboard">
+                    <nav class="secondary_nav">
+                        <ul>
+                            <li>
+                                <a href="doctor.php">My Profile</a>
+                            </li>
+                            <li>
+                                <a href="doctor_dashboard.php">See your patient list</a>
+                            </li>
+                            <li><a href="#update_details">
+                                Update your account details.
+                            </a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="content_wrapper">
             <div class="wrapper">
             <div class="patient_details">
                 <h2 style="text-align:center; padding:10px;display:block; font-size:2em;"><span class="patient">
