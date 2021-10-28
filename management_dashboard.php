@@ -5,24 +5,17 @@
     $unap_doc_sql = $obj->return_sql_result("doctors", "d_approved", "0");
     $unapproved_doc_count = mysqli_num_rows($unap_doc_sql);
 
-    $sql = "SELECT * FROM departments ORDER BY dep_name ASC";
-    $dep_sql = mysqli_query($conn,$sql);
-    if($result=mysqli_query($conn,$sql)){
-        $total_dept = mysqli_num_rows($result);
-    }
-    $sql = "SELECT * FROM patients";
-    $pat_sql = mysqli_query($conn,$sql);
-    if($result=mysqli_query($conn,$sql)){
-        $total_patients = mysqli_num_rows($result);
-    }
-    $sql = "SELECT * FROM doctors WHERE d_approved = 1";
-    $doc_sql = mysqli_query($conn,$sql);
-    if($result=mysqli_query($conn,$sql)){
-        $doc_count = mysqli_num_rows($result);
-    }
+    $dep_sql = $obj->return_sql_result("departments", "", "", "dep_name", "ASC");
+    $total_dept = mysqli_num_rows($dep_sql);
 
+    $pat_sql = $obj->return_sql_result("patients");
+    $total_patients = mysqli_num_rows($pat_sql);
 
+    $doc_sql = $obj->return_sql_result("doctors","d_approved", 1);
+    $doc_count = mysqli_num_rows($doc_sql);
 
+    $booked_seat = $obj->return_sql_result("seat_booking", 'seat_status', 0);
+    $booked_seat_count = mysqli_num_rows($booked_seat);
 
 ?>
 
@@ -174,10 +167,10 @@
             <tbody>
                 <tr>
                     <th>
-                        Names
+                        Patient Names
                     </th>
                     <th>
-                        Appointment Date
+                        Booking Date
                     </th>
                     <th>
                         Action

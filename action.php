@@ -60,8 +60,12 @@
             }
         }
 
-        public function return_sql_result($table,$term, $content, $order_by_term="", $order_by_type="",$limit=""){
-            $sql = "SELECT * FROM $table WHERE $term =".$content;
+        public function return_sql_result($table,$term="", $content="", $order_by_term="", $order_by_type="",$limit=""){
+            $sql = "SELECT * FROM $table "; 
+
+            if(!empty($term)){
+                $sql.="WHERE $term =$content";
+            }
 
             if($order_by_type!= "" && $order_by_term!=""){
                 $sql.= " ORDER BY ".$order_by_term." ".$order_by_type;
