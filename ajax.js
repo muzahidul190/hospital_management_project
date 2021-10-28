@@ -210,9 +210,18 @@ $(document).ready(function(){
                 data: data,
                 success : function(data){
                     alert(data);
+                    if(data="Released this seat."){
+                        $('#booked_seat_count').html($('#booked_seat_count').html()-1);
+                    }
                     parent_tr.remove();
                     if(parent_td.childElementCount == 1){
-                        parent_td.innerHTML = parent_td.innerHTML + ("<tr> <td  colspan='3'>No upcoming appointments for you. </td></tr>");
+                        if(data == "Released this seat."){
+                            parent_td.innerHTML = parent_td.innerHTML + ("<tr> <td  colspan='3'>No Booked Seat.. </td></tr>");
+                        }
+                        else{
+                            parent_td.innerHTML = parent_td.innerHTML + ("<tr> <td  colspan='3'>No upcoming appointments for you. </td></tr>");
+                        }
+                        
                     }
 
                 }

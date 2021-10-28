@@ -94,7 +94,7 @@
                     </li>
                     <li>
                         <a href="#seat_list_management">
-                            Manage Seats(<?php echo $booked_seat_count; ?>)
+                            Manage Seats (<span id="booked_seat_count"><?php echo $booked_seat_count; ?></span>)
                         </a>
                     </li>
                     <li>

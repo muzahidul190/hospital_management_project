@@ -320,12 +320,12 @@
         //     exit();
             $department = $obj->return_sql_result("departments", "dep_id", $_POST['department_id'],"","", '1');
 
-            $department_seat_no = mysqli_fetch_row($department);
-            echo $department_seat_no['dep_seat_booked'];
-            exit();
+            $department_seat_no = mysqli_fetch_assoc($department)['dep_seat_booked']-1;
 
-            $obj->update_table_values("seat_booking", "app_status", 1, "app_id", $_POST['appointment_id']);
-            echo "Marked this appointment as done.";
+            $obj->update_table_values("departments", "dep_seat_booked", $department_seat_no,"dep_id", $_POST['department_id']);
+
+            $obj->update_table_values("seat_booking", "seat_status", 1, "booking_id", $_POST['booking_id']);   
+            echo "Released this seat.";
             exit();
         }
         
