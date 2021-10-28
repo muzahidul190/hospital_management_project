@@ -213,7 +213,7 @@
 
                     <td class="color_black">
                     <a href="#m" class="btn btn-success mark_done_seat">
-                        Mark Done
+                        Release Patient
                     </a>
                 </td>
             </tr>
