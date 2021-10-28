@@ -22,6 +22,8 @@
         $doc_count = mysqli_num_rows($result);
     }
 
+    
+
 
 ?>
 
@@ -99,6 +101,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="#seat_list_management">
+                            Manage Seats
+                        </a>
+                    </li>
+                    <li>
                         <a href="#add_another_dept">
                             Add another department
                         </a>
@@ -159,7 +166,64 @@
                         ?>
                     </ul>
                 </div>
+                
+                <div id="seat_list_management" class="single-item-design hide-single-item">
+                    <div id="doctor_approval">
+                    <h2>Your patients</h2>
 
+        <table width="100%" style="transition:none;">
+            <tbody>
+                <tr>
+                    <th>
+                        Names
+                    </th>
+                    <th>
+                        Appointment Date
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+        <?php
+            $count = 0;            
+            while($row=mysqli_fetch_assoc($patient_list)){
+                if(!$row['app_status']){
+                    $count++;
+                    echo '<tr><td class="color_black">';
+                    $patient_name = $obj->return_sql_result("patients", 'p_id', $row['p_id_app']);
+                    ?>
+                        <a class="patient_name" href="patient.php?p_id=<?php echo $row['p_id_app']?>" data-appid="<?php echo $row['app_id']?>">   
+                            <?php
+                                $patient_name = mysqli_fetch_assoc($patient_name)['p_name'];
+                                echo $patient_name;
+                            ?>
+                        </a>
+                    </td>
+
+                    <td class="color_black">
+                        <?php echo $obj->get_day($row['app_routine']);?>
+                    </td>
+
+                    <td class="color_black">
+                    <a href="#m" class="btn btn-success mark_done">
+                        Mark Done
+                    </a>
+                </td>
+            </tr>
+                
+                <?php
+                    }
+                }
+                if($count == 0) {
+                    echo "<tr> <td  colspan='3'>No upcoming appointments for you. </td></tr>";
+                }
+
+                ?>
+                </tbody>
+            </table>
+            </div>
+            
+        </div>
                 
                 <div id="add_another_dept" class="single-item-design hide-single-item">
                     <h2>Add Another Department</h2>

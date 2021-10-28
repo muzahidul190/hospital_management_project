@@ -22,7 +22,7 @@
             <header>
                 <div class="logo">
                     <h2>DBMS Hospital</h2>
-                    <h3>Your favourite place for treatment</h3>
+                    <h3>Your favorite place for treatment</h3>
                 </div>
                 <nav id="main_nav">
                     <ul class="nav_buttons">
@@ -70,7 +70,7 @@
             </div>
         </div>
 
-        <div class="conten_wrapper">
+        <div class="content_wrapper">
             <div class="wrapper">
 
                 <div id="patient_list" class="patient_list_view form-item item_according_to_link">
@@ -138,7 +138,7 @@
                     </label>
                     <input type="text" name="d-address" id="d-address">
         
-                    <label for="d-phpne"><h3>Phone No:</h3></label>
+                    <label for="d-phone"><h3>Phone No:</h3></label>
                     <input type="tel" name="d-phone" id="d-phone" pattern="{0-9}[11]">
                     
                     <label for="doc-edu">
@@ -155,9 +155,9 @@
                     </label>
                     <select name="department" id="department">
                         <option value="medicine">Medicine</option>
-                        <option value="gyno">Gynocololy</option>
+                        <option value="gyno">Gynecology</option>
                         <option value="neural">Neural</option>
-                        <option value="sergical">Sergical</option>
+                        <option value="sergical">Surgical</option>
                         <option value="pathology">Pathology</option>
                     </select>
 
