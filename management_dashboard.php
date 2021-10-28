@@ -212,7 +212,7 @@
                     </td>
 
                     <td class="color_black">
-                    <a href="#m" class="btn btn-success mark_done">
+                    <a href="#m" class="btn btn-success mark_done_seat">
                         Mark Done
                     </a>
                 </td>
@@ -222,7 +222,7 @@
                     }
                 }
                 if($count == 0) {
-                    echo "<tr> <td  colspan='3'>No upcoming appointments for you. </td></tr>";
+                    echo "<tr> <td  colspan='3'>No Booked Seat. </td></tr>";
                 }
 
                 ?>

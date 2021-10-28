@@ -203,6 +203,29 @@ $(document).ready(function(){
         })
     })
 
+    let mark_done_seat = document.querySelectorAll('.mark_done_seat');
+    mark_done_seat.forEach(element => {
+        element.addEventListener('click', ()=>{
+            let parent_tr = element.parentElement.parentElement;
+            let parent_td = parent_tr.parentElement;
+            let book_id = parent_tr.children[0].children[0].getAttribute('data-bookingId');
+            $.ajax({
+                url : "action.php",
+                method : "POST",
+                data: {mark_done_clicked: 1,booking_id: book_id },
+                success : function(data){
+                    alert(data);
+                    parent_tr.remove();
+                    
+                    if(parent_td.childElementCount == 1){
+                        parent_td.innerHTML = parent_td.innerHTML + ("<tr> <td  colspan='3'>No upcoming appointments for you. </td></tr>");
+                    }
+
+                }
+            })
+        })
+    })
+
     $("#p_department_seat").change(function(){
         var id = $("#p_department_seat").val();
         $.ajax({
