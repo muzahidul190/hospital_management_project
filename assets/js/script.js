@@ -16,6 +16,9 @@ window.onload = function() {
                 }else if((links[i].getAttribute('href')=="#add_another_dept")){
                     hide_all_except_clicked(links[i].getAttribute('href'));
                 }
+                else if((links[i].getAttribute('href')=="#seat_list_management")){
+                    hide_all_except_clicked(links[i].getAttribute('href'));
+                }
             });
         }
     }
