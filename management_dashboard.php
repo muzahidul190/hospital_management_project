@@ -170,6 +170,9 @@
                         Patient Names
                     </th>
                     <th>
+                        Department
+                    </th>
+                    <th>
                         Booking Date
                     </th>
                     <th>
@@ -177,23 +180,35 @@
                     </th>
                 </tr>
         <?php
-            $count = 0;            
-            while($row=mysqli_fetch_assoc($patient_list)){
-                if(!$row['app_status']){
-                    $count++;
+            $count = $booked_seat_count;            
+            while($row=mysqli_fetch_assoc($booked_seat)){
+
+                if(!empty($row['p_id'])){
                     echo '<tr><td class="color_black">';
-                    $patient_name = $obj->return_sql_result("patients", 'p_id', $row['p_id_app']);
+                    $patient_name = $obj->return_sql_result("patients", 'p_id', $row['p_id']);
+
                     ?>
-                        <a class="patient_name" href="patient.php?p_id=<?php echo $row['p_id_app']?>" data-appid="<?php echo $row['app_id']?>">   
+                        <a class="patient_name" href="patient.php?p_id=<?php echo $row['p_id']?>" data-appid="<?php echo $row['p_id']?>">   
                             <?php
                                 $patient_name = mysqli_fetch_assoc($patient_name)['p_name'];
                                 echo $patient_name;
                             ?>
                         </a>
                     </td>
-
+                    <td>
+                    <?php
+                        $department_name = $obj->return_sql_result("departments", 'dep_id', $row['dep_id']);
+                    ?>
+                    <a class="patient_name" href="department.php?dep_id=<?php echo $row['dep_id']?>" data-bookingId="<?php echo $row['booking_id']?>"> 
+                    <?php  
+                        $department_name = mysqli_fetch_assoc($department_name)['dep_name'];
+                                echo $department_name;
+                    ?>
+                    </a>
+                    
+                    </td>
                     <td class="color_black">
-                        <?php echo $obj->get_day($row['app_routine']);?>
+                        <?php echo $row['booking_time'];?>
                     </td>
 
                     <td class="color_black">
