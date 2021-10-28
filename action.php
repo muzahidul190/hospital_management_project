@@ -308,11 +308,28 @@
     }
 
     // Mark a patient appointment as done
-    if(isset($_POST['mark_done_clicked']) && isset($_POST['appointment_id'])){
+    if(isset($_POST['mark_done_clicked'])){
+        if(isset($_POST['appointment_id'])){
+            $obj->update_table_values("appointments", "app_status", 1, "app_id", $_POST['appointment_id']);
+            echo "Marked this appointment as done.";
+            exit();
+        }
 
-        $obj->update_table_values("appointments", "app_status", 1, "app_id", $_POST['appointment_id']);
-        echo "Marked this appointment as done.";
-        exit();
+        if(isset($_POST['booking_id'])){
+        //     echo "Booking ID: ".$_POST['booking_id']. " Dept ID: ".$_POST['department_id'];
+        //     exit();
+            $department = $obj->return_sql_result("departments", "dep_id", $_POST['department_id'],"","", '1');
+
+            $department_seat_no = mysqli_fetch_row($department);
+            echo $department_seat_no['dep_seat_booked'];
+            exit();
+
+            $obj->update_table_values("seat_booking", "app_status", 1, "app_id", $_POST['appointment_id']);
+            echo "Marked this appointment as done.";
+            exit();
+        }
+        
+        
     }
 
 

@@ -188,7 +188,7 @@
                     $patient_name = $obj->return_sql_result("patients", 'p_id', $row['p_id']);
 
                     ?>
-                        <a class="patient_name" href="patient.php?p_id=<?php echo $row['p_id']?>" data-appid="<?php echo $row['p_id']?>">   
+                        <a class="patient_name" href="patient.php?p_id=<?php echo $row['p_id']?>">   
                             <?php
                                 $patient_name = mysqli_fetch_assoc($patient_name)['p_name'];
                                 echo $patient_name;
@@ -199,7 +199,7 @@
                     <?php
                         $department_name = $obj->return_sql_result("departments", 'dep_id', $row['dep_id']);
                     ?>
-                    <a class="patient_name" href="department.php?dep_id=<?php echo $row['dep_id']?>" data-bookingId="<?php echo $row['booking_id']?>"> 
+                    <a class="patient_name" href="department.php?dep_id=<?php echo $row['dep_id']?>"> 
                     <?php  
                         $department_name = mysqli_fetch_assoc($department_name)['dep_name'];
                                 echo $department_name;
@@ -212,7 +212,7 @@
                     </td>
 
                     <td class="color_black">
-                    <a href="#m" class="btn btn-success mark_done_seat">
+                    <a href="#m" class="btn btn-success mark_done" data-book-and-dep-id="<?php echo $row['booking_id'].','.$row['dep_id']?>">
                         Mark Done
                     </a>
                 </td>
@@ -222,7 +222,7 @@
                     }
                 }
                 if($count == 0) {
-                    echo "<tr> <td  colspan='3'>No Booked Seat. </td></tr>";
+                    echo "<tr> <td  colspan='4'>No Booked Seat. </td></tr>";
                 }
 
                 ?>
