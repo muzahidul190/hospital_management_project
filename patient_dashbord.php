@@ -88,7 +88,7 @@ $dep_list2 = mysqli_query($conn,$sql);
                     <label for="p_department_app">
                         <h3>Please select your department:</h3>
                     </label>
-                    <select name="department" id="p_department_app">
+                    <select name="p_department_appointment" id="p_department_app">
                         <?php
                             while($row = mysqli_fetch_assoc($dep_list2)){
                                 echo '<option value="'.$row["dep_id"].'">'.$row["dep_name"].'</option>';
@@ -103,11 +103,11 @@ $dep_list2 = mysqli_query($conn,$sql);
 
                     <div id="selected_doc_availability"style="display:none;">
                         <h2>Dr. X is available for the following days:</h2>
-                        <ul id="doc-available-day">
-                        </ul>
+                        <select id="doc-available-day" name="doc-available-day">
+                        </select>
                     </div>
 
-                    <button type="submit" class="btn btn-submit btn-appointment" disabled>
+                    <button id="btn-appointment" type="submit" class="btn btn-submit" disabled>
                         Appoint this doctor    
                     </button>
 

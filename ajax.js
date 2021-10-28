@@ -338,11 +338,13 @@ $(document).ready(function(){
                 success: function(data){
                     $("#doc-available-day").html('');
                     for(var i=0; i<data.split(',').length; i++){
-                        var li_item = "<li><span>"+get_day(parseInt(data.split(',')[i])) +"</span></li>"
+
+                        var li_item = "<option value='"+parseInt(data.split(',')[i]) +"'>"+ get_day(parseInt(data.split(',')[i]))+"</option>"
+                        
                         $("#doc-available-day").html($("#doc-available-day").html()+ li_item);
                     }
                     $("#selected_doc_availability").show();
-                    $(".btn-appointment").attr('disabled', false);
+                    $("#btn-appointment").attr('disabled', false);
                     
                     // data = JSON.stringify(data);
                     // var json_obj = JSON.parse(data);
@@ -356,6 +358,18 @@ $(document).ready(function(){
                 }
             })
         }
+    })
+    $('#btn-appointment').on('click', ()=>{
+        // EDIT Patient ID here
+        var patient_id = 2;
+        $.ajax({
+            url: "action.php",
+            method: "POST",
+            data: $("#make_appointment").serialize() + "&patient_id="+patient_id,
+            success: function (data){
+                alert(data)
+            }
+        })
     })
 
 

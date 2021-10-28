@@ -55,6 +55,7 @@
             
             $query = mysqli_query($this->conn,$sql);
             $last_id = mysqli_insert_id($this->conn);
+
             if($query){
                 return $last_id;
             }
@@ -391,6 +392,23 @@
         $doc =  mysqli_fetch_assoc($doc);
         echo $doc['d_routine'];
         exit();
+    }
+
+    if(isset($_POST['doc-available-day'])){
+        $dep_id = $_POST['p_department_appointment'];
+        $pat_id = $_POST['patient_id'];
+        $doc_id = $_POST['select_doc'];
+        $routine = $_POST['doc-available-day']; 
+        if($obj->insert_record('appointments',array(
+            "d_id_app"=> $doc_id,
+            "p_id_app" => $pat_id,
+            "dep_id_app" => $dep_id,
+            "app_routine" => $routine
+        )))
+            echo "Appointment was successful";
+        else
+            echo "Appointment was not made";
+
     }
 
     /// WORK NEEDED HERE
