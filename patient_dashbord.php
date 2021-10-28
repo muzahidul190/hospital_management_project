@@ -89,6 +89,7 @@ $dep_list2 = mysqli_query($conn,$sql);
                         <h3>Please select your department:</h3>
                     </label>
                     <select name="p_department_appointment" id="p_department_app">
+                        <option value="0">Select a department</option>
                         <?php
                             while($row = mysqli_fetch_assoc($dep_list2)){
                                 echo '<option value="'.$row["dep_id"].'">'.$row["dep_name"].'</option>';
