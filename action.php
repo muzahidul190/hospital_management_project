@@ -255,8 +255,8 @@
             echo "Fields Are Emplty!";
             exit();
         }else{
-            $insrt = array("d_email"=>$email,"d_name"=>$name,"d_contact"=>$phone,"d_education"=>$education,"d_routine"=>$routine,"d_password"=>$pass,"d_department_id"=>$depart);
-            $id = $obj->insert_record("doctors",$insrt);
+            $insert_these_data = array("d_email"=>$email,"d_name"=>$name,"d_contact"=>$phone,"d_education"=>$education,"d_routine"=>$routine,"d_password"=>$pass,"d_department_id"=>$depart);
+            $id = $obj->insert_record("doctors", $insert_these_data);
             if($id){
                 echo $name.", Signup Successful. Your id is: ".$id;
                 exit();
@@ -342,5 +342,64 @@
         $booked = $value["dep_seat_booked"];
         header("Content-Type: application/json");
         echo json_encode(array('cost' => $seat_cost,'total_seat'=>$dep_seat,'booked'=>$booked));
+        exit();
+    }
+
+    if(isset($_POST["patient_id_appoint_seat"])){
+        $p_id = $_POST["patient_id_appoint_seat"];
+        $dept_id = $_POST['department'];
+
+        $department = $obj->return_sql_result("departments", "dep_id", $_POST['department'],"","", '1');
+
+        $department_seat_no = mysqli_fetch_assoc($department)['dep_seat_booked']+1;
+
+        $obj->update_table_values("departments", "dep_seat_booked", $department_seat_no,"dep_id", $dept_id);
+
+        $insrt = array(
+            "p_id"=>$p_id,
+            "dep_id"=>$dept_id
+        );
+        $id = $obj->insert_record("seat_booking",$insrt);
+        
+        echo "You have successfully booked a seat";
+        exit();
+    }
+
+    if(isset($_POST['p_dashboard_department_id'])){
+        $dept_id = $_POST['p_dashboard_department_id'];
+        $doc_of_this_dept = $obj->return_sql_result("doctors", "d_department_id", $dept_id);
+        header("Content-Type: applications/json");
+        $doc_array = array();
+
+        while($row=mysqli_fetch_assoc($doc_of_this_dept)){
+            if($row['d_approved']){
+                array_push($doc_array, array(
+                    "doc_name" => $row['d_name'],
+                    "doc_id" => $row['d_id']
+                ));
+            }
+            
+        }
+        echo json_encode($doc_array);
+        exit();
+    }
+
+    if(isset($_POST['p_dashboard_doc_id'])){
+        $doc_id = $_POST['p_dashboard_doc_id'];
+
+        $doc = $obj->return_sql_result("doctors", "d_id", $doc_id, "", "",1);
+        $doc =  mysqli_fetch_assoc($doc);
+        echo $doc['d_routine'];
+        exit();
+    }
+
+    /// WORK NEEDED HERE
+    if(isset($_POST['update_seat_list'])){
+        $booked_seat = $obj->return_sql_result("seat_booking", 'seat_status', 0);
+
+
+        $booked_seat_count = mysqli_fetch_assoc($booked_seat);
+
+        print_r($booked_seat_count) ;
         exit();
     }

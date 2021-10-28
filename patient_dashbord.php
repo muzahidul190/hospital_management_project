@@ -91,31 +91,25 @@ $dep_list2 = mysqli_query($conn,$sql);
                     <select name="department" id="p_department_app">
                         <?php
                             while($row = mysqli_fetch_assoc($dep_list2)){
-                                echo '<option value="'.$row["dep_name"].'">'.$row["dep_name"].'</option>';
+                                echo '<option value="'.$row["dep_id"].'">'.$row["dep_name"].'</option>';
                             }
                         ?>
                     </select>
                     <br>
 
-                    <select name="select_doc" id="select_doc">
-                        <option value="doc-1">
-                            Dr. Mutasim
-                        </option>
-                        <option value="doc-2">
-                            Dr. Zulkar Nayeem
-                        </option>
+                    <select name="select_doc" id="select_doc" style="display: none;">
+                        
                     </select>
 
-                    <div class="seleced_doc_availability">
-                        <h2>Dr. X is available for the followind days:</h2>
-                        <ul class="doc-available-day">
-                            <li><span>Sunday</span></li>
-                            <li><span>Monday</span></li>
-                            <li><span>Thursday</span></li>
+                    <div id="selected_doc_availability"style="display:none;">
+                        <h2>Dr. X is available for the following days:</h2>
+                        <ul id="doc-available-day">
                         </ul>
                     </div>
 
-                    <input type="submit" value="Appointment this doctor" class="btn btn-submit btn-appointment">
+                    <button type="submit" class="btn btn-submit btn-appointment" disabled>
+                        Appoint this doctor    
+                    </button>
 
                 </form>
                 
@@ -134,8 +128,13 @@ $dep_list2 = mysqli_query($conn,$sql);
                             }
                         ?>
                     </select>
+                    <!-- Update patient id after login -->
+                    <input type="hidden" name="patient_id_appoint_seat" value="2">
+
                     <h2 id="seat_availability">Select a department</h2>
                     <h2 id="seat_cost"></h2>
+
+                    
                     <button type="submit" id="seat_book_button" class="btn btn-submit" disabled>Book seat</button>
 
                 </form>

@@ -93,7 +93,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#seat_list_management">
+                        <a id="seat_management_tab" href="#seat_list_management">
                             Manage Seats (<span id="booked_seat_count"><?php echo $booked_seat_count; ?></span>)
                         </a>
                     </li>
@@ -164,7 +164,7 @@
                     <h2>Your patients</h2>
 
         <table width="100%" style="transition:none;">
-            <tbody>
+            <tbody id="booked_seat_list_table">
                 <tr>
                     <th>
                         Patient Names

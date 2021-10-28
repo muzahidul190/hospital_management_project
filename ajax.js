@@ -1,3 +1,15 @@
+function get_day(number_of_date){
+    switch(number_of_date){
+        case 0: return "Saturday";
+        case 1: return "Sunday";
+        case 2: return "Monday";
+        case 3: return "Tuesday";
+        case 4: return "Wednesday";
+        case 5: return "Thursday";
+        case 6: return "Friday";
+    }
+}
+
 $(document).ready(function(){
     function verify_email_p(email){
         if(email == ""){
@@ -256,8 +268,123 @@ $(document).ready(function(){
     })
 
     $("#seat_booking_form").on("submit",function(){
-        alert("working");
+
+        $.ajax(
+            {
+                url: "action.php",
+                method: "POST",
+                data: $("#seat_booking_form").serialize(),
+                success: function(data){
+                    alert(data);
+                    $.ajax({
+                        url : "action.php",
+                        method : "POST",
+                        data : {seat_booking:1,id:$("#p_department_seat").val()},
+                        success : function(data){
+                            $("#seat_book_button").prop("disabled",true);
+                            $("#seat_cost").show();
+                            var available = data.total_seat - data.booked;
+                            var av_col = "green";
+                            if(available <= 0){
+                                av_col = "red";
+                            }
+                            $("#seat_availability").html("<strong style='font-size:45px;color:"+av_col+";'>"+available+"</strong> seats available out of "+data.total_seat);
+                            $("#seat_cost").html("This seat will cost you: <big style='color:yellow;'>"+data.cost+"</big>");
+                            if(av_col == "red"){
+                                $("#seat_cost").hide();
+                            }else{
+                                $("#seat_book_button").prop("disabled",false);
+                            }
+                        }
+                    })
+                }
+            }
+        )
+    })
+    $("#p_department_app").on('change', ()=>{
+        var dept_id = $("#p_department_app").val();
+        if(dept_id){
+            $.ajax({
+                url: "action.php",
+                method: "POST",
+                data: {
+                    p_dashboard_department_id:dept_id,
+                },
+                success: function(data){
+                    data = JSON.stringify(data);
+                    var json_obj = JSON.parse(data);
+                    if(json_obj.length == 0) $("#select_doc").hide();
+                    $("#selected_doc_availability").hide()
+                    $("#select_doc").html('<option value="false">Choose a doctor</option>');
+                    for(var i=0; i<json_obj.length; i++){
+                        var opt = '<option value="'+json_obj[i].doc_id +'">' + json_obj[i].doc_name + '</option>';
+                        $("#select_doc").show();
+                        $("#select_doc").html($("#select_doc").html()+opt);
+                    }
+                }
+            })
+        }
+    })
+    $("#select_doc").on('change', ()=>{
+        var doc_id = $("#select_doc").val();
+        $("#selected_doc_availability").hide()
+        if(doc_id != "false"){
+            $.ajax({
+                url: "action.php",
+                method: "POST",
+                data: {
+                    p_dashboard_doc_id:doc_id,
+                },
+                success: function(data){
+                    $("#doc-available-day").html('');
+                    for(var i=0; i<data.split(',').length; i++){
+                        var li_item = "<li><span>"+get_day(parseInt(data.split(',')[i])) +"</span></li>"
+                        $("#doc-available-day").html($("#doc-available-day").html()+ li_item);
+                    }
+                    $("#selected_doc_availability").show();
+                    $(".btn-appointment").attr('disabled', false);
+                    
+                    // data = JSON.stringify(data);
+                    // var json_obj = JSON.parse(data);
+                    // if(json_obj.length == 0) $("#select_doc").hide();
+                    // $("#select_doc").html('');
+                    // for(var i=0; i<json_obj.length; i++){
+                    //     var opt = '<option value="'+json_obj[i].doc_id +'">' + json_obj[i].doc_name + '</option>';
+                    //     $("#select_doc").show();
+                    //     $("#select_doc").html($("#select_doc").html()+opt);
+                    // }
+                }
+            })
+        }
     })
 
+
+//     $("#seat_management_tab").on('click', ()=>{
+//         console.log("CLICKED");
+//         $.ajax({
+//             url: "action.php",
+//             method: 'POST',
+//             data: {update_seat_list: true},
+
+//             success: function(data){    
+//                 alert(data);
+//                 $('#booked_seat_list_table').html(
+//                 $('#booked_seat_list_table').html() + `<tr>
+//                     <th>
+//                         Patient Names
+//                     </th>
+//                     <th>
+//                         Department
+//                     </th>
+//                     <th>
+//                         Booking Date
+//                     </th>
+//                     <th>
+//                         Action
+//                     </th>
+//                 </tr>`);
+//             }
+//         })
+//     })
 
 })
