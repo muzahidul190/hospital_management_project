@@ -3,7 +3,7 @@
 
 include 'action.php';
 
-$sql = "SELECT * FROM departments";
+$sql = "SELECT * FROM departments ORDER BY dep_name ASC";
 
 $dep_list = mysqli_query($conn,$sql);
 $dep_list2 = mysqli_query($conn,$sql);
@@ -83,7 +83,7 @@ $dep_list2 = mysqli_query($conn,$sql);
             <section class="patient_view">
             <div class="item-according-to-link">
             <div id="appointment" class="single-item-design form-item" >
-                <form action="">
+                <form onsubmit="return false" id="make_appointment">
                     <legend><h2>Make an Appointment</h2></legend>
                     <label for="p_department_app">
                         <h3>Please select your department:</h3>
@@ -122,7 +122,7 @@ $dep_list2 = mysqli_query($conn,$sql);
 
             </div>
             <div id="book_seat" class="single-item-design hide-single-item form-item" style="padding: 0 50px;">
-                <form action="">
+                <form onsubmit="return false" id="seat_booking_form">
                     <legend><h2>Book a seat</h2></legend>
                     <label for="p_department_seat">
                         <h3>Please select your department:</h3>
@@ -130,13 +130,13 @@ $dep_list2 = mysqli_query($conn,$sql);
                     <select name="department" id="p_department_seat">
                         <?php
                             while($row = mysqli_fetch_assoc($dep_list)){
-                                echo '<option value="'.$row["dep_name"].'">'.$row["dep_name"].'</option>';
+                                echo '<option value="'.$row["dep_id"].'">'.$row["dep_name"].'</option>';
                             }
                         ?>
                     </select>
-                    <h2>Seat is available</h2>
-                    <h2>This seat will cost you: 1000tk</h2>
-                    <input type="submit" value="Book seat" class="btn btn-submit">
+                    <h2 id="seat_availability">Select a department</h2>
+                    <h2 id="seat_cost"></h2>
+                    <button type="submit" id="seat_book_button" class="btn btn-submit" disabled>Book seat</button>
 
                 </form>
                 

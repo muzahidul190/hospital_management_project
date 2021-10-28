@@ -82,8 +82,11 @@
             }
         }
 
-        public function update_table_values($table,$this_field, $with_this_value, $that_field, $this_value){
+        public function update_table_values($table,$this_field, $with_this_value, $that_field, $this_value,$limit=""){
             $sql = "UPDATE ".$table." SET `".$this_field."`= ".$with_this_value." WHERE `".$that_field."` =".$this_value;
+            if(!empty($limit)){
+                $sql .= "LIMIT ".$limit;
+            }
             return mysqli_query($this->conn, $sql);
         }
         
@@ -308,3 +311,15 @@
         exit();
     }
 
+
+    if(isset($_POST["seat_booking"])){
+        $id = $_POST["id"];
+        $data = $obj->return_sql_result("departments","dep_id",$id,"","",1);
+        $value = mysqli_fetch_assoc($data);
+        $seat_cost = $value["seat_cost"];
+        $dep_seat = $value["dep_seat"];
+        $booked = $value["dep_seat_booked"];
+        header("Content-Type: application/json");
+        echo json_encode(array('cost' => $seat_cost,'total_seat'=>$dep_seat,'booked'=>$booked));
+        exit();
+    }

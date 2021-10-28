@@ -203,5 +203,34 @@ $(document).ready(function(){
         })
     })
 
+    $("#p_department_seat").change(function(){
+        var id = $("#p_department_seat").val();
+        $.ajax({
+            url : "action.php",
+            method : "POST",
+            data : {seat_booking:1,id:id},
+            success : function(data){
+                $("#seat_book_button").prop("disabled",true);
+                $("#seat_cost").show();
+                var available = data.total_seat - data.booked;
+                var av_col = "green";
+                if(available <= 0){
+                    av_col = "red";
+                }
+                $("#seat_availability").html("<strong style='font-size:45px;color:"+av_col+";'>"+available+"</strong> seats available out of "+data.total_seat);
+                $("#seat_cost").html("This seat will cost you: <big style='color:yellow;'>"+data.cost+"</big>");
+                if(av_col == "red"){
+                    $("#seat_cost").hide();
+                }else{
+                    $("#seat_book_button").prop("disabled",false);
+                }
+            }
+        })
+    })
+
+    $("#seat_booking_form").on("submit",function(){
+        //alert("working");
+    })
+
 
 })
