@@ -229,7 +229,7 @@ $(document).ready(function(){
     })
 
     $("#seat_booking_form").on("submit",function(){
-        //alert("working");
+        alert("working");
     })
 
 
