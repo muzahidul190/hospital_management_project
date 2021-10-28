@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 26, 2021 at 05:35 PM
+-- Generation Time: Oct 28, 2021 at 02:49 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -95,9 +95,9 @@ CREATE TABLE IF NOT EXISTS `departments` (
 --
 
 INSERT INTO `departments` (`dep_id`, `dep_name`, `dep_details`, `dep_seat`, `seat_cost`, `dep_seat_booked`) VALUES
-(1, 'Medicine', 'This department deals with medicine part.', 30, 3000, 0),
-(2, 'Neurology', 'This dept. deals problems regarding Neural diseases.', 15, 5000, 0),
-(24, 'Gyno', 'Safe home to Moms.', 75, 2000, 0);
+(1, 'Medicine', 'This department deals with medicine part.', 30, 3000, 14),
+(2, 'Neurology', 'This dept. deals problems regarding Neural diseases.', 15, 5000, 13),
+(24, 'Gyno', 'Safe home to Moms.', 75, 2000, 70);
 
 -- --------------------------------------------------------
 
@@ -118,16 +118,18 @@ CREATE TABLE IF NOT EXISTS `doctors` (
   `d_department_id` int(5) DEFAULT NULL,
   PRIMARY KEY (`d_id`),
   UNIQUE KEY `username` (`d_email`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctors`
 --
 
 INSERT INTO `doctors` (`d_id`, `d_email`, `d_name`, `d_contact`, `d_education`, `d_routine`, `d_password`, `d_approved`, `d_department_id`) VALUES
-(1, 'doctor@gmail.com', 'Dr. Abbas Uddin', 1789123456, 'MBBS', NULL, '12345678', 0, 2),
-(2, 'doc2@gmail.com', 'Dr.Tamim Mahmud', 1234567890, 'CSE, NUBTK', NULL, 'kfjugheirutyhg', 1, 1),
-(3, 'Pridldfj@mail.com', 'Dr. Prithvi Biswas', 1923467593, 'Nubtk, Khulna`MBBS, Khulna 250 bed', '1,6', 'qwerty', 0, 24);
+(1, 'doctor@gmail.com', 'Dr. Abbas Uddin', 1789123456, 'MBBS', '1,3,5,0', '12345678', 0, 2),
+(2, 'doc2@gmail.com', 'Dr.Tamim Mahmud', 1234567890, 'CSE, NUBTK', '0,3', 'kfjugheirutyhg', 1, 1),
+(3, 'Pridldfj@mail.com', 'Dr. Prithvi Biswas', 1923467593, 'Nubtk, Khulna`MBBS, Khulna 250 bed', '1,6', 'qwerty', 0, 24),
+(4, 'sdasd@asfds.gh', 'SM Tamim', 1303258166, 'dasdasdsad`dasdsad`sdada', '1,4', 'localhos', 1, 1),
+(5, 'sdasd@asfds.ghsd', 'SM Tamim', 1303258166, 'dasdasdsad`dasdsad`sdada', '1,4', 'localhos', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -191,10 +193,27 @@ CREATE TABLE IF NOT EXISTS `seat_booking` (
   `booking_id` int(10) NOT NULL AUTO_INCREMENT,
   `p_id` int(10) NOT NULL,
   `dep_id` int(5) NOT NULL,
-  `booking_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `seat_status` tinyint(1) NOT NULL DEFAULT '1',
+  `booking_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `seat_status` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`booking_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `seat_booking`
+--
+
+INSERT INTO `seat_booking` (`booking_id`, `p_id`, `dep_id`, `booking_time`, `seat_status`) VALUES
+(1, 1, 2, '2021-10-28 09:44:13', 0),
+(2, 4, 24, '2021-10-28 10:23:03', 0),
+(3, 2, 1, '2021-10-28 13:00:07', 0),
+(4, 2, 2, '2021-10-28 13:00:52', 0),
+(5, 2, 1, '2021-10-28 13:04:04', 0),
+(6, 2, 1, '2021-10-28 13:05:58', 0),
+(7, 2, 1, '2021-10-28 13:06:13', 0),
+(8, 2, 1, '2021-10-28 13:08:27', 0),
+(9, 2, 1, '2021-10-28 13:15:42', 0),
+(10, 2, 1, '2021-10-28 13:16:16', 0),
+(11, 2, 2, '2021-10-28 13:16:21', 0);
 
 -- --------------------------------------------------------
 
