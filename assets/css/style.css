@@ -256,6 +256,14 @@ select{
     margin: 9px auto;
 }
 
+button{
+    cursor: pointer;
+}
+button:disabled{
+    pointer-events: none;
+    background-color: gray;
+}
+
 #d-per-sit-cost,  #d-seats,
 #d-name{
     display: block;
