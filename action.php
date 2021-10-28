@@ -60,11 +60,14 @@
             }
         }
 
-        public function return_sql_result($table,$term, $content, $order_by_term="", $order_by_type=""){
+        public function return_sql_result($table,$term, $content, $order_by_term="", $order_by_type="",$limit=""){
             $sql = "SELECT * FROM $table WHERE $term =".$content;
 
             if($order_by_type!= "" && $order_by_term!=""){
                 $sql.= " ORDER BY ".$order_by_term." ".$order_by_type;
+            }
+            if(!empty($limit)){
+                $sql .= " LIMIT ".$limit;
             }
             
             return mysqli_query($this->conn, $sql);
@@ -82,11 +85,8 @@
             }
         }
 
-        public function update_table_values($table,$this_field, $with_this_value, $that_field, $this_value,$limit=""){
+        public function update_table_values($table,$this_field, $with_this_value, $that_field, $this_value){
             $sql = "UPDATE ".$table." SET `".$this_field."`= ".$with_this_value." WHERE `".$that_field."` =".$this_value;
-            if(!empty($limit)){
-                $sql .= "LIMIT ".$limit;
-            }
             return mysqli_query($this->conn, $sql);
         }
         
