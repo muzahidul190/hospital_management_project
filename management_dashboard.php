@@ -212,13 +212,9 @@
                     </td>
 
                     <td class="color_black">
-<<<<<<< HEAD
+
                     <a href="#m" class="btn btn-success mark_done" data-book-and-dep-id="<?php echo $row['booking_id'].','.$row['dep_id']?>">
-                        Mark Done
-=======
-                    <a href="#m" class="btn btn-success mark_done_seat">
                         Release Patient
->>>>>>> e744c61baba09331e3a87cb69efd2ff05d1cbaaa
                     </a>
                 </td>
             </tr>
