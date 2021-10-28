@@ -1,11 +1,10 @@
 <?php
 
-    include 'db_con.php';
-    $sql = "SELECT * FROM doctors WHERE d_approved = 0";
-    $unap_doc_sql = mysqli_query($conn,$sql);
-    if($result=mysqli_query($conn,$sql)){
-        $unapproved_doc_count = mysqli_num_rows($result);
-    }
+    include 'action.php';
+
+    $unap_doc_sql = $obj->return_sql_result("doctors", "d_approved", "0");
+    $unapproved_doc_count = mysqli_num_rows($unap_doc_sql);
+
     $sql = "SELECT * FROM departments ORDER BY dep_name ASC";
     $dep_sql = mysqli_query($conn,$sql);
     if($result=mysqli_query($conn,$sql)){
@@ -22,7 +21,7 @@
         $doc_count = mysqli_num_rows($result);
     }
 
-    
+
 
 
 ?>
