@@ -90,15 +90,35 @@
             <div class="item_according_to_link">
                 <div id="doctor_approval" class="single-item-design">
                     <h2>Doctor Needs Approval</h2>
-                    <ul class="doctor_approval_list">
-                        <?php
-                            while($row = mysqli_fetch_assoc($unap_doc_sql)){
-                                echo '<li><a href="doctor.php?doc_id=';
-                                echo $row["d_id"];
-                                echo '">'.$row["d_name"].'</a></li>';
-                            }
-                        ?>
-                    </ul>
+                    <span class="text-warning" style="color:black">To see doctor details click on doctors name.</span>
+                    <table id="doctor_approval_list">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    Doctor Name
+                                </th>
+                                <th colspan="2">
+                                    Action
+                                </th>
+                            </tr>
+                                
+                            <?php
+                                while($row = mysqli_fetch_assoc($unap_doc_sql)){
+                                    
+                                echo "<tr>";
+                                    echo '<td><a href="doctor.php?doc_id=';
+                                    echo $row["d_id"];
+                                    echo '">'.$row["d_name"].'</a></td>';
+
+                                    echo "<td><a href='#approve' class='btn btn-success approve' data-doc-id=".$row["d_id"].">Approve</a></td>";
+
+                                    echo "<td><a href='#delete' class='btn btn-danger delete'>Delete</a></td>";
+                                }
+                                echo "</tr>";
+                            ?>
+                            
+                        </tbody>
+                    </table>
                 </div>
 
                 <div id="departments" class="single-item-design hide-single-item">

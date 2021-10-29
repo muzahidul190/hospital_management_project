@@ -481,3 +481,36 @@ table>tbody>tr>th, table>tbody>tr>td{
 .text-warning{
     color: rgb(221, 162, 53);
 }
+#doctor_approval_list, #doctor_approval_list th, #doctor_approval_list td{
+    border:2px solid rgba(27, 27, 27, .4);
+    border-collapse: collapse;
+}
+#doctor_approval_list .btn-success{
+    width: max-content;
+    background-color:rgba(52, 196, 8, .7);
+    
+    color: black;
+    padding: 5px 10px;
+}
+#doctor_approval_list a{
+    text-decoration: none ;
+    font-size: 1.1em;
+    color: black;
+    transition: .3s ease;
+}
+#doctor_approval_list a:hover{
+    color: rgb(255, 255, 255);
+}
+
+.btn-danger{
+    width: max-content;background-color: rgba(255, 0, 0, .6);
+    color: white;
+    padding: 5px 10px;
+}
+.btn-danger:hover{
+    background-color: red;
+}
+#doctor_approval_list .btn-success:hover{
+    background-color: rgb(60, 255, 0);
+    color: blue;
+}
