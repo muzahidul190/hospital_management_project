@@ -71,20 +71,46 @@ if($count > 0){
                         </tr>
                         <tr>
                             <th>Department</th>
-                            <td><?php echo $info["d_department_id"]; ?></td>
+                            <td><?php 
+
+                                $dep_id = $info["d_department_id"]; 
+                                $data = $obj->return_sql_result("departments", "dep_id", $dep_id, "", "", 1);
+
+                                $row = mysqli_fetch_assoc($data);
+                                echo $row['dep_name'];
+
+                                ?></td>
                         </tr>
                         <tr>
-                            <th>Availability</th>
-                            <td><?php echo $info["d_name"]; ?></td>
+                            <th>Date Available</th>
+                            <td><?php
+                                $available_days = $info["d_routine"]; 
+                                if(!empty($available_days)){
+                                    $available_days = explode(',',$available_days );
+                                    for($i=0; $i<count($available_days); $i++){
+                                        echo $obj->get_day($available_days[$i]);
+                                        if($i<count($available_days)-1) echo ", ";
+                                    }
+                                    
+                                }
+                                
+                            ?></td>
                         </tr>
                         <tr>
                             <th>Education</th>
                             <td>
                                 <ul style="list-style-type:numeric;">
-                                    <li>ad as asd asd a</li>
-                                    <li>ad as asd asd a</li>
-                                    <li>ad as asd asd a</li>
+                                    <?php
+                                        if(!empty($info['d_education'])){
+                                            $education = explode('`',$info['d_education'] );
 
+                                            for($i=0; $i<count($education); $i++){
+
+                                                echo "<li>".$education[$i]."</li>";
+                                            }
+                                        };
+
+                                    ?>
                                 </ul>
                             </td>
                         </tr>

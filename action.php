@@ -480,6 +480,7 @@
                 $activation = $data["d_approved"];
                 if($activation == '0')
                 echo "Your account is not approved yet!";
+                exit();
                 $_SESSION["type"] = "doctors";
                 $_SESSION["id"] = $data["d_id"];
                 echo $_SESSION["type"];

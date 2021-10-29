@@ -424,33 +424,6 @@ $(document).ready(function(){
         })
     })
 
-
-//     $("#seat_management_tab").on('click', ()=>{
-//         console.log("CLICKED");
-//         $.ajax({
-//             url: "action.php",
-//             method: 'POST',
-//             data: {update_seat_list: true},
-
-//             success: function(data){    
-//                 alert(data);
-//                 $('#booked_seat_list_table').html(
-//                 $('#booked_seat_list_table').html() + `<tr>
-//                     <th>
-//                         Patient Names
-//                     </th>
-//                     <th>
-//                         Department
-//                     </th>
-//                     <th>
-//                         Booking Date
-//                     </th>
-//                     <th>
-//                         Action
-//                     </th>
-//                 </tr>`);
-//             }
-//         })
-//     })
+    $('.approve')
 
 })
