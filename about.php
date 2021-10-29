@@ -76,8 +76,26 @@ if($count > 0){
                 <li>About</li>
                     <span>__Accessible for ALL.</span>
             </ol>
+            <p>We are very sorry that we couldn't make it cross device responsive due to shortage of time.And couldn't add more fascinating features as well.</p>
             <h2>&nbsp;&nbsp;Team Members:&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-            <p>We were in <strong>Group 4</strong>. The team members contributed in different fields as we worked as a team and worked on different parts by each individual. We used github to gather all parts in together</p>
+            <p>We were in <strong>Group 4</strong>. The team members contributed in different fields as we worked as a team and worked on different parts by each individual. We used github to gather all parts in together. The team members are as follows:</p>
+            <br>
+            <ol>
+                <li>SM. Tamim Mahmud - 336</li>
+                    <span>__Frot End, UI, Connection.</span>
+                <li>Prithvi Biswas - 320</li>
+                    <span>__Front End, UI.</span>
+                <li>Muzahidul Isalm - 329</li>
+                    <span>__Back End, Connection, Project Plan</span>
+                <li>Aduri Akter - 266</li>
+                    <span>__Contributor</span>
+                <li>Shuvro Deb Sarker - 303</li>
+                    <span>__Contributor</span>
+                <li>Minhazul Abedin - 317</li>
+                    <span>__Contributor</span>
+            </ol>
+            <h2>&nbsp;&nbsp;Conclusion:&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+            <p>As this was the very first project for us, we tried our best to make the project full, but some functionalities which we though about couldn't be added. But we've learned lot of new things and have gathered new experiences like <strong>TeamWork, Patience, Planning</strong> etc. which we hope will help us in real life projects later on. We are very thankful to our dear sir for arranging such a project for us.</p>
         </div>
         </div>
     </main>
