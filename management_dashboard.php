@@ -89,6 +89,9 @@
 
             <div class="item_according_to_link">
                 <div id="doctor_approval" class="single-item-design">
+                    <?php
+                        if($unapproved_doc_count != 0){
+                    ?>
                     <h2>Doctor Needs Approval</h2>
                     <span class="text-warning" style="color:black">To see doctor details click on doctors name.</span>
                     <table id="doctor_approval_list">
@@ -119,6 +122,12 @@
                             
                         </tbody>
                     </table>
+                    <?php 
+                    }else{
+                        echo "<h1 style='padding:150px 0', width='100%'>No new doctor requests.</h1>";
+                    }
+                    
+                    ?>
                 </div>
 
                 <div id="departments" class="single-item-design hide-single-item">

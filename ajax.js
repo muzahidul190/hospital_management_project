@@ -438,7 +438,11 @@ $(document).ready(function(){
                     alert(data);
                     doc_id = "#doc_id_"+ doc_id;
                     $(doc_id).remove();
-                    
+                    var unapproved_doctor_count = parseInt($('#unapproved_doctor_count').text())
+                    $('#unapproved_doctor_count').text(unapproved_doctor_count-1);
+                    if(unapproved_doctor_count-1 == 0){
+                        $('#doctor_approval').html("<h1 style='padding:150px 0', width='100%'>No new doctor requests.</h1>");
+                    }
                 }
             })
         })
@@ -457,6 +461,11 @@ $(document).ready(function(){
                     alert(data);
                     doc_id = "#doc_id_"+ doc_id;
                     $(doc_id).remove();
+                    var unapproved_doctor_count = parseInt($('#unapproved_doctor_count').text())
+                    $('#unapproved_doctor_count').text(unapproved_doctor_count-1);
+                    if(unapproved_doctor_count-1 == 0){
+                        $('#doctor_approval').html("<h1 style='padding:150px 0', width='100%'>No new doctor requests.</h1>");
+                    }
                 }
             })
         })
