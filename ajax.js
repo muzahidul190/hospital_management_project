@@ -426,6 +426,7 @@ $(document).ready(function(){
 
     $(".approve").each(function(){
         $(this).click(function(){
+            var doc_id = $(this).data('doc-id');
             $.ajax({
                 url: "action.php",
                 method: "POST",
@@ -435,11 +436,15 @@ $(document).ready(function(){
                 },
                 success: function(data){
                     alert(data);
+                    doc_id = "#doc_id_"+ doc_id;
+                    $(doc_id).remove();
+                    
                 }
             })
         })
     });
     $(".delete_doc").each(function(){
+        var doc_id = $(this).data('doc-id');
         $(this).click(function(){
             $.ajax({
                 url: "action.php",
@@ -450,6 +455,8 @@ $(document).ready(function(){
                 },
                 success: function(data){
                     alert(data);
+                    doc_id = "#doc_id_"+ doc_id;
+                    $(doc_id).remove();
                 }
             })
         })

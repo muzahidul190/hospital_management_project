@@ -56,7 +56,7 @@
                 <nav class="secondary_nav">
                 <ul>
                     <li><a href="#doctor_approval">
-                        Approve New Doctors(<?php echo $unapproved_doc_count; ?>)</a>
+                        Approve New Doctors(<span id="unapproved_doctor_count"><?php echo $unapproved_doc_count; ?></span>)</a>
                     </li>
                     <li>
                         <a href="#departments">
@@ -105,7 +105,7 @@
                             <?php
                                 while($row = mysqli_fetch_assoc($unap_doc_sql)){
                                     
-                                echo "<tr>";
+                                echo "<tr id='doc_id_".$row["d_id"]."';>";
                                     echo '<td><a href="doctor.php?doc_id=';
                                     echo $row["d_id"];
                                     echo '">'.$row["d_name"].'</a></td>';
