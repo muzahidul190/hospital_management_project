@@ -32,7 +32,15 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, sed aperiam magnam dignissimos vitae quod optio officiis vero. Atque eveniet amet nobis minima blanditiis, aspernatur ipsa velit, nemo asperiores, est quidem ullam necessitatibus. Vero voluptatem quis necessitatibus dicta voluptatibus ducimus. Nam possimus perspiciatis facere illo, veniam voluptas vitae architecto reiciendis.
                     </p>
                 </div>
-            </main>   
+            </main>
+            <section class="content_doc_dep">
+                <div class="doc_list">
+                    <h2>Doctors:</h2>
+                </div>
+                <div class="dep_list">
+
+                </div>
+            </section>
         </div>
     </div>
     <div class="content_wrapper">
