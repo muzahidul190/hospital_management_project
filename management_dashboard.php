@@ -112,7 +112,7 @@
 
                                     echo "<td><a href='#approve' class='btn btn-success approve' data-doc-id=".$row["d_id"].">Approve</a></td>";
 
-                                    echo "<td><a href='#delete' class='btn btn-danger delete'>Delete</a></td>";
+                                    echo "<td><a href='#delete' class='btn btn-danger delete_doc' data-doc-id=".$row["d_id"].">Delete</a></td>";
                                 }
                                 echo "</tr>";
                             ?>
