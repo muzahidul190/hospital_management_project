@@ -32,32 +32,16 @@
     ?>
 
     <main>
-        <div class="content_wrapper">
-            <div class="wrapper">
-                <div id="patient_view" class="doc_dashboard">
-                    <nav class="secondary_nav">
-                        <ul>
-                            <li>
-                                <a href="doctor.php">My Profile</a>
-                            </li>
-                            <li>
-                                <a href="#patient_list">See your patient list</a>
-                            </li>
-                            <li><a href="#update_details">
-                                Update your account details.
-                            </a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
+        <?php
+            include 'navigation.php';
+        ?>
 
         <div class="content_wrapper">
             <div class="wrapper">
 
                 <div id="patient_list" class="patient_list_view form-item item_according_to_link">
                     <div id="doctor_approval">
-                    <h2>Your patients</h2>
+                    <h2 style="font-size:2em;">Your Appointments</h2>
 
                     <table width="100%" style="transition:none;" id="patient_list_doc">
                         <tbody>

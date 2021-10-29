@@ -1,7 +1,7 @@
 
 <?php
 
-    include 'db_con.php';
+    include 'action.php';
     if(isset($_GET["dep_id"])){
         $id = $_GET["dep_id"];
     }else{
@@ -33,6 +33,8 @@
     <title>Department Details | DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="ajax.js"></script>
 </head>
 <body>
     <?php

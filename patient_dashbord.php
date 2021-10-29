@@ -38,28 +38,9 @@ $dep_list2 = mysqli_query($conn,$sql);
     
     ?>
     <main>
-    <div class="content_wrapper">
-        <div class="wrapper">
-        <div id="patient_view">
-            <nav class="secondary_nav">
-                <ul>
-                    <li>
-                        <a href="patient.php">My Profile</a>
-                    </li>
-                    <li>
-                        <a href="#appointment">Make an Appointment</a>
-                    </li>
-                    <li><a href="#book_seat">
-                        Book a seat
-                    </a></li>
-                    <li><a href="#update_account">
-                        Update your account details.
-                    </a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    </div>
+        <?php
+            include 'navigation.php';
+        ?>
     <div class="content_wrapper">
         <div class="wrapper">
             <section class="patient_view">

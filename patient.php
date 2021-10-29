@@ -1,11 +1,16 @@
 
 <?php
 
-include 'db_con.php';
-if(isset($_GET["p_id"])){
-    $id = $_GET["p_id"];
-}else{
-    $id = 1;    //This line will be edited later
+include 'action.php';
+$id = 0;
+if(isset($_SESSION["type"])){
+    if($_SESSION["type"] != "patients"){
+        if( isset($_GET["p_id"])){
+            $id = $_GET["p_id"];
+        }
+    }else{
+        $id = $_SESSION["id"];
+    }
 }
 $sql = "SELECT * FROM patients WHERE p_id = $id LIMIT 1";
 
@@ -33,6 +38,8 @@ if($count > 0){
     <title>Patient Details | DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="ajax.js"></script>
 </head>
 <body>
     <?php
@@ -42,27 +49,9 @@ if($count > 0){
     ?>
         
     <main>
-    <div class="content_wrapper">
-        <div class="wrapper">
-            <div id="patient_view">
-                <nav class="secondary_nav">
-                    <ul>
-                        <li>
-                            <a href="patient.php">My Profile</a>
-                        </li>
-                        <li>
-                            <a href="#appointment">Make an Appointment</a>
-                        </li>
-                        <li><a href="#book_seat">
-                            Book a seat
-                        </a></li>
-                        <li><a href="#update_account">
-                            Update your account details.
-                        </a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+        <?php
+            include 'navigation.php';
+        ?>
         <div class="content_wrapper">
             <div class="wrapper">
             <div class="patient_details">

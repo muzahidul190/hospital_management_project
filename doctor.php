@@ -1,15 +1,14 @@
 <?php
 
-include 'db_con.php';
+include 'action.php';
+$id = 0;
 if(isset($_GET["doc_id"])){
     $id = $_GET["doc_id"];
 }else{
     if(isset($_SESSION["type"])){
         if($_SESSION["type"] == "doctors"){
             $id = $_SESSION["id"];
-        } 
-    }else{
-        $id = 0;
+        }
     }
 }
 $sql = "SELECT * FROM doctors WHERE d_id = $id LIMIT 1";
@@ -39,6 +38,8 @@ if($count > 0){
     <title>Doctor Details | DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="ajax.js"></script>
 </head>
 <body>
     <?php
@@ -48,25 +49,9 @@ if($count > 0){
     ?>
     <main>
         <!-- Only viewable by doctors and admin -->
-        <div class="content_wrapper">
-            <div class="wrapper">
-                <div id="patient_view" class="doc_dashboard">
-                    <nav class="secondary_nav">
-                        <ul>
-                            <li>
-                                <a href="doctor.php">My Profile</a>
-                            </li>
-                            <li>
-                                <a href="doctor_dashboard.php">See your patient list</a>
-                            </li>
-                            <li><a href="#update_details">
-                                Update your account details.
-                            </a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
+        <?php
+            include 'navigation.php';
+        ?>
         <div class="content_wrapper">
             <div class="wrapper">
             <div class="patient_details">
