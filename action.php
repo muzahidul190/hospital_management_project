@@ -474,6 +474,9 @@
         if($data == "doctorExists"){
             $where = array("d_email"=>$email,"d_password"=>$pass);
             $data = $obj->select_record("doctors",$where);
+            $activation = ($data?$data["d_approved"]:"");
+            if($activation == '0')
+            echo "Your account is not approved yet!";
             print_r($data);
             exit();
         }else if($data == "patientExists"){
@@ -490,7 +493,7 @@
             echo "Check if email is correct or not";
             exit();
         }else{
-            echo "No account found with the email!";
+            echo "Either email or password or both are incorrect!";
             exit();
         }
     }
