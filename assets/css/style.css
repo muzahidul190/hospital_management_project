@@ -568,5 +568,59 @@ table>tbody>tr>th, table>tbody>tr>td{
 
 #deptAndDoctors{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+
+#doctors, #departments{
+    width: 440px;
+    height: 400px;
+}
+#doctors{
+    background: url('../images/signoverlay.png'), url("../images/doctors.jpg");
+    background-position: right bottom, right top;
+    background-size:cover ;
+    position: relative;
+    cursor: pointer;
+}
+#departments{
+    background: url('../images/signoverlay.png'), url("../images/medicalDepartments.jpg");
+    background-position: right bottom, right top;
+    background-size:cover ;
+    position: relative;
+    cursor: pointer;
+}
+#doctor_text, #department_text{
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    font-size: 2em;
+    font-family: 'Candara', cursive;
+}
+
+#doctors:hover{
+    transform: scale(1.2);
+}
+div#departments:hover {
+    transform: scale(1.2);
+}
+.width100perc{
+    width: 100%!important;
+    transform: none!important;
+}
+.text_position{
+    top: 20%!important;
+    left: 30%!important;
+}
+#browse_doc_dept{
+    clear: both;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 60px;
+    font-size: 2.5em;
+    background: rgb(181, 77, 255);
 }

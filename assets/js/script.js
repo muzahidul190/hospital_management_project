@@ -158,6 +158,39 @@ window.onload = function() {
         })
     }
     
+    url = window.location.href;
+    if(url.search("index.php")!=-1){
+        $('#doctors').click(
+            function(){
+                $('#departments').hide();
+                if( $('#doctors').hasClass('width100perc')){
+                    $('#doctors').removeClass('width100perc');
+                    $('#departments').show();
+                    $("#doctor_text").removeClass('text_position');
+                }
+                else{
+                    $('#doctors').addClass('width100perc');
+                    $('#departments').hide();
+                    $("#doctor_text").addClass('text_position');
+                }
+            }
+        )
+        $('#departments').click(
+            function(){
+                $('#doctors').hide();
+                if( $('#departments').hasClass('width100perc')){
+                    $('#departments').removeClass('width100perc');
+                    $('#doctors').show();$("#department_text").removeClass('text_position');
+                }
+                else{
+                    $('#departments').addClass('width100perc');
+                    $('#doctors').hide();
+                    $("#department_text").addClass('text_position');
+                }
+            }
+        )
+    }
+    
 }
 
 function hide_all_except_clicked(item_not_to_hide){
@@ -202,5 +235,4 @@ function hide_all_forms_except(item){
             doc_degrees.append(add_new_degree);
         })
     }
-    
 }

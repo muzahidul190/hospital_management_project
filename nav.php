@@ -2,10 +2,12 @@
     <div class="content_wrapper">
         <div class="wrapper">
             <header>
-                <div class="logo">
-                    <h2>DBMS Hospital</h2>
-                    <h3>Your favourite place for treatment</h3>
-                </div>
+                <a href="index.php" style="text-decoration: none; color:white;">
+                    <div class="logo">
+                        <h2>DBMS Hospital</h2>
+                        <h3>Your favourite place for treatment</h3>
+                    </div>
+                </a>
                 <nav id="main_nav">
                     <ul class="nav_buttons">
                         <li><a href="index.php">Home

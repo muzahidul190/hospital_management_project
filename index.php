@@ -33,24 +33,21 @@
                     </p>
                 </div>
             </main>
-            <section class="content_doc_dep">
-                <div class="doc_list">
-                    <h2>Doctors:</h2>
-                </div>
-                <div class="dep_list">
-
-                </div>
-            </section>
         </div>
     </div>
     <div class="content_wrapper">
         <div class="wrapper">
+            <h3 id="browse_doc_dept">Browse our Departments and Doctors profiles.</h3>
             <section id="deptAndDoctors">
                 <div id="doctors">
-                    
+                    <span id="doctor_text">
+                        See our qualified DOCTORs:
+                    </span>
                 </div>
                 <div id="departments">
-
+                <span id="department_text">
+                        See our DEPARTMENTs:
+                    </span>
                 </div>
             </section>
         </div>
