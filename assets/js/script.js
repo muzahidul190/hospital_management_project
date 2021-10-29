@@ -71,8 +71,8 @@ window.onload = function() {
 
         let doc_degrees = document.getElementById('d-degrees');
         let add_degree = document.getElementById('add-another-degree')
-
         add_degree.addEventListener('click', ()=>{
+            
             let add_new_degree = document.createElement('input')
             add_new_degree.setAttribute('class', "doc-degree");
             add_new_degree.setAttribute('name',"deg[]");
@@ -187,4 +187,20 @@ function hide_all_forms_except(item){
             item.classList.remove('hide-single-item');
         }
     });
+
+
+    url = window.location.href;
+    if(url.search("doctor_dashboard.php#update_details")!= -1){
+        let doc_degrees = document.getElementById('d-degrees');
+        let add_degree = document.getElementById('add-another-degree')
+        add_degree.addEventListener('click', ()=>{
+            
+            let add_new_degree = document.createElement('input')
+            add_new_degree.setAttribute('class', "doc-degree");
+            add_new_degree.setAttribute('name',"deg[]");
+            add_new_degree.setAttribute('type', 'text');
+            doc_degrees.append(add_new_degree);
+        })
+    }
+    
 }

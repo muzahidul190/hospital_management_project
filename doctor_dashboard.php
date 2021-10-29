@@ -131,22 +131,30 @@
                     
                 </div>
 
-                <form action="" id="update_details" class="hide-single-item form-item doc-update-profile">
-                    <legend><h2>Update your details</h2></legend>
+                <form onsubmit="return false" id="update_details" class="hide-single-item form-item doc-update-profile">
+                    <legend><h2>Update your details</h2>
+                    <span class="text-warning">(Leave fields blank if you don't wanna update them)</span>
+                </legend>
+                    <label for="doc-name"><h3 style="margin-top: 30px;">Update Full Name:</h3></label>
+                    <input type="text" name="doc-name" id="doc-name">
+
                     <label for="d-address">
-                        <h2>Your Address</h2>
+                        <h3>New Address</h3>
                     </label>
                     <input type="text" name="d-address" id="d-address">
         
-                    <label for="d-phone"><h3>Phone No:</h3></label>
+                    <label for="d-phone"><h3>New Phone No:</h3></label>
                     <input type="tel" name="d-phone" id="d-phone" pattern="{0-9}[11]">
                     
                     <label for="doc-edu">
-                        <h3>Please enter your educational qualifications:</h3>
+                        <h3>Please enter your new educational qualifications:</h3>
                     </label>
-                    <div id="degrees">
-                        <input type="text" name="deg1" id="degree"> <button id="add-another-degree">Add Another</button>
+                    <div id="d-degrees">
+                        <input type="text" name="deg[]" class="doc-degree">
                     </div>
+                    <a id="add-another-degree" class="btn btn-add-another-field">
+                        Add Another
+                    </a>
 
 
 
@@ -162,17 +170,19 @@
                     </select>
 
 
-                    <label for="select_available_days">
-                        <h2>Change your available days:</h2>
+                    <label id="change_available_days_text">
+                        <h3>Change your available days:</h3>
                     </label>
                     <br>
-                    <input type="checkbox" id="sat" name="day_available[]" value="0"> <label for="sat">Saturday</label> <br>
-                    <input type="checkbox" id="sun" name="day_available[]" value="1"> <label for="sun">Sunday</label> <br>
-                    <input type="checkbox" id="mon" name="day_available[]" value="2"> <label for="mon">Monday</label> <br>
-                    <input type="checkbox" id="tue" name="day_available[]" value="3"> <label for="tue">Tuesday</label> <br>
-                    <input type="checkbox" id="wed" name="day_available[]" value="4"> <label for="wed">Wednesday</label> <br>
-                    <input type="checkbox" id="thu" name="day_available[]" value="5"> <label for="thu">Thursday</label> <br>
-                    <input type="checkbox" id="fri" name="day_available[]" value="6"> <label for="fri">Friday</label>
+                    <div id="change_available_days" >
+                        <input type="checkbox" id="sat" name="day_available[]" value="0"> <label for="sat">Saturday</label> <br>
+                        <input type="checkbox" id="sun" name="day_available[]" value="1"> <label for="sun">Sunday</label> <br>
+                        <input type="checkbox" id="mon" name="day_available[]" value="2"> <label for="mon">Monday</label> <br>
+                        <input type="checkbox" id="tue" name="day_available[]" value="3"> <label for="tue">Tuesday</label> <br>
+                        <input type="checkbox" id="wed" name="day_available[]" value="4"> <label for="wed">Wednesday</label> <br>
+                        <input type="checkbox" id="thu" name="day_available[]" value="5"> <label for="thu">Thursday</label> <br>
+                        <input type="checkbox" id="fri" name="day_available[]" value="6"> <label for="fri">Friday</label>
+                    </div>
 
 
                     <label for="d-pass"><h3>Password</h3></label>

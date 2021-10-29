@@ -167,7 +167,9 @@
                     <div id="d-degrees">
                         <input type="text" name="deg[]" class="doc-degree">
                     </div>
-                        <a id="add-another-degree" class="btn btn-add-another-field">Add Another</a>
+                    <a id="add-another-degree" class="btn btn-add-another-field">
+                        Add Another
+                    </a>
                     
                     <br>
                     <div id="available_doc_days">
