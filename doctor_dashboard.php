@@ -1,6 +1,14 @@
 <?php
     include 'action.php';
-    $d_id = 3;
+    $d_id = "";
+    if(isset($_SESSION["type"])){
+        $d_id = $_SESSION["id"];
+        if($_SESSION["type"] != "doctors"){
+            header("location:index.php");
+        }
+    }else{
+        header("location:index.php");
+    }
     
     $patient_list = $obj->return_sql_result("appointments", 'd_id_app', $d_id, "app_id", "DESC");
 ?>
@@ -17,37 +25,11 @@
     <script src="ajax.js"></script>
 </head>
 <body>
-    <div class="content_wrapper">
-        <div class="wrapper">
-            <header>
-                <div class="logo">
-                    <h2>DBMS Hospital</h2>
-                    <h3>Your favorite place for treatment</h3>
-                </div>
-                <nav id="main_nav">
-                    <ul class="nav_buttons">
-                        <li><a href="index.php">Home
-                        </a></li>
-                        <li><a href="management_dashboard.php">
-                            <!-- View it only for management -->
-                            Management
-                        </a></li>
-                        <li><a href="sign-in-or-sign-up.php">
-                            <!-- View it only for non logged users -->
-                            Login / Sign Up 
-                        </a></li>
-                        <li><a href="patient_dashbord.php">
-                            <!-- View it only for patient -->
-                            My Dashboard
-                        </a></li>
-                        <li><a href="doctor_dashboard.php" class="active-main-nav">
-                            <!-- View it only for patient -->
-                            My Dashboard
-                        </a></li>
-                    </ul>
-                </nav>
-        </div>
-    </div>
+    <?php
+    
+        include 'nav.php';
+    
+    ?>
 
     <main>
         <div class="content_wrapper">

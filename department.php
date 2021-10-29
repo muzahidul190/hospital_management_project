@@ -35,40 +35,13 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-<div class="content_wrapper"></div>
-        <div class="wrapper">
-            <header>
-                <div class="logo">
-                    <h2>DBMS Hospital</h2>
-                    <h3>Your favourite place for treatment</h3>
-                </div>
-                <nav id="main_nav">
-                    <ul class="nav_buttons">
-                        <li><a href="index.php">Home
-                        </a></li>
-                        <li><a href="management_dashboard.php">
-                            <!-- View it only for management -->
-                            Management
-                        </a></li>
-                        <li><a href="sign-in-or-sign-up.php">
-                            <!-- View it only for non logged users -->
-                            Login / Sign Up 
-                        </a></li>
-                        <li><a href="patient_dashbord.php">
-                            <!-- View it only for patient -->
-                            My Dashboard
-                        </a></li>
-                        <li><a href="doctor_dashboard.php">
-                            <!-- View it only for patient -->
-                            My Dashboard
-                        </a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-    </div>
+    <?php
+    
+        include 'nav.php';
+    
+    ?>
     <main>
-        <div class="conten_wrapper">
+        <div class="content_wrapper">
             <div class="wrapper">
             <div class="patient_details">
                 <h2 style="text-align:center; padding:10px;display:block; font-size:2em;"><span class="patient">

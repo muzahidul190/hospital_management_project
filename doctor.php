@@ -4,7 +4,13 @@ include 'db_con.php';
 if(isset($_GET["doc_id"])){
     $id = $_GET["doc_id"];
 }else{
-    $id = 1;    //This line will be edited later
+    if(isset($_SESSION["type"])){
+        if($_SESSION["type"] == "doctors"){
+            $id = $_SESSION["id"];
+        } 
+    }else{
+        $id = 0;
+    }
 }
 $sql = "SELECT * FROM doctors WHERE d_id = $id LIMIT 1";
 
@@ -35,38 +41,11 @@ if($count > 0){
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-<div class="content_wrapper"></div>
-        <div class="wrapper">
-            <header>
-                <div class="logo">
-                    <h2>DBMS Hospital</h2>
-                    <h3>Your favourite place for treatment</h3>
-                </div>
-                <nav id="main_nav">
-                    <ul class="nav_buttons">
-                        <li><a href="index.php">Home
-                        </a></li>
-                        <li><a href="management_dashboard.php">
-                            <!-- View it only for management -->
-                            Management
-                        </a></li>
-                        <li><a href="sign-in-or-sign-up.php">
-                            <!-- View it only for non logged users -->
-                            Login / Sign Up 
-                        </a></li>
-                        <li><a href="patient_dashbord.php">
-                            <!-- View it only for patient -->
-                            My Dashboard
-                        </a></li>
-                        <li><a href="doctor_dashboard.php">
-                            <!-- View it only for patient -->
-                            My Dashboard
-                        </a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-    </div>
+    <?php
+    
+        include 'nav.php';
+    
+    ?>
     <main>
         <!-- Only viewable by doctors and admin -->
         <div class="content_wrapper">

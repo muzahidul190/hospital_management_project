@@ -7,6 +7,8 @@
     <title>DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="ajax.js"></script>
 </head>
 <body>
 
@@ -15,41 +17,14 @@
             
         </div>
     </div> -->
+    <?php
+    include 'action.php';
+    include 'nav.php';
+
+?>
     <div class="content_wrapper">
         <div class="wrapper">
-            <header>
-                <div class="logo">
-                    <h2>DBMS Hospital</h2>
-                    <h3>Your favourite place for treatment</h3>
-                </div>
-                <nav id="main_nav">
-                    <ul class="nav_buttons">
-                        <li><a href="#" class="active-main-nav">Home
-                        </a></li>
-                        <li><a href="management_dashboard.php">
-                            <!-- View it only for management -->
-                            Management
-                        </a></li>
-                        <li><a href="sign-in-or-sign-up.php">
-                            <!-- View it only for non logged users -->
-                            Login / Sign Up 
-                        </a></li>
-                        <li><a href="patient_dashbord.php">
-                            <!-- View it only for patient -->
-                            My Dashboard
-                        </a></li>
-                        <li><a href="doctor_dashboard.php">
-                            <!-- View it only for patient -->
-                            My Dashboard
-                        </a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-    </div>
-    <div class="content_wrapper">
-        <div class="wrapper">
-           <main>
+            <main>
                 <div class="welcome_home">
                     <h2>Welcome to DBMS Hospital's official website.</h2>
                     <img src="assets/images/hospital_image.jpg" alt="">

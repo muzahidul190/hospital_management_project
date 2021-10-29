@@ -396,10 +396,32 @@ $(document).ready(function(){
                 method : "POST",
                 data : $("#signin").serialize(),
                 success : function(data){
-                    alert(data);
+                    if(data == "doctors"){
+                        window.location.href = "doctor_dashboard.php";
+                    }else if(data == "patients"){
+                        window.location.href = "patient_dashbord.php";
+                    }else if(data == "admin"){
+                        window.location.href = "management_dashboard.php";
+                    }else{
+                        alert(data);
+                    }
                 }
             })
         }
+    })
+
+    $("#logout").on("click",function(){
+        $.ajax({
+            url : "action.php",
+            method : "POST",
+            data : {logoutClicked:1},
+            success : function(data){
+                alert(data);
+                if(data == "Logged Out"){
+                    window.location.href = "index.php";
+                }
+            }
+        })
     })
 
 

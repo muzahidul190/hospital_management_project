@@ -1,4 +1,6 @@
 <?php
+
+    session_start();
     include 'db_con.php';
 
 
@@ -474,26 +476,49 @@
         if($data == "doctorExists"){
             $where = array("d_email"=>$email,"d_password"=>$pass);
             $data = $obj->select_record("doctors",$where);
-            $activation = ($data?$data["d_approved"]:"");
-            if($activation == '0')
-            echo "Your account is not approved yet!";
-            print_r($data);
-            exit();
+            if($data){
+                $activation = $data["d_approved"];
+                if($activation == '0')
+                echo "Your account is not approved yet!";
+                $_SESSION["type"] = "doctors";
+                $_SESSION["id"] = $data["d_id"];
+                echo $_SESSION["type"];
+                exit();
+            }
         }else if($data == "patientExists"){
             $where = array("p_email"=>$email,"p_password"=>$pass);
             $data = $obj->select_record("patients",$where);
-            print_r($data);
-            exit();
+            if($data){
+                
+                $_SESSION["type"] = "patients";
+                $_SESSION["id"] = $data["p_id"];
+                echo $_SESSION["type"];
+                exit();
+            }
         }else if($data == "adminExists"){
             $where = array("admin_email"=>$email,"admin_password"=>$pass);
             $data = $obj->select_record("admin",$where);
-            print_r($data);
-            exit();
+            if($data){
+                
+                $_SESSION["type"] = "admin";
+                $_SESSION["id"] = $data["admin_id"];
+                echo $_SESSION["type"];
+                exit();
+            }
         }else if($data == "Invalid email"){
             echo "Check if email is correct or not";
             exit();
-        }else{
-            echo "Either email or password or both are incorrect!";
-            exit();
         }
+        echo "Either email or password or both are incorrect!";
+        exit();
+        
     }
+
+    if(isset($_POST["logoutClicked"])){
+        session_destroy();
+        // $_SESSION["type"] = null;
+        // $_SESSION["id"] = null;
+        echo "Logged Out";
+        exit();
+    }
+

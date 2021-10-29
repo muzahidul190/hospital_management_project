@@ -1,6 +1,15 @@
 <?php
 
     include 'action.php';
+    $ad_id = "";
+    if(isset($_SESSION["type"])){
+        $ad_id = $_SESSION["id"];
+        if($_SESSION["type"] != "admin"){
+            header("location:index.php");
+        }
+    }else{
+        header("location:index.php");
+    }
 
     $unap_doc_sql = $obj->return_sql_result("doctors", "d_approved", "0");
     $unapproved_doc_count = mysqli_num_rows($unap_doc_sql);
@@ -35,39 +44,11 @@
 </head>
 
 <body>
-    <div class="content_wrapper">
-        <div class="wrapper">
-            <header>
-                <div class="logo">
-                    <h2>DBMS Hospital</h2>
-                    <h3>Your favourite place for treatment</h3>
-                </div>
-                <nav id="main_nav">
-                    <ul class="nav_buttons">
-                        <li><a href="index.php">Home
-                        </a></li>
-
-                        <li><a href="management_dashboard.php" class="active-main-nav">
-                            <!-- View it only for management -->
-                            Management
-                        </a></li>
-                        <li><a href="sign-in-or-sign-up.php">
-                            <!-- View it only for non logged users -->
-                            Login / Sign Up 
-                        </a></li>
-                        <li><a href="patient_dashbord.php">
-                            <!-- View it only for patient -->
-                            My Dashboard
-                        </a></li>
-                        <li><a href="doctor_dashboard.php">
-                            <!-- View it only for patient -->
-                            My Dashboard
-                        </a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-    </div>
+    <?php
+    
+        include 'nav.php';
+    
+    ?>
     <div class="content_wrapper">
         <div class="wrapper">
             <hr>
