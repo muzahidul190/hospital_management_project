@@ -435,7 +435,10 @@ $(document).ready(function(){
                     doc_id:$(this).data('doc-id'),
                 },
                 success: function(data){
-                    alert(data);
+                    alert("Approved doctor: " + data);
+
+                    var newApprovedDoc = '<li><a href="doctor.php?doc_id='+doc_id+'">'+data+'</a></li>';
+
                     doc_id = "#doc_id_"+ doc_id;
                     $(doc_id).remove();
                     var unapproved_doctor_count = parseInt($('#unapproved_doctor_count').text())
@@ -443,6 +446,12 @@ $(document).ready(function(){
                     if(unapproved_doctor_count-1 == 0){
                         $('#doctor_approval').html("<h1 style='padding:150px 0', width='100%'>No new doctor requests.</h1>");
                     }
+                    $("#approved_doctors_list").html(
+                        $("#approved_doctors_list").html() + newApprovedDoc
+                    );
+                    var approved_doctor_count = parseInt($('#approved_doctor_count').text())
+                    $('#approved_doctor_count').text(approved_doctor_count+1);
+                    
                 }
             })
         })
@@ -458,7 +467,9 @@ $(document).ready(function(){
                     doc_id:$(this).data('doc-id'),
                 },
                 success: function(data){
-                    alert(data);
+                    
+                    alert("Deleted doctor: " + data);
+
                     doc_id = "#doc_id_"+ doc_id;
                     $(doc_id).remove();
                     var unapproved_doctor_count = parseInt($('#unapproved_doctor_count').text())
@@ -466,6 +477,14 @@ $(document).ready(function(){
                     if(unapproved_doctor_count-1 == 0){
                         $('#doctor_approval').html("<h1 style='padding:150px 0', width='100%'>No new doctor requests.</h1>");
                     }
+                    var newApprovedDoc = '<li><a href="doctor.php?doc_id='+doc_id+'">'+data+'</a></li>';
+                    $("#approved_doctors_list").html(
+                        $("#approved_doctors_list").html() + newApprovedDoc
+                    );
+
+                    var approved_doctor_count = parseInt($('#approved_doctor_count').text())
+                    $('#approved_doctor_count').text(approved_doctor_count+1);
+
                 }
             })
         })

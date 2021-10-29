@@ -542,7 +542,7 @@
             echo "Couldn't Approve";
         }
         else
-            echo "Approved doctor ".$data[0]['d_name'];
+            echo $data[0]['d_name'];
         exit();
 
 
@@ -551,5 +551,9 @@
     if(isset($_POST['doc_delete']) AND $_SESSION['type'] == 'admin'){
         $doc_id = $_POST['doc_id'];
         $obj->delete_data("doctors", 'd_id', $doc_id);
-        echo "Deleted the doctor with id: ".$doc_id;
+
+        $data = $obj->return_sql_result("doctors", "d_id", $_POST['doc_id'], '', '',1);
+        $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
+        echo $data[0]['d_name'];
+        exit();
     }
