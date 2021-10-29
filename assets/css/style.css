@@ -326,6 +326,10 @@ button:disabled{
     margin: 0 auto;
     background: green;
     padding: 10px 20px;
+    cursor: pointer;
+}
+.btn-add-another-field:hover{
+    background: rgb(36, 190, 36);
 }
 #d-pass{
     display: block;
@@ -454,4 +458,20 @@ table>tbody>tr>th, table>tbody>tr>td{
 }
 .patient_name:hover{
     color: #000;
+}
+
+#change_available_days_text h3{
+    width: max-content;
+    margin-top: 30px;
+}
+#change_available_days{
+    width: max-content;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+#change_available_days label{
+    font-size: 1.5em;
+}
+.text-warning{
+    color: rgb(221, 162, 53);
 }
