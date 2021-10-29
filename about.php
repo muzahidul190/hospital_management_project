@@ -40,7 +40,7 @@ if($count > 0){
     <meta property="og:url" content="about.php">
     <meta property="og:description" content="This page is about the group members and the DBMS hospital project.">
     <meta property="og:site_name" content="DBMSHospital">
-    <meta property="og:image" content="assets/images/sreenshot.png">
+    <meta property="og:image" content="assets/images/screenshot.png">
     
     <title>About Us | DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
