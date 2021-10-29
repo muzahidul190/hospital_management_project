@@ -126,6 +126,15 @@
             }
             return $array;
         }
+
+        public function delete_data(string $table, string $field_name, string $field_data){
+            $sql = "DELETE FROM $table WHERE $field_name = $field_data";
+            $query = mysqli_query($this->conn, $sql);
+            if(!$query)
+                return "error_on_delete";
+            else
+                return "deleted";
+        }
         
 
     }
@@ -523,4 +532,24 @@
         exit();
     }
 
-    if(isset($_POST['']))
+    // Doctor Approve or Delete function
+    if(isset($_POST['doc_approve']) AND $_SESSION['type'] == 'admin'){
+
+        $data = $obj->return_sql_result("doctors", "d_id", $_POST['doc_id'], '', '',1);
+        $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
+        
+        if(!$obj->update_table_values("doctors",'d_approved', 1, 'd_id', $_POST['doc_id'])){
+            echo "Couldn't Approve";
+        }
+        else
+            echo "Approved doctor ".$data[0]['d_name'];
+        exit();
+
+
+    }
+
+    if(isset($_POST['doc_delete']) AND $_SESSION['type'] == 'admin'){
+        $doc_id = $_POST['doc_id'];
+        $obj->delete_data("doctors", 'd_id', $doc_id);
+        echo "Deleted the doctor with id: ".$doc_id;
+    }
