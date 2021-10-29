@@ -67,16 +67,17 @@
             </div>
     
             <div id="signInForm" class="hide-single-item form-item">
-                <form method="POST" id="signin" 
+                <form onsubmit="return false" method="POST" id="signin" 
                 class="sign"> 
                 <fieldset>
                     <legend>Login</legend>
+                    <label id="warning" style="text-align: center;display: block;"></label>
                 <label for="text"><h3>Enter your e-mail:</h3></label>
                     <input type="email" name="email" id="email" placeholder="Mr.x/ mrx@xyz.com">
                     <label for="pass"><h3>Enter your password</h3></label>
                     <input type="password" name="pass" id="pass" placeholder="Password">
                     <span> 
-                        <input type="checkbox" name="rememberme" checked="" id="remem">
+                        <input type="checkbox" value="1" name="remember_me" checked="" id="remem">
                         <label for="remem">Remember Me</label>
                         
                     </span>

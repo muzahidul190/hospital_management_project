@@ -373,6 +373,36 @@ $(document).ready(function(){
     })
 
 
+    $("#signin").on("submit",function(){
+        $("#warning").hide();
+        $email = $("#email").val();
+        $pass = $("#pass").val();
+        if($email == "" && $pass == ""){
+            $("#warning").html("Please enter email and password.");
+            $("#warning").css("color","red");
+            $("#warning").show();
+        }else if($email == ""){
+            $("#warning").html("Please enter your email.");
+            $("#warning").css("color","red");
+            $("#warning").show();
+        }else if($pass == ""){
+            $("#warning").html("Please enter password.");
+            $("#warning").css("color","red");
+            $("#warning").show();
+        }else{
+            $remember = $("#remem").val();
+            $.ajax({
+                url : "action.php",
+                method : "POST",
+                data : $("#signin").serialize(),
+                success : function(data){
+                    alert(data);
+                }
+            })
+        }
+    })
+
+
 //     $("#seat_management_tab").on('click', ()=>{
 //         console.log("CLICKED");
 //         $.ajax({

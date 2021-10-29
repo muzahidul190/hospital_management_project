@@ -4,20 +4,34 @@
 
     class Process extends Database{
 
-        public function verify_email($table,$email,$term){
+        public function verify_email($email){
             $email = strtolower($email);
             $regexp = "/^[a-z0-9_-]+(\.[a-z0-9_-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/";
             if(!preg_match($regexp,$email)){
                 return "Invalid email";
             }
-            $sql = "SELECT * FROM ".$table." WHERE ".$term." = '$email' LIMIT 1";
+            //Search in doctors
+            $sql = "SELECT * FROM doctors WHERE d_email = '$email' LIMIT 1";
             $query = mysqli_query($this->conn,$sql);
             $count = mysqli_num_rows($query);
             if($count == 1){
-                return "Already Exists!";
-            }else{
-                return "Good";
+                return "doctorExists";
             }
+            //Search in patients
+            $sql = "SELECT * FROM patients WHERE p_email = '$email' LIMIT 1";
+            $query = mysqli_query($this->conn,$sql);
+            $count = mysqli_num_rows($query);
+            if($count == 1){
+                return "patientExists";
+            }
+            //Search in admins
+            $sql = "SELECT * FROM admin WHERE admin_email = '$email' LIMIT 1";
+            $query = mysqli_query($this->conn,$sql);
+            $count = mysqli_num_rows($query);
+            if($count == 1){
+                return "adminExists";
+            }
+            return "Good";
 
         }
         public function verify_phone($table,$phone,$term){
@@ -94,6 +108,22 @@
             $sql = "UPDATE ".$table." SET `".$this_field."`= ".$with_this_value." WHERE `".$that_field."` =".$this_value;
             return mysqli_query($this->conn, $sql);
         }
+
+        public function select_record($table,$where){
+            $sql = "";
+            $condition = "";
+            $array = array();
+            foreach($where as $key => $value){
+                $condition .= $key."='".$value."' AND ";
+            }
+            $condition = substr($condition,0,-5);
+            $sql .= "SELECT * FROM ".$table." WHERE ".$condition." LIMIT 1";
+            $query = mysqli_query($this->conn,$sql);
+            while($row = mysqli_fetch_array($query)){
+                $array = $row;
+            }
+            return $array;
+        }
         
 
     }
@@ -104,16 +134,26 @@
     if(isset($_POST["check_email_p"])){
         $email = $_POST["email_p"];
         $term = "p_email";
-        $data = $obj->verify_email("patients",$email,$term);
-        echo $data;
-        exit();
+        $data = $obj->verify_email($email);
+        if($data == "doctorExists" || $data == "patientExists" || $data == "adminExists"){
+            echo "Email Already Exists!";
+            exit();
+        }else{
+            echo $data;
+            exit();
+        }
     }
     if(isset($_POST["check_email_d"])){
         $email = $_POST["email_d"];
         $term = "d_email";
-        $data = $obj->verify_email("doctors",$email,$term);
-        echo $data;
-        exit();
+        $data = $obj->verify_email($email);
+        if($data == "doctorExists" || $data == "patientExists" || $data == "adminExists"){
+            echo "Email Already Exists!";
+            exit();
+        }else{
+            echo $data;
+            exit();
+        }
     }
     if(isset($_POST["check_phone_p"])){
         $phone = $_POST["phone_p"];
@@ -165,8 +205,8 @@
         $pass = $_POST["p-pass"];
         $cpass = $_POST["p-cpass"];
 
-        $data = $obj->verify_email("patients",$email,"p_email");
-        if($data == "Already Exists!"){
+        $data = $obj->verify_email($email);
+        if($data == "doctorExists" || $data == "patientExists" || $data == "adminExists"){
             echo "Email Already Exists!";
             exit();
         }else if($data == "Invalid email"){
@@ -215,8 +255,8 @@
         $pass = $_POST["d-pass"];
         $cpass = $_POST["d-cpass"];
 
-        $data = $obj->verify_email("doctors",$email,"d_email");
-        if($data == "Already Exists!"){
+        $data = $obj->verify_email($email);
+        if($data == "doctorExists" || $data == "patientExists" || $data == "adminExists"){
             echo "Email Already Exists!";
             exit();
         }else if($data == "Invalid email"){
@@ -420,4 +460,37 @@
 
         print_r($booked_seat_count) ;
         exit();
+    }
+
+    if(isset($_POST["email"])){
+        $email = $_POST["email"];
+        $pass = $_POST["pass"];
+        $rem = "0";
+        if(isset($_POST["remember_me"])){
+            $rem = $_POST["remember_me"];
+        }
+        
+        $data = $obj->verify_email($email);
+        if($data == "doctorExists"){
+            $where = array("d_email"=>$email,"d_password"=>$pass);
+            $data = $obj->select_record("doctors",$where);
+            print_r($data);
+            exit();
+        }else if($data == "patientExists"){
+            $where = array("p_email"=>$email,"p_password"=>$pass);
+            $data = $obj->select_record("patients",$where);
+            print_r($data);
+            exit();
+        }else if($data == "adminExists"){
+            $where = array("admin_email"=>$email,"admin_password"=>$pass);
+            $data = $obj->select_record("admin",$where);
+            print_r($data);
+            exit();
+        }else if($data == "Invalid email"){
+            echo "Check if email is correct or not";
+            exit();
+        }else{
+            echo "No account found with the email!";
+            exit();
+        }
     }
