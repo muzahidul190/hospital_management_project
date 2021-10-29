@@ -80,6 +80,8 @@ nav#main_nav ul.nav_buttons li a:hover{
     margin-top: 20px;
     font-family: 'Patrick Hand', cursive;
 }
+
+
 footer .wrapper{
     background: chocolate;  
     box-shadow: #282C34;
@@ -95,6 +97,8 @@ footer .wrapper{
 }
 nav.secondary_nav{
     width: 25%;
+    position: absolute;
+    top: 0;
 }
 nav.secondary_nav ul{
     list-style: none;
@@ -120,12 +124,15 @@ nav.secondary_nav ul li a:hover{
 section.management_view, section.patient_view{
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 div.item_according_to_link{
     width: 75%;
     margin: 0 auto;
     margin-top: 20px;
+    margin-left: 270px;
+    min-height: 354px;
 }
 
 div.item_according_to_link div{
@@ -164,6 +171,7 @@ div.single-item-design ul li a{
 div.single-item-design ul li a:hover{
     color: #fff;
     background-color: #92a18b54;
+    text-transform: capitalize;
 }
 
 .hide-single-item{
@@ -484,6 +492,7 @@ table>tbody>tr>th, table>tbody>tr>td{
 #doctor_approval_list, #doctor_approval_list th, #doctor_approval_list td{
     border:2px solid rgba(27, 27, 27, .4);
     border-collapse: collapse;
+    width: 100%;
 }
 #doctor_approval_list .btn-success{
     width: max-content;

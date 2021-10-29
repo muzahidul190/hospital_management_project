@@ -1,3 +1,5 @@
+
+    </div>
     <footer>
         <div class="content_wrapper">
             <div class="wrapper">
