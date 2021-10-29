@@ -1,13 +1,13 @@
 Pages:
 	Done:
-		1. Home page/Landing Page
-		2. Sign Up/Registration
-			i. Doctor,
-				name, education, dept., routine, contact, password
-			ii. Patient
-				name, dob, address, phone, password
-		3. Login
-			i. Doctor, ii. Patient
+	1. Home page/Landing Page
+	2. Sign Up/Registration
+		i. Doctor,
+			name, education, dept., routine, contact, password
+		ii. Patient
+			name, dob, address, phone, password
+	3. Login
+		i. Doctor, ii. Patient
 			
 	4. Patient Dashboard
 		i. Appointment to doc, ii. Seat book, iii. Update account, iv. 
@@ -31,7 +31,7 @@ Pages:
 	6. Management Dashboard
 		i. New Doc. list, ii. Dept. list, ii. Patient list, iii. Doc list, iv. add dept.
 	7. Dept Page,
-		i. droptdown
+		i. dropdown
 		ii. Doc. List
 		iii. Patient List.
 	8. Patient Page.

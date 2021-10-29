@@ -48,71 +48,40 @@ if($count > 0){
     
     ?>
     <main>
-        <!-- Only viewable by doctors and admin -->
-        <?php
-            include 'navigation.php';
-        ?>
-        <div class="content_wrapper">
-            <div class="wrapper">
-            <div class="patient_details">
-                <h2 style="text-align:center; padding:10px;display:block; font-size:2em;"><span class="patient">
-                <?php echo $name;?>
-                </span></h2>
-                <?php if($count>0){ ?>
-                <table id="patient-details" border="2px" width="80%">
-                    <tbody>
-                        <tr>
-                            <th>Name</th>
-                            <td><?php echo $info["d_name"]; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Phone No:</th>
-                            <td><?php echo $info["d_contact"]; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Department</th>
-                            <td><?php echo $info["d_department_id"]; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Availability</th>
-                            <td><?php echo $info["d_name"]; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Education</th>
-                            <td>
-                                <ul style="list-style-type:numeric;">
-                                    <li>ad as asd asd a</li>
-                                    <li>ad as asd asd a</li>
-                                    <li>ad as asd asd a</li>
-
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <?php } ?>
-            </div>
+        <div class="wrapper">
+        <div class="about">
+            <h2 style="text-align: center;">&nbsp;&nbsp;Purpose:&nbsp;&nbsp;</h2>
+            <p>This small project on hospital management system has been developed to meet the DBMS Lab project by <a target="" about="_blank">Pritam Khan</a> Sir. We learned lot of new things and gathers huge experiences while working with this project.</p>
+            <h2>&nbsp;&nbsp;Pages:&nbsp;&nbsp;</h2>
+            <p>Here is the hierarchy diagram of the <a href="pages.txt" target="_blank">pages</a> included in this web-based project.</p><br>
+            <ol type="1">
+                <li>Home Page</li>
+                    <span>__Accessible for ALL.</span>
+                <li>Sign Up/Registration</li>
+                    <span>__Accessible for ALL while LOGGED OUT.</span>
+                <li>Login</li>
+                    <span>__Accessible for ALL while LOGGED OUT.</span>
+                <li>Patient Dashboard</li>
+                    <span>__Accessible for LOGGED IN PATIENT ONLY.</span>
+                <li>Doctor Dashboard</li>
+                    <span>__Accessible for LOGGED IN DOCTOR ONLY.</span>
+                <li>Management/Administrator Dashboard</li>
+                    <span>__Accessible for ADMIN ONLY.</span>
+                <li>Department</li>
+                    <span>__Accessible for ALL.</span>
+                <li>Doctor</li>
+                    <span>__Accessible for ALL.</span>
+                <li>Patient</li>
+                    <span>__Accessible for ADMINS and DOCTORS ONLY</span>
+                <li>About</li>
+                    <span>__Accessible for ALL.</span>
+            </ol>
+            <h2>&nbsp;&nbsp;Team Members:&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+            <p>We were in <strong>Group 4</strong>. The team members contributed in different fields as we worked as a team and worked on different parts by each individual. We used github to gather all parts in together</p>
+        </div>
         </div>
     </main>
 
-    <?php if($count>0 && isset($_SESSION["type"])){
-        if($_SESSION["type"] == "admin"){
-        ?>
-
-    <!-- Only View Able by Management -->
-    <nav>
-        
-        <ul id="manage_patient">
-            <li><a href="#delete">
-                Delete This Doc.
-            </a></li>
-            <li><a href="#edit">
-                Edit this Doc.
-            </a></li>
-        </ul>
-    </nav>
     <?php
-    }
-        }
         include 'footer.php';
     ?>
