@@ -19,7 +19,7 @@ body{
 }
 
 .wrapper{
-    width: 80%  ;
+    width: 1000px;
     margin: 0 auto;
 }
 
@@ -131,7 +131,7 @@ div.item_according_to_link{
     width: 75%;
     margin: 0 auto;
     margin-top: 20px;
-    margin-left: 270px;
+    margin-left: 260px;
     min-height: 354px;
 }
 

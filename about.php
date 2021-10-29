@@ -35,7 +35,7 @@ if($count > 0){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="About Group 4">
+    <meta property="og:title" content="About Developers">
     <meta property="og:type" content="website">
     <meta property="og:url" content="about.php">
     <meta property="og:description" content="This page is about the group members and the DBMS hospital project.">
