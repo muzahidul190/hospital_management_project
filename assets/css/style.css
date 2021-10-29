@@ -29,6 +29,7 @@ header{
     align-items: center;
     background-color: chocolate;
     padding: 50px;
+    border-radius: 26px;
 }
 
 div.logo h2{
@@ -79,9 +80,24 @@ nav#main_nav ul.nav_buttons li a:hover{
 .welcome_home p{
     margin-top: 20px;
     padding: 400px 30px 30px 30px;
-    font-family: 'Patrick Hand', cursive;
+    font-family: cursive;
     background: url('../images/signoverlay.png'), url("../images/hospital_image.jpg");
+    background-position: bottom, bottom;
+    border-radius: 50px 0;
+    font-size: 18px;
+}
 
+#doc_list ul,#dep_list ul{
+    list-style: none;
+    text-align: center;
+}
+#doc_list ul li a,#dep_list ul li a{
+    color: greenyellow;
+    text-decoration: none;
+}
+
+#doc_list ul li a:hover,#dep_list ul li a:hover{
+    color: rgb(87, 141, 7);
 }
 
 
@@ -580,6 +596,7 @@ table>tbody>tr>th, table>tbody>tr>td{
 #doctors, #departments{
     width: 440px;
     height: 400px;
+    border-radius: 20px;
 }
 #doctors{
     background: url('../images/signoverlay.png'), url("../images/doctors.jpg");
@@ -587,6 +604,10 @@ table>tbody>tr>th, table>tbody>tr>td{
     background-size:cover ;
     position: relative;
     cursor: pointer;
+    overflow-y: scroll;
+}
+#doctors::-webkit-scrollbar{
+    display: none;
 }
 #departments{
     background: url('../images/signoverlay.png'), url("../images/medicalDepartments.jpg");
@@ -594,6 +615,10 @@ table>tbody>tr>th, table>tbody>tr>td{
     background-size:cover ;
     position: relative;
     cursor: pointer;
+    overflow-y: scroll;
+}
+#departments::-webkit-scrollbar{
+    display: none;
 }
 #doctor_text, #department_text{
     position: absolute;

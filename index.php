@@ -28,7 +28,7 @@
                 <div class="welcome_home">
                     <h2>Welcome to DBMS Hospital's official website.</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, sed aperiam magnam dignissimos vitae quod optio officiis vero. Atque eveniet amet nobis minima blanditiis, aspernatur ipsa velit, nemo asperiores, est quidem ullam necessitatibus. Vero voluptatem quis necessitatibus dicta voluptatibus ducimus. Nam possimus perspiciatis facere illo, veniam voluptas vitae architecto reiciendis.
+                        This project pages has been designed by SM.Tamim Mahmud, Prithvi Biswas, Muzahidul Isalm, Aduri Akter, Shuvro Deb Sarker and Minhazul Abedin. This site is a proto site for a hospital where doctors, patients and hospital management staffs can open their account and can conduct operations over their respective roles. Here patients can create appointments selecting a doctor under a specific department and can book a seat in hospital as well. The doctors can see their patients list and their profile. The management staffs can release patients from hospital seat, approve new doctors and can delete the application as well.
                     </p>
                 </div>
             </main>
@@ -41,11 +41,38 @@
                 <div id="doctors">
                     <span id="doctor_text">
                         See our qualified DOCTORs:
+                    <div id="doc_list" style="display: none;">
+                        <ul>
+                            
+                        <?php
+                        
+                        $doc_sql = $obj->return_sql_result("doctors","d_approved", 1);
+                            while($row = mysqli_fetch_assoc($doc_sql)){
+                                echo '<li><a href="doctor.php?doc_id=';
+                                echo $row["d_id"];
+                                echo '">'.$row["d_name"].'</a></li>';
+                            }
+                        ?>
+                        </ul>
+                    </div>
                     </span>
                 </div>
                 <div id="departments">
                 <span id="department_text">
                         See our DEPARTMENTs:
+                    <div id="dep_list" style="display: none;">
+                        <ul>
+                            <?php
+                            $dep_sql = $obj->return_sql_result("departments", "", "", "dep_name", "ASC");
+                            
+                            while($row = mysqli_fetch_assoc($dep_sql)){
+                                echo '<li><a href="department.php?dep_id=';
+                                echo $row["dep_id"];
+                                echo '">'.$row["dep_name"].'</a></li>';
+                            }
+                            ?>
+                        </ul>
+                    </div>
                     </span>
                 </div>
             </section>

@@ -159,16 +159,18 @@ window.onload = function() {
     }
     
     url = window.location.href;
-    if(url.search("index.php")!=-1){
+    if($("#deptAndDoctors")!=undefined){
         $('#doctors').click(
             function(){
                 $('#departments').hide();
                 if( $('#doctors').hasClass('width100perc')){
+                    $("#doc_list").hide();
                     $('#doctors').removeClass('width100perc');
                     $('#departments').show();
                     $("#doctor_text").removeClass('text_position');
                 }
                 else{
+                    $("#doc_list").show();
                     $('#doctors').addClass('width100perc');
                     $('#departments').hide();
                     $("#doctor_text").addClass('text_position');
@@ -179,10 +181,12 @@ window.onload = function() {
             function(){
                 $('#doctors').hide();
                 if( $('#departments').hasClass('width100perc')){
+                    $("#dep_list").hide();
                     $('#departments').removeClass('width100perc');
                     $('#doctors').show();$("#department_text").removeClass('text_position');
                 }
                 else{
+                    $("#dep_list").show();
                     $('#departments').addClass('width100perc');
                     $('#doctors').hide();
                     $("#department_text").addClass('text_position');
