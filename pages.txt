@@ -38,6 +38,7 @@ Pages:
 		name, dob, address, phone
 	9. Doctor Page.
 		name, education, dept., routine, contact
+	10. About Page.
 
 
 

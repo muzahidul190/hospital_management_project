@@ -47,6 +47,7 @@
                         <?php
                             }
                         ?>
+                        li
                     </ul>
                 </nav>
             </header>
