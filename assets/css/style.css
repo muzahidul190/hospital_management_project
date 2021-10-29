@@ -78,7 +78,10 @@ nav#main_nav ul.nav_buttons li a:hover{
 }
 .welcome_home p{
     margin-top: 20px;
+    padding: 400px 30px 30px 30px;
     font-family: 'Patrick Hand', cursive;
+    background: url('../images/signoverlay.png'), url("../images/hospital_image.jpg");
+
 }
 
 

@@ -27,7 +27,6 @@
             <main>
                 <div class="welcome_home">
                     <h2>Welcome to DBMS Hospital's official website.</h2>
-                    <img src="assets/images/hospital_image.jpg" alt="">
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, sed aperiam magnam dignissimos vitae quod optio officiis vero. Atque eveniet amet nobis minima blanditiis, aspernatur ipsa velit, nemo asperiores, est quidem ullam necessitatibus. Vero voluptatem quis necessitatibus dicta voluptatibus ducimus. Nam possimus perspiciatis facere illo, veniam voluptas vitae architecto reiciendis.
                     </p>
