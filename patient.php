@@ -91,7 +91,8 @@ if($count > 0){
                     </tbody>
                 </table>
                 <?php } 
-                    if($count>0){       //edit condition after login page done
+                    if($count>0 && isset($_SESSION["type"])){       
+                        if($_SESSION["type"] == "admin"){
                 ?>
                 <nav>
                     <ul id="manage_patient">
@@ -103,7 +104,7 @@ if($count > 0){
                         </a></li>
                     </ul>
                 </nav>
-                <?php } ?>
+                <?php }} ?>
             </div>
             </div>
         </div>

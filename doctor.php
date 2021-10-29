@@ -95,22 +95,24 @@ if($count > 0){
         </div>
     </main>
 
-    <?php
-        if($count>0){       //Edit condition after login page
-    ?>
+    <?php if($count>0 && isset($_SESSION["type"])){
+        if($_SESSION["type"] == "admin"){
+        ?>
+
     <!-- Only View Able by Management -->
     <nav>
         
         <ul id="manage_patient">
             <li><a href="#delete">
-                Delete This Doctor
+                Delete This Doc.
             </a></li>
             <li><a href="#edit">
-                Edit this Doctor
+                Edit this Doc.
             </a></li>
         </ul>
     </nav>
     <?php
+    }
         }
         include 'footer.php';
     ?>

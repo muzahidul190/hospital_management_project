@@ -75,7 +75,9 @@
         </div>
     </main>
 
-    <?php if($count>0){ ?>
+    <?php if($count>0 && isset($_SESSION["type"])){
+        if($_SESSION["type"] == "admin"){
+        ?>
 
     <!-- Only View Able by Management -->
     <nav>
@@ -90,6 +92,7 @@
         </ul>
     </nav>
     <?php
+    }
     }
         include 'footer.php';
     ?>
