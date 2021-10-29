@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="About Developers">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="about.php">
+    <meta property="og:description" content="This project is developed for educations purpose only by Tamim Mahmud, Prithvi Biswas, Muzahidul Islam, Shuvro Deb, Aduri Akter and Minhazul Abedin.">
+    <meta property="og:site_name" content="DBMSHospital">
+    <meta property="og:image" content="assets/images/screenshot.png">
     <title>DBMS Hospital</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
