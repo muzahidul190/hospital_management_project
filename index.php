@@ -35,6 +35,18 @@
             </main>   
         </div>
     </div>
+    <div class="content_wrapper">
+        <div class="wrapper">
+            <section id="deptAndDoctors">
+                <div id="doctors">
+                    
+                </div>
+                <div id="departments">
+
+                </div>
+            </section>
+        </div>
+    </div>
     <?php
         include 'footer.php';
     ?>
