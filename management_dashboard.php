@@ -110,7 +110,7 @@
                                     echo $row["d_id"];
                                     echo '">'.$row["d_name"].'</a></td>';
 
-                                    echo "<td><a href='#approve' class='btn btn-success approve'>Approve</a></td>";
+                                    echo "<td><a href='#approve' class='btn btn-success approve' data-doc-id=".$row["d_id"].">Approve</a></td>";
 
                                     echo "<td><a href='#delete' class='btn btn-danger delete'>Delete</a></td>";
                                 }

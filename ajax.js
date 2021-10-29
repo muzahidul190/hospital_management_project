@@ -424,6 +424,19 @@ $(document).ready(function(){
         })
     })
 
-    $('.approve')
+    $(".approve").each(function(){
+        $(this).click(function(){
+            $.ajax({
+                url: "action.php",
+                method: "POST",
+                data: {
+                    doc_approve:1,
+                    doi_id:$(this).data('doc-id'),
+                },
+                success: function(data){
 
+                }
+            })
+        })
+    });
 })
