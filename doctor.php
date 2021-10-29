@@ -59,7 +59,7 @@ if($count > 0){
                 <?php echo $name;?>
                 </span></h2>
                 <?php if($count>0){ ?>
-                <table id="patient-details" border="2px">
+                <table id="patient-details" border="2px" width="80%">
                     <tbody>
                         <tr>
                             <th>Name</th>

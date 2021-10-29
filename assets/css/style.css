@@ -421,8 +421,14 @@ div.doc_dashboard nav.secondary_nav ul{
 }
 
 .patient_details{
-    width: 400px;
+    width: 90%;
     margin: 0 auto;
+}
+.patient_details>table{
+    width: 100%;
+}
+.patient_details>table tr:nth-child(even){
+    background-color: rgba(136, 135, 133, 0.2)
 }
 
 table>tbody>tr>th, table>tbody>tr>td{
