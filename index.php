@@ -28,7 +28,7 @@
                 <div class="welcome_home">
                     <h2>Welcome to DBMS Hospital's official website.</h2>
                     <p>
-                        This project pages has been designed by SM.Tamim Mahmud, Prithvi Biswas, Muzahidul Isalm, Aduri Akter, Shuvro Deb Sarker and Minhazul Abedin. This site is a proto site for a hospital where doctors, patients and hospital management staffs can open their account and can conduct operations over their respective roles. Here patients can create appointments selecting a doctor under a specific department and can book a seat in hospital as well. The doctors can see their patients list and their profile. The management staffs can release patients from hospital seat, approve new doctors and can delete the application as well.
+                        This project pages has been designed by <strong style="color: #8078ff;"> SM.Tamim Mahmud, Prithvi Biswas, Muzahidul Isalm, Aduri Akter, Shuvro Deb Sarker and Minhazul Abedin</strong>. This site is a proto site for a hospital where doctors, patients and hospital management staffs can open their account and can conduct operations over their respective roles. Here patients can create appointments selecting a doctor under a specific department and can book a seat in hospital as well. The doctors can see their patients list and their profile. The management staffs can release patients from hospital seat, approve new doctors and can delete the application as well.
                     </p>
                 </div>
             </main>
