@@ -550,6 +550,7 @@ table>tbody>tr>th, table>tbody>tr>td{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     color: rgb(255, 169, 169);
+    padding-top: 18px;
 }
 .about ol span{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
