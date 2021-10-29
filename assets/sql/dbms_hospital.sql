@@ -82,7 +82,7 @@ DROP TABLE IF EXISTS `departments`;
 CREATE TABLE IF NOT EXISTS `departments` (
   `dep_id` int(11) NOT NULL AUTO_INCREMENT,
   `dep_name` varchar(30) NOT NULL,
-  `dep_details` varchar(55) NOT NULL,
+  `dep_details` varchar(555) NOT NULL,
   `dep_seat` int(5) NOT NULL,
   `seat_cost` int(11) DEFAULT NULL,
   `dep_seat_booked` int(5) NOT NULL DEFAULT '0',
